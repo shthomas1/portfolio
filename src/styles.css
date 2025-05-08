@@ -278,6 +278,15 @@ nav a:active {
   overflow: hidden;
 }
 
+.round-image2 {
+  width: 100%; /* Fill the container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.3vw solid white; /* Scaled border */
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3); /* Scaled shadow */
+}
+
 .bracket {
   color: #d63031; /* Alabama crimson */
 }
@@ -298,9 +307,35 @@ nav a:active {
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0;
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .banner-title {
+    font-size: 6vw; /* Larger relative font on small screens */
+    right: 5%;
+    bottom: 30%;
+  }
+  
+  .profile-photo {
+    left: 5%;
+    width: 25%;
+  }
+}
+
+/* Adjustments for very small screens */
+@media screen and (max-width: 480px) {
+  .banner-title {
+    font-size: 8vw;
+    right: 5%;
+    bottom: 20%;
+  }
+  
+  .profile-photo {
+    width: 30%;
+    left: 5%;
+  }
 }
 
 .banner-image {
@@ -310,26 +345,35 @@ nav a:active {
 }
 
 .banner-title {
-  margin-right: 25%;
-  font-size: 3.5rem;
+  font-size: 4vw; /* Scale font size based on viewport width */
   font-family: 'Source Code Pro', monospace;
-  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.7);
+  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7); /* Scaled shadow */
+  position: absolute;
+  right: 10%; /* Position from right */
+  bottom: 40%; /* Position from bottom */
+  margin: 0; /* Remove margin that might be affecting positioning */
 }
 
 .profile-photo {
-  margin-left: 30%;
+  position: absolute;
+  left: 10%; /* Position from left */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  width: 20%; /* Make the photo size relative to container */
+  max-width: 180px; /* But with a max size */
 }
 
 .bracket {
   color: #d63031; /* Alabama crimson */
   display: inline-block;
+  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7); /* Match the shadow */
 }
 
 .name {
-  color: white; /* Use white for better contrast on the image */
+  color: white;
   display: inline-block;
-  margin: 0 4px;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+  margin: 0 0.3vw; /* Scale margin with viewport */
+  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7); /* Match the shadow */
 }
 
 /* Company Page Styles */

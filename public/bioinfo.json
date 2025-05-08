@@ -1,7 +1,7 @@
 {
     "name": "Sean Thomas",
     "title": "Full-Stack Software Engineer",
-    "profileImage": "./linkedinprofilephoto.jpg",
+    "profileImage": "./AISphoto.jpg",
     "about": [
       "My name is Sean Thomas. I am a student at the University of Alabama studying Management Information Systems. I graduate with my BS in Business Administration in May of 2026, and intend to continue my studies online.",
       "I own an IT Consulting firm named Signal Surge LLC.",
@@ -22,11 +22,16 @@
       "Team Coordination",
       "Language Fluency: English, Spanish"
     ],
+    "certificates":[
+      "Top Secret/SCI clearance",
+      "Certified NSA Reporter",
+      "Counterintelligence Polygraph"
+    ],
     "experience": [
       {
         "title": "Owner, Principal Consultant - Signal Surge LLC",
         "period": "Since May 2024",
-        "description": "Running an IT Consulting firm focused on providing technical solutions and services."
+        "description": "Running an IT Consulting firm focused on providing technical solutions and services. See the My Company tab for more."
       },
       {
         "title": "Sergeant - 20th Special Forces Group",
@@ -36,12 +41,12 @@
       {
         "title": "Information Technology Manager - Levy Concessions, The University of Alabama",
         "period": "Since September 2024",
-        "description": "Responsible for providing technical support and maintaining the IT infrastructure for Levy's various locations and venues"
+        "description": "Responsible for maintaining Point-of-Sale services for $5 Million+ of transactions per year"
       },
       {
         "title": "Safety Undergraduate Researcher - The University of Alabama College of Engineering",
         "period": "January 2025 - May 2025",
-        "description": "Researched and oversaw the design, launch and maintenance of safety tools for individual labs in the College of Engineering."
+        "description": "Researched and directed the design, launch and maintenance of online safety tools for individual labs in the College of Engineering."
       },
       {
         "title": "Teaching Assistant - Business Programming I",

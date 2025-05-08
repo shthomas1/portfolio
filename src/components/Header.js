@@ -22,7 +22,7 @@ export default function Header() {
               <img
                 src="/linkedinprofilephoto.jpg"
                 alt="Sean Thomas"
-                className="round-image"
+                className="round-image2"
               />
             </div>
 

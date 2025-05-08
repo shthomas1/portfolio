@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Mail, Github, Linkedin, MapPin } from "lucide-react";
-import "../styles.css"; // Make sure to import your styles
+import "../styles.css";
 
 const Bio = () => {
   const [bioData, setBioData] = useState(null);
@@ -101,6 +101,14 @@ const Bio = () => {
             <h3 className="skills-category">Military</h3>
             <ul className="skills-list">
               {bioData.militarySkills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="skills-column">
+            <h3 className="skills-category">Credentials</h3>
+            <ul className="skills-list">
+              {bioData.certificates.map((skill, index) => (
                 <li key={index}>{skill}</li>
               ))}
             </ul>
