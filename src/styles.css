@@ -356,7 +356,7 @@ nav a:active {
 
 .profile-photo {
   position: absolute;
-  left: 10%; /* Position from left */
+  left: 20%; /* Position from left */
   top: 50%;
   transform: translateY(-50%); /* Center vertically */
   width: 20%; /* Make the photo size relative to container */
