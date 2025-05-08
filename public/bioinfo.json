@@ -1,0 +1,79 @@
+{
+    "name": "Sean Thomas",
+    "title": "Full-Stack Software Engineer",
+    "profileImage": "./linkedinprofilephoto.jpg",
+    "about": [
+      "My name is Sean Thomas. I am a student at the University of Alabama studying Management Information Systems. I graduate with my BS in Business Administration in May of 2026, and intend to continue my studies online.",
+      "I own an IT Consulting firm named Signal Surge LLC.",
+      "I am a Sergeant in the Alabama Army National Guard as a Signals Intelligence Analyst. I have a single deployment to Northwest Africa and have earned several military honors and awards.",
+      "I am a Full-Stack Software Engineer and I love solving problems with code. If a solution already exists, I want to make it better, easier for people to interact with, or more efficient. I refuse to let new technologies or experiences get in my way, and want to learn the new and old practices of problem solving with code."
+    ],
+    "technicalSkills": [
+      "Full-Stack Development",
+      "Operational Implementation",
+      "IT Consulting",
+      "Software Engineering"
+    ],
+    "militarySkills": [
+      "Signals Intelligence",
+      "Military Reporting",
+      "Leadership",
+      "Strategic Analysis",
+      "Team Coordination",
+      "Language Fluency: English, Spanish"
+    ],
+    "experience": [
+      {
+        "title": "Owner, Principal Consultant - Signal Surge LLC",
+        "period": "Since May 2024",
+        "description": "Running an IT Consulting firm focused on providing technical solutions and services."
+      },
+      {
+        "title": "Sergeant - 20th Special Forces Group",
+        "period": "Since May 2021",
+        "description": "Serving as a Signals Intelligence Analyst with deployment experience in Northwest Africa."
+      },
+      {
+        "title": "Information Technology Manager - Levy Concessions, The University of Alabama",
+        "period": "Since September 2024",
+        "description": "Responsible for providing technical support and maintaining the IT infrastructure for Levy's various locations and venues"
+      },
+      {
+        "title": "Safety Undergraduate Researcher - The University of Alabama College of Engineering",
+        "period": "January 2025 - May 2025",
+        "description": "Researched and oversaw the design, launch and maintenance of safety tools for individual labs in the College of Engineering."
+      },
+      {
+        "title": "Teaching Assistant - Business Programming I",
+        "period": "January 2025 - May 2025",
+        "description": "Assisted in teaching 100+ students the basics of C# and problem solving with code."
+      }
+    ],
+    "education": [
+      {
+        "degree": "BS in Business Administration",
+        "period": "Graduating May 2026",
+        "description": "University of Alabama, Management Information Systems"
+      },
+      {"degree": "Associate of Arts and Sciences",
+      "period": "August 2018 - May 2020",
+      "description": "Paris Junior College"
+      }
+    ],
+    "contact": [
+      {
+        "type": "github",
+        "url": "https://github.com/shthomas1",
+        "display": "github.com/shthomas1"
+      },
+      {
+        "type": "linkedin",
+        "url": "https://linkedin.com/in/seanhthomas",
+        "display": "linkedin.com/in/seanhthomas"
+      },
+      {
+        "type": "location",
+        "display": "Tuscaloosa, Alabama"
+      }
+    ]
+  }

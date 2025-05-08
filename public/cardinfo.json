@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "Signal Surge LLC",
+    "image": "S2 Black.jpg",
+    "description": "Digital technology consultancy focused on improving businesses in an IT-centric market.",
+    "role": "Principle Consultant",
+    "technologies": "React, C#, Node.js, ArcGIS, Machine Learning",
+    "year": "2024-Present",
+    "results": "Continuing success with business clients",
+    "link": "/S2"
+  },
+  {
+    "id": 2,
+    "title": "Portfolio Platform",
+    "image": "portfoliologo.png", 
+    "description": "The application you're using right now!",
+    "role": "Full Stack Developer",
+    "technologies": "React, JSX, html, css",
+    "year": "2025",
+    "results": "You tell me! Click this card to provide feedback",
+    "link": "/portfolio"
+  },
+  {
+    "id": 3,
+    "title": "Revenue Prediction Application",
+    "image": "revpred.png",
+    "description": "Command line interface for predicting sales for a Bar in Tuscaloosa",
+    "role": "Solo Developer",
+    "technologies": "C#, Machine Learning",
+    "year": "2024",
+    "results": "Predicted sales with a maximum of 2% error on real sales",
+    "link": "/RevPred"
+  },
+  {
+    "id": 4,
+    "title": "Freelance Music",
+    "image": "FM Logo.png",
+    "description": "Platform for teachers to post their music lesson schedule so students can join.",
+    "role": "Scrum Master/Data Engineer",
+    "technologies": "C#, JS, html, MySQL",
+    "year": "2025",
+    "results": "Client launched app with 20+ weekly users",
+    "link": "/freelance-music"
+  },
+  {
+    "id": 5,
+    "title": "Secure online military communications platform",
+    "image": "5.jpg",
+    "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",
+    "role": "Solo Developer",
+    "technologies": "C#, Rust, AES-256 encryption, JS, html",
+    "year": "2025",
+    "results": "I was given an opportunity use this prototype successfully in training with Army Special Forces members.",
+    "link": "/military-comms"
+  }
+]

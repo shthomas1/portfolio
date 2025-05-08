@@ -1,38 +1,98 @@
-import logo from "./logo.svg";
-import "./App.css";
 import "./styles.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import MoviesGrid from "./components/MoviesGrid";
-import Watchlist from "./components/Watchlist";
+import CardGrid from "./components/CardGrid";
+import RevPred from "./components/RevPred"
+import Bio from "./components/Bio"; // Import the new Bio component
+import S2 from "./components/S2";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Feedback from "./components/Feedback";
 
 function App() {
+  const [cards, setCards] = useState([]); // This is a state -- States are immutable
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    console.log("Attempting to fetch cardinfo.json...");
+
+    // Try fetching from public folder first
+    fetch("cardinfo.json")
+      .then((response) => {
+        console.log("Response status:", response.status);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Successfully loaded data:", data);
+        setCards(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error loading from /cardinfo.json:", error);
+
+        // If that fails, try loading from movies.json as fallback
+        console.log("Attempting to fetch movies.json as fallback...");
+        fetch("movies.json")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Successfully loaded movies.json data:", data);
+            setCards(data);
+            setLoading(false);
+          })
+          .catch((fallbackError) => {
+            console.error(
+              "Error loading from fallback movies.json:",
+              fallbackError
+            );
+            setError("Failed to load data. Check console for details.");
+            setLoading(false);
+
+            // Set sample data for testing
+            setCards([
+              {
+                id: 1,
+                title: "Test Project",
+                image: "default.jpg",
+                description:
+                  "This is a test project to see if cards display correctly.",
+                role: "Developer",
+                technologies: "React",
+                year: "2025",
+                results: "Debugging successful",
+              },
+            ]);
+          });
+      });
+  }, []);
+
+  console.log("Current state of cards:", cards);
+
   return (
     <div className="App">
       <div className="container">
-        <Header></Header>
-
         <Router>
-          <nav>
-            <ul>
-              <li>
-                <Link to = "/">Home</Link>
-              </li>
-              <li>
-                <Link to = "/watchlist">Watchlist</Link>
-              </li>
-            </ul>
-          </nav>
-
+          <Header></Header>
           <Routes>
-            <Route path="/" element={<MoviesGrid />}></Route>
-            <Route path="/watchlist" element = {<Watchlist />}></Route>
-
+            <Route path="/" element={<CardGrid cards={cards} />}></Route>
+            <Route
+              path="/bio"
+              element={<Bio />}
+            ></Route>
+            <Route path="/s2" element={<S2 />}></Route>
+            <Route path="/portfolio" element={<Feedback />}></Route>
+            <Route path="/revpred" element={<RevPred />}></Route>
           </Routes>
         </Router>
       </div>
-
       <Footer></Footer>
     </div>
   );

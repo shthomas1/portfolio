@@ -1,13 +1,43 @@
+// In Header.js
 import React from "react";
 import "../styles.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <div className="header">
-      <img className="logo" src="logo.png" alt="moviedux" />
-      <h2 className="app-subtitle">
-        It's time for popcorn! Find your next movie here!
-      </h2>
+      <div className="banner-container">
+        <img
+          src="logo.png"
+          alt="Saban Field at Bryant-Denny Stadium"
+          className="banner-image"
+        />
+        <div className="banner-title">
+          <span className="bracket">&lt;</span>
+          <span className="name">Sean Thomas</span>
+          <span className="bracket">/&gt;</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul className="nav-links">
+          <li>
+            <Link to="/" className="nav-link home-link">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/bio" className="nav-link bio-link">
+              Bio
+            </Link>
+          </li>
+          <li>
+            <Link to="/S2" className="nav-link s2-link">
+              My Company
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
