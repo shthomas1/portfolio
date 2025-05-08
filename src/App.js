@@ -2,17 +2,15 @@ import "./styles.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CardGrid from "./components/CardGrid";
-import RevPred from "./components/RevPred"
+import RevPred from "./components/RevPred";
 import Bio from "./components/Bio"; // Import the new Bio component
 import S2 from "./components/S2";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
 
 function App() {
   const [cards, setCards] = useState([]); // This is a state -- States are immutable
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     console.log("Attempting to fetch cardinfo.json...");
@@ -29,7 +27,6 @@ function App() {
       .then((data) => {
         console.log("Successfully loaded data:", data);
         setCards(data);
-        setLoading(false);
       })
       .catch((error) => {
         console.error("Error loading from /cardinfo.json:", error);
@@ -46,15 +43,12 @@ function App() {
           .then((data) => {
             console.log("Successfully loaded movies.json data:", data);
             setCards(data);
-            setLoading(false);
           })
           .catch((fallbackError) => {
             console.error(
               "Error loading from fallback movies.json:",
               fallbackError
             );
-            setError("Failed to load data. Check console for details.");
-            setLoading(false);
 
             // Set sample data for testing
             setCards([
@@ -83,10 +77,7 @@ function App() {
           <Header></Header>
           <Routes>
             <Route path="/" element={<CardGrid cards={cards} />}></Route>
-            <Route
-              path="/bio"
-              element={<Bio />}
-            ></Route>
+            <Route path="/bio" element={<Bio />}></Route>
             <Route path="/s2" element={<S2 />}></Route>
             <Route path="/portfolio" element={<Feedback />}></Route>
             <Route path="/revpred" element={<RevPred />}></Route>
