@@ -1,16 +1,5 @@
 [
   {
-    "id": 2,
-    "title": "Portfolio Platform",
-    "image": "portfoliologo.png", 
-    "description": "The application you're using right now!",
-    "role": "Full Stack Developer",
-    "technologies": "React, JSX, html, css",
-    "year": "2025",
-    "results": "You tell me! Click this card to provide feedback",
-    "link": "/portfolio"
-  },
-  {
     "id": 3,
     "title": "Revenue Prediction Application",
     "image": "revpred.png",
@@ -31,6 +20,17 @@
     "year": "2025",
     "results": "Client launched app with 20+ weekly users",
     "link": "/freelance-music"
+  },
+  {
+    "id": 2,
+    "title": "Portfolio Platform",
+    "image": "portfoliologo.png", 
+    "description": "The application you're using right now!",
+    "role": "Full Stack Developer",
+    "technologies": "React, JSX, html, css",
+    "year": "2025",
+    "results": "You tell me! Click this card to provide feedback",
+    "link": "/portfolio"
   },
   {
     "id": 5,
