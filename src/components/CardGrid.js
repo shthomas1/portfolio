@@ -20,19 +20,23 @@ export default function CardGrid({ cards = [] }) {
     : [];
 
   return (
-    <div>
-      <input
-        type="text"
-        className="search-input"
-        placeholder="Search Project Names or Technologies..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-      />
+    <div className="container">
+      <h1 className ="projects-title">Here's a preview of my projects!</h1>
+      
+      <div>
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search Project Names or Technologies..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
 
-      <div className="projects-grid">
-        {displayCards.map((card) => (
-          <Card card={card} key={card.id} />
-        ))}
+        <div className="projects-grid">
+          {displayCards.map((card) => (
+            <Card card={card} key={card.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

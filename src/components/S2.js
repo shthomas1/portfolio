@@ -17,21 +17,6 @@ const S2 = () => {
       </div>
 
       <section className="company-section">
-        <h2 className="section-title">About Signal Surge</h2>
-        <p className="company-text">
-          Signal Surge LLC is an IT consulting firm dedicated to providing cutting-edge 
-          technology solutions for businesses of all sizes. We combine technical expertise 
-          with strategic thinking to help our clients navigate the digital landscape and 
-          achieve their business goals.
-        </p>
-        <p className="company-text">
-          Founded on the principles of innovation, reliability, and client-focused service, 
-          we specialize in custom software development, IT infrastructure design, and 
-          technology consulting services.
-        </p>
-      </section>
-
-      <section className="company-section">
         <h2 className="section-title">Our Services</h2>
         <div className="services-grid">
           <div className="service-card">

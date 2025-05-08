@@ -1,16 +1,5 @@
 [
   {
-    "id": 1,
-    "title": "Signal Surge LLC",
-    "image": "S2 Black.jpg",
-    "description": "Digital technology consultancy focused on improving businesses in an IT-centric market.",
-    "role": "Principle Consultant",
-    "technologies": "React, C#, Node.js, ArcGIS, Machine Learning",
-    "year": "2024-Present",
-    "results": "Continuing success with business clients",
-    "link": "/S2"
-  },
-  {
     "id": 2,
     "title": "Portfolio Platform",
     "image": "portfoliologo.png", 

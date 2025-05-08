@@ -6,18 +6,34 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="header">
-      <div className="banner-container">
-        <img
-          src="logo.png"
-          alt="Saban Field at Bryant-Denny Stadium"
-          className="banner-image"
-        />
-        <div className="banner-title">
-          <span className="bracket">&lt;</span>
-          <span className="name">Sean Thomas</span>
-          <span className="bracket">/&gt;</span>
+      <a
+        href="https://www.linkedin.com/in/seanhthomas/"
+        className="banner-link"
+      >
+        <div className="banner-container">
+          <img
+            src="/logo.png"
+            alt="Football Stadium"
+            className="banner-image"
+          />
+
+          <div className="banner-content">
+            <div className="profile-photo">
+              <img
+                src="/linkedinprofilephoto.jpg"
+                alt="Sean Thomas"
+                className="round-image"
+              />
+            </div>
+
+            <div className="banner-title">
+              <span className="bracket">&lt;</span>
+              <span className="name">Sean Thomas</span>
+              <span className="bracket">/&gt;</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </a>
 
       <nav>
         <ul className="nav-links">
