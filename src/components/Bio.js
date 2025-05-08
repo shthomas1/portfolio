@@ -146,7 +146,7 @@ const Bio = () => {
 
       {/* Contact Section */}
       <section className="bio-section">
-        <h2 className="section-title">Contact</h2>
+        <h2 className="section-title">Connect With Me!</h2>
         <div className="contact-container">
           {bioData.contact.map((contactItem, index) =>
             contactItem.url ? (
