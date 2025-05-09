@@ -6,26 +6,32 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="header">
-      <a
-        href="https://www.linkedin.com/in/seanhthomas/"
-        className="banner-link"
-      >
         <div className="banner-container">
           <img
             src="/logo.png"
             alt="Football Stadium"
             className="banner-image"
           />
-
           <div className="banner-content">
+            <a
+            href="https://www.linkedin.com/in/seanhthomas/"
+            className="banner-link"
+            >
             <div className="profile-photo">
               <img
                 src="/linkedinprofilephoto.jpg"
                 alt="Sean Thomas"
                 className="round-image2"
               />
+              <div className="linkedin-logo">
+                <img
+                  src="/linkedinlogo.png"
+                  alt="Sean Thomas"
+                  className="linkedinlogo"
+                />
+              </div>
             </div>
-
+            </a>
             <div className="banner-title">
               <span className="bracket">&lt;</span>
               <span className="name">Sean Thomas</span>
@@ -33,7 +39,6 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </a>
 
       <nav>
         <ul className="nav-links">
@@ -53,7 +58,10 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link to="https://medium.com/@sean.h.thomas2" className="nav-link blog-link">
+            <Link
+              to="https://medium.com/@sean.h.thomas2"
+              className="nav-link blog-link"
+            >
               Technical Journal
             </Link>
           </li>

@@ -1,117 +1,6 @@
-/*  Projects Grid Styling */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  padding: 0 1rem;
-}
-
-/*  Card Styling */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fff;
-  height: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-}
-
-.project-image-container {
-  height: 300px;
-  overflow: hidden;
-}
-
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-image {
-  transform: scale(1.05);
-}
-
-.project-info {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  text-align: left; /* Ensure text is left-aligned */
-}
-
-.project-title {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-  color: #333;
-}
-
-.project-description {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1rem;
-}
-
-.project-detail {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  color: #666;
-  text-align: left;
-}
-
-.detail-label {
-  font-weight: bold;
-  color: #444;
-}
-
-/* Container styles to limit width */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Search Input Styling */
-.search-input {
-  width: 100%;
-  max-width: 600px;
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 1.5rem auto;
-  display: block;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-}
-
-@media (max-width: 480px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Overall App Background */
+/* Base Styles */
 body {
-  background-color: #f5f7fa; /* Light gray with slight blue tint - very subtle */
+  background-color: #f5f7fa; /* Light gray with slight blue tint */
   color: #333;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -125,7 +14,91 @@ body {
   padding: 0 1rem;
 }
 
-/* Navigation & Home Button */
+/* Header Styles */
+.header {
+  margin-bottom: 1rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.app-subtitle {
+  color: #555;
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Banner Styles */
+.banner-container {
+  position: relative;
+  width: 100%;
+}
+
+.banner-image {
+  width: 100%;
+  display: block;
+  border-radius: 25px;
+}
+
+.banner-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+}
+
+.banner-title {
+  font-size: 4vw; /* Scale font size based on viewport width */
+  font-family: 'Source Code Pro', monospace;
+  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7);
+  position: absolute;
+  right: 10%;
+  bottom: 40%;
+  margin: 0;
+}
+
+.profile-photo {
+  position: relative;
+  left: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20%;
+  max-width: 180px;
+}
+
+.bracket {
+  color: #d63031; /* Alabama crimson */
+  display: inline-block;
+  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7);
+}
+
+.name {
+  color: white;
+  display: inline-block;
+  margin: 0 0.3vw;
+  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7);
+}
+
+/* LinkedIn Logo */
+.linkedin-logo {
+  position: absolute;
+  bottom: 10px;
+  right: -3px;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+}
+
+.linkedinlogo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Styles */
 nav {
   display: flex;
   justify-content: center;
@@ -144,7 +117,6 @@ nav ul li {
   margin: 0;
 }
 
-/* Base styles for both buttons */
 .nav-link {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -157,14 +129,12 @@ nav ul li {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Home button hover state - red */
 .home-link:hover {
   background-color: #ff0000c2;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Bio button hover state - orange */
 .bio-link:hover {
   background-color: rgba(255, 166, 0, 0.788);
   transform: translateY(-2px);
@@ -190,21 +160,7 @@ nav a:active {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Header adjustments for consistency */
-.header {
-  margin-bottom: 1rem;
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.app-subtitle {
-  color: #555;
-  font-weight: normal;
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
-
-/* Footer adjustments for consistency */
+/* Footer Styles */
 .footer {
   margin-top: 3rem;
   padding: 1.5rem 0;
@@ -213,7 +169,16 @@ nav a:active {
   color: #eee;
 }
 
-/* Search Input Styling - adjusted to match button style */
+/* Projects Section */
+.projects-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Search Input Styling */
 .search-input {
   width: 100%;
   max-width: 600px;
@@ -233,15 +198,17 @@ nav a:active {
   box-shadow: 0 2px 8px rgba(44, 123, 229, 0.2);
 }
 
-/* Projects grid and cards - preserve your existing styles but adjust for the new background */
+/* Projects Grid Styling */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem auto;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Smaller card width */
+  gap: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 1200px;
   padding: 0 1rem;
 }
 
+/* Card Styling */
 .project-card {
   display: flex;
   flex-direction: column;
@@ -260,23 +227,84 @@ nav a:active {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.contact-container {
+.project-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Square aspect ratio */
+  overflow: hidden;
+}
+
+.project-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
 }
 
-.contact-link-icon {
-  margin-right: 10px;
+.project-title {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.3rem;
+  color: #333;
 }
 
-.section-title {
-  font-size: 1.5rem;
+.project-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+}
+
+.project-detail {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+  text-align: left;
+}
+
+.detail-label {
   font-weight: bold;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 0.5rem;
+  color: #444;
 }
 
+/* Card Links */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-link:hover {
+  transform: translateY(-5px);
+}
+
+.card-link:hover .project-card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-link .project-card {
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+/* Image styles */
 .round-image {
   width: 200px;
   height: 200px;
@@ -286,101 +314,32 @@ nav a:active {
 }
 
 .round-image2 {
-  width: 100%; /* Fill the container */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
-  border: 0.3vw solid white; /* Scaled border */
-  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3); /* Scaled shadow */
+  border: 0.3vw solid white;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
 }
 
-.bracket {
-  color: #d63031; /* Alabama crimson */
+/* Section title */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d63031; /* Alabama crimson */
+  color: #333;
 }
 
-.name {
-  color: white;
-  margin: 0 4px;
+/* Contact links */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.banner-container {
-  position: relative;
-  width: 100%;
-}
-
-.banner-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0;
-}
-
-/* Adjustments for smaller screens */
-@media screen and (max-width: 768px) {
-  .banner-title {
-    font-size: 6vw; /* Larger relative font on small screens */
-    right: 5%;
-    bottom: 30%;
-  }
-  
-  .profile-photo {
-    left: 5%;
-    width: 25%;
-  }
-}
-
-/* Adjustments for very small screens */
-@media screen and (max-width: 480px) {
-  .banner-title {
-    font-size: 8vw;
-    right: 5%;
-    bottom: 20%;
-  }
-  
-  .profile-photo {
-    width: 30%;
-    left: 5%;
-  }
-}
-
-.banner-image {
-  width: 100%;
-  display: block;
-  border-radius: 25px;
-}
-
-.banner-title {
-  font-size: 4vw; /* Scale font size based on viewport width */
-  font-family: 'Source Code Pro', monospace;
-  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7); /* Scaled shadow */
-  position: absolute;
-  right: 10%; /* Position from right */
-  bottom: 40%; /* Position from bottom */
-  margin: 0; /* Remove margin that might be affecting positioning */
-}
-
-.profile-photo {
-  position: absolute;
-  left: 20%; /* Position from left */
-  top: 50%;
-  transform: translateY(-50%); /* Center vertically */
-  width: 20%; /* Make the photo size relative to container */
-  max-width: 180px; /* But with a max size */
-}
-
-.bracket {
-  color: #d63031; /* Alabama crimson */
-  display: inline-block;
-  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7); /* Match the shadow */
-}
-
-.name {
-  color: white;
-  display: inline-block;
-  margin: 0 0.3vw; /* Scale margin with viewport */
-  text-shadow: 0.5vw 0.5vw 0.2vw rgba(0, 0, 0, 0.7); /* Match the shadow */
+.contact-link-icon {
+  margin-right: 10px;
 }
 
 /* Company Page Styles */
@@ -418,15 +377,6 @@ nav a:active {
   margin-bottom: 50px;
 }
 
-.section-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #d63031; /* Alabama crimson */
-  color: #333;
-}
-
 .company-text {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -439,12 +389,6 @@ nav a:active {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 20px;
-}
-
-@media (min-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .service-card {
@@ -478,46 +422,18 @@ nav a:active {
   gap: 30px;
 }
 
-@media (min-width: 768px) {
-  .approach-steps {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .approach-step {
-    flex-basis: calc(33.33% - 20px);
-  }
-}
-
 .approach-step {
   position: relative;
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .approach-step:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-  position: relative;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.benefit-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-  position: relative;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .step-number {
@@ -549,17 +465,17 @@ nav a:active {
   gap: 20px;
 }
 
-@media (min-width: 768px) {
-  .benefits-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 .benefit-item {
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
 
 .benefit-title {
@@ -593,7 +509,7 @@ nav a:active {
   margin-bottom: 30px;
 }
 
-.contact-button {
+.contact-button, .contact-link {
   padding: 12px 24px;
   background-color: #d63031; /* Alabama crimson */
   color: white;
@@ -603,38 +519,12 @@ nav a:active {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
-.contact-button:hover {
+.contact-button:hover, .contact-link:hover {
   background-color: #ff00008a;
   color: black;
-}
-/* Card link styles */
-.card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.2s ease-in-out;
-}
-
-.card-link:hover {
-  transform: translateY(-5px);
-}
-
-.card-link:hover .project-card {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* If your project-card already has hover effects, you might want to add this to ensure they still work */
-.card-link .project-card {
-  transition: box-shadow 0.2s ease;
-}
-
-/* Ensure the cursor changes to a pointer when hovering over linked cards */
-.card-link .project-card {
-  cursor: pointer;
 }
 
 /* Feedback Page Styles */
@@ -791,18 +681,7 @@ nav a:active {
   color: #555;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .feedback-form {
-    padding: 15px;
-  }
-
-  .feedback-button {
-    width: 100%;
-  }
-}
-
-/* RevPred Project Page Styles */
+/* Project Page Styles */
 .project-page-container {
   max-width: 900px;
   margin: 0 auto;
@@ -1006,12 +885,6 @@ nav a:active {
   gap: 20px;
 }
 
-@media (min-width: 768px) {
-  .implementation-details {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .implementation-item {
   background-color: #f8f8f8;
   padding: 20px;
@@ -1024,7 +897,7 @@ nav a:active {
   color: #d63031; /* Alabama crimson */
 }
 
-/* Footer */
+/* Project footer */
 .project-footer {
   text-align: center;
   margin-top: 50px;
@@ -1033,25 +906,57 @@ nav a:active {
   border-radius: 8px;
 }
 
-.contact-link {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 25px;
-  background-color: #d63031; /* Alabama crimson */
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .approach-steps {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .approach-step {
+    flex-basis: calc(33.33% - 20px);
+  }
+  
+  .benefits-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .implementation-details {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.contact-link:hover {
-  background-color: #b52b2b;
-  color: black
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  
+  .banner-title {
+    font-size: 6vw;
+    right: 5%;
+    bottom: 30%;
+  }
+  
+  .profile-photo {
+    left: 5%;
+    width: 25%;
+  }
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
+  .feedback-form {
+    padding: 15px;
+  }
+
+  .feedback-button {
+    width: 100%;
+  }
+  
   .project-header h1 {
     font-size: 2rem;
   }
@@ -1066,10 +971,19 @@ nav a:active {
   }
 }
 
-.projects-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .banner-title {
+    font-size: 8vw;
+    right: 5%;
+    bottom: 20%;
+  }
+  
+  .profile-photo {
+    width: 30%;
+    left: 5%;
+  }
 }
