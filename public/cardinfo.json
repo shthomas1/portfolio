@@ -14,11 +14,11 @@
     "id": 4,
     "title": "Freelance Music",
     "image": "FM Logo.png",
-    "description": "Platform for teachers to post their music lesson schedule online for students to join.",
+    "description": "Platform for teachers to post their music lesson schedule online for students to join. This was a school assignment.",
     "role": "Scrum Master/Data Engineer",
     "technologies": "C#, Javascript, html, MySQL",
     "year": "2025",
-    "results": "Client launched app with 20+ weekly users",
+    "results": "Client was satisfied with app outcome, and we got a perfect grade in the course.",
     "link": "/freelance-music"
   },
   {
