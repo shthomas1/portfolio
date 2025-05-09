@@ -52,6 +52,11 @@ export default function Header() {
               My Company
             </Link>
           </li>
+          <li>
+            <Link to="https://medium.com/@sean.h.thomas2" className="nav-link blog-link">
+              Technical Journal
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

@@ -14,12 +14,23 @@
     "id": 4,
     "title": "Freelance Music",
     "image": "FM Logo.png",
-    "description": "Platform for teachers to post their music lesson schedule so students can join.",
+    "description": "Platform for teachers to post their music lesson schedule online for students to join.",
     "role": "Scrum Master/Data Engineer",
-    "technologies": "C#, JS, html, MySQL",
+    "technologies": "C#, Javascript, html, MySQL",
     "year": "2025",
     "results": "Client launched app with 20+ weekly users",
     "link": "/freelance-music"
+  },
+  {
+    "id": 6,
+    "title": "CrediTrust AI",
+    "image": "6.jpg", 
+    "description": "Credit acceptance prediction platform for PNC Fintech's AIS SCLC 2025 challenge.",
+    "role": "Solo Developer",
+    "technologies": "C#, Javascript, html, css",
+    "year": "2025",
+    "results": "Contender for the AIS 2025 Fintech challenge.",
+    "link": "/credit"
   },
   {
     "id": 2,
@@ -38,7 +49,7 @@
     "image": "5.jpg",
     "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",
     "role": "Solo Developer",
-    "technologies": "C#, Rust, AES-256 encryption, JS, html",
+    "technologies": "C#, Rust, AES-256 encryption, Javascript, html",
     "year": "2025",
     "results": "I was given an opportunity use this prototype successfully in training with Army Special Forces members.",
     "link": "/military-comms"
