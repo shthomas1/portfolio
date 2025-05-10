@@ -7,11 +7,6 @@ export default function Card({ card }) {
     return <div className="error-card">Card data is missing</div>;
   }
 
-  const handleImageError = (e) => {
-    console.log("Image failed to load:", card.image);
-    e.target.src = "images/default.jpg";
-  };
-
   // The card content that's the same regardless of whether there's a link
   const cardContent = (
     <>
