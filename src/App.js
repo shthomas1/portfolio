@@ -3,19 +3,18 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CardGrid from "./components/CardGrid";
 import RevPred from "./components/RevPred";
-import Bio from "./components/Bio"; // Import the new Bio component
+import Bio from "./components/Bio";
 import S2 from "./components/S2";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
 
 function App() {
-  const [cards, setCards] = useState([]); // This is a state -- States are immutable
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     console.log("Attempting to fetch cardinfo.json...");
 
-    // Try fetching from public folder first
     fetch("cardinfo.json")
       .then((response) => {
         console.log("Response status:", response.status);
@@ -31,7 +30,6 @@ function App() {
       .catch((error) => {
         console.error("Error loading from /cardinfo.json:", error);
 
-        // If that fails, try loading from movies.json as fallback
         console.log("Attempting to fetch movies.json as fallback...");
         fetch("movies.json")
           .then((response) => {
@@ -50,7 +48,6 @@ function App() {
               fallbackError
             );
 
-            // Set sample data for testing
             setCards([
               {
                 id: 1,
