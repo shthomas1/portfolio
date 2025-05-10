@@ -248,3 +248,140 @@
   padding: 0;
   margin: 0;
 }
+
+/* Update these mobile styles in your home.css file */
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center everything */
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  
+  /* 2x2 Grid layout with equal spacing */
+  .floating-icons {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 3rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    height: auto;
+    justify-items: center; /* Center items in grid cells */
+    align-items: center;
+  }
+  
+  .floating-icon {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    animation: none;
+    transform: none !important;
+  }
+  
+  /* Reset all icon positions on mobile */
+  .projects-icon,
+  .bio-icon,
+  .contact-icon,
+  .medium-icon {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+  
+  .icon-label {
+    opacity: 1;
+    font-size: 0.75rem;
+    bottom: -35px;
+    white-space: normal;
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .floating-icon:hover {
+    transform: scale(1.05) !important;
+  }
+}
+
+/* Smaller mobile screens */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .floating-icons {
+    gap: 2.5rem;
+    max-width: 260px; /* Smaller max-width for smaller screens */
+  }
+  
+  .floating-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .floating-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .icon-label {
+    font-size: 0.7rem;
+    bottom: -32px;
+    width: 90px;
+  }
+}
+
+/* Very small mobile screens */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .floating-icons {
+    gap: 2rem;
+    max-width: 240px;
+  }
+  
+  .floating-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon-label {
+    font-size: 0.65rem;
+    width: 80px;
+    bottom: -28px;
+  }
+}
