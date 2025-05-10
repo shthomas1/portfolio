@@ -1,0 +1,14 @@
+-- V.18 -- 05/10/2025 --
+Cards now have a type showing the user what their deployment status is (archived, demo, live)
+
+Major styling change:
+    styles.css retains everything that the root page needs
+    projects.css now contains all of the styling for projects
+    bio.css now contains all of the styling for the bio section
+
+My Company page changes:
+    styling changed over to projects.css
+    reduced the amount of information. This is not my company's website. It's mine
+
+Bio changes:
+    Connect links at the bottom open a new tab

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Mail, Github, Linkedin, MapPin } from "lucide-react";
-import "../styles.css";
+import "../styles/bio.css";
 
 const Bio = () => {
   const [bioData, setBioData] = useState(null);

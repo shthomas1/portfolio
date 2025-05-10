@@ -1,16 +1,8 @@
-Lucide React
-
+Thank you for looking into my page. I want to make this useable by others at some point, 
+so I will eventually change the inputs from all of the Component pages to API calls so that anyone can put their own information in.
 
 To Do:
-Make all Cards Clickable:
-    Portfolio is important. We want a way to get feedback on the site.
-    Signal Surge Card should just be an About page with a link to request services
-    Revenue Prediction can be an About Page with a link to the GitHub Repo
-    Targeting Card can be an About Page with no external links
-    Freelance Music can be an About Page with the Github link and links to Waylon, Jacob and my LinkedIns.
+    Add data for:
+        CrediTrust AI
+        Secure Communications App
 
-Host the site
-    Database hosting?
-    Actual url hosting?
-
-Sort by Functionality on the Home page?

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles.css";
+import "../styles/styles.css";
 import { Link } from "react-router-dom";
 
 export default function Card({ card }) {
@@ -7,38 +7,44 @@ export default function Card({ card }) {
     return <div className="error-card">Card data is missing</div>;
   }
 
-  // The card content that's the same regardless of whether there's a link
   const cardContent = (
     <>
+      {/* Project type badge */}
+      {card.type && (
+        <div className={`project-type ${card.type}`}>{card.type}</div>
+      )}
 
-      <div className="project-info">
-        <h3 className="project-title">{card.title}</h3>
+      <div className="card-info">
+        <h3 className="card-title">{card.title}</h3>
 
         {card.description && (
-          <p className="project-description">{card.description}</p>
+          <p className="card-description">{card.description}</p>
         )}
 
         {card.role && (
-          <div className="project-detail">
+          <div className="card-detail">
             <span className="detail-label">My Role:</span> {card.role}
           </div>
         )}
 
         {card.technologies && (
-          <div className="project-detail">
-            <span className="detail-label">Technologies:</span>{" "}
-            {card.technologies}
+          <div className="card-tech-stack">
+            {card.technologies.split(", ").map((tech, index) => (
+              <span key={index} className="tech-pill">
+                {tech.trim()}
+              </span>
+            ))}
           </div>
         )}
 
         {card.year && (
-          <div className="project-detail">
+          <div className="card-detail">
             <span className="detail-label">Year:</span> {card.year}
           </div>
         )}
 
         {card.results && (
-          <div className="project-detail">
+          <div className="card-detail">
             <span className="detail-label">Key Results:</span> {card.results}
           </div>
         )}

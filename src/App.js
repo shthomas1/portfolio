@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles/styles.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CardGrid from "./components/CardGrid";
@@ -8,6 +8,7 @@ import S2 from "./components/S2";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
+import FreelanceMusic from "./components/FreelanceMusic";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -78,6 +79,7 @@ function App() {
             <Route path="/s2" element={<S2 />}></Route>
             <Route path="/portfolio" element={<Feedback />}></Route>
             <Route path="/revpred" element={<RevPred />}></Route>
+            <Route path= "/freelance-music" element={<FreelanceMusic></FreelanceMusic>}></Route>
           </Routes>
         </Router>
       </div>

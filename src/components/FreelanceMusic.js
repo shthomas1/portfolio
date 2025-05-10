@@ -1,32 +1,32 @@
 import React from "react";
 import "../styles/projects.css";
 
-const RevPred = () => {
+const FreelanceMusic = () => {
   const projectDetails = {
-    title: "Revenue Prediction Application",
-    subtitle: "Machine learning CLI for bar sales forecasting",
-    description: "Command line interface application for predicting daily and weekly sales for a bar in Tuscaloosa, Alabama.",
-    year: "2024",
-    client: "Local Tuscaloosa Bar",
-    role: "Solo Developer",
-    duration: "3 weeks",
-    technologies: ["C#", ".NET Core", "Gradient Boosting"],
-    overview: "A machine learning solution that predicts bar revenue with 98% accuracy by analyzing historical sales data, game day patterns, and betting trends.",
+    title: "Freelance Music",
+    subtitle: "Online music education scheduling platform",
+    description: "Platform for teachers to post their music lesson schedule so students can join. A collaborative solution connecting music educators with students through an intuitive scheduling system.",
+    year: "2025",
+    client: "Private Music Academy",
+    role: "Scrum Master / Data Engineer",
+    duration: "4 months",
+    technologies: ["C#", "JavaScript", "HTML/CSS", "MySQL", "ASP.NET Core", "Entity Framework"],
+    overview: "A full-stack web application that streamlines music education by allowing teachers to manage their schedules and students to book lessons effortlessly.",
     highlights: [
-      "Achieved 98% prediction accuracy (±2% error margin)",
-      "Won 'Best-Logic Award' in programming challenge",
-      "Built custom Gradient Boosting model from scratch",
-      "Reduced inventory waste on game days by 15%"
+      "Successfully launched with 20+ weekly active users",
+      "Reduced manual scheduling time by 75%",
+      "Achieved 95% user satisfaction rate in first month",
+      "Implemented real-time schedule synchronization"
     ],
     challenges: [
-      "Limited historical data for training",
-      "Accounting for Alabama football game day impacts", 
-      "Creating user-friendly CLI for non-technical staff"
+      "Creating real-time schedule updates across user types",
+      "Designing user-friendly interface for non-technical teachers",
+      "Building scalable database for growing user base"
     ],
     outcomes: [
-      "Optimized staffing schedules based on predictions",
-      "Self-improving model that adapts over time",
-      "Transformed daily operational decision-making"
+      "Streamlined lesson booking process for students",
+      "Automated email notifications and reminders",
+      "Enabled data-driven insights for academy management"
     ]
   };
 
@@ -96,6 +96,31 @@ const RevPred = () => {
         </div>
       </section>
 
+      {/* My Role Section */}
+      <section className="project-section">
+        <h2 className="section-heading">My Contribution</h2>
+        <div className="role-content">
+          <div className="role-block">
+            <h3>As Scrum Master</h3>
+            <ul>
+              <li>Facilitated daily standups and sprint planning</li>
+              <li>Managed product backlog with stakeholders</li>
+              <li>Resolved team blockers and improved velocity</li>
+              <li>Implemented agile best practices</li>
+            </ul>
+          </div>
+          <div className="role-block">
+            <h3>As Data Engineer</h3>
+            <ul>
+              <li>Designed and implemented MySQL database schema</li>
+              <li>Optimized database queries for performance</li>
+              <li>Created data migration and backup procedures</li>
+              <li>Implemented caching strategies</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Outcomes Section */}
       <section className="project-section">
         <h2 className="section-heading">Results</h2>
@@ -111,11 +136,11 @@ const RevPred = () => {
 
       {/* Call to Action */}
       <section className="project-cta">
-        <p>Want to learn more about this project?</p>
+        <p>Interested in learning more about this project?</p>
         <a href="/bio" className="cta-button">Get in Touch</a>
       </section>
     </div>
   );
 };
 
-export default RevPred;
+export default FreelanceMusic;

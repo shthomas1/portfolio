@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles.css";
+import "../styles/styles.css";
 import Card from "./Card";
 
 export default function CardGrid({ cards = [] }) {
