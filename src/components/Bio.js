@@ -66,11 +66,15 @@ const Bio = () => {
           <h1 className="bio-name">{bioData.name}</h1>
           <p className="bio-title">{bioData.title}</p>
           <div className="skill-tags">
-            {bioData.skills && bioData.skills.map((skill, index) => (
-              <span key={index} className={`skill-tag skill-tag-${skill.color}`}>
-                {skill.name}
-              </span>
-            ))}
+            {bioData.skills &&
+              bioData.skills.map((skill, index) => (
+                <span
+                  key={index}
+                  className={`skill-tag skill-tag-${skill.color}`}
+                >
+                  {skill.name}
+                </span>
+              ))}
           </div>
         </div>
       </div>
@@ -150,7 +154,13 @@ const Bio = () => {
         <div className="contact-container">
           {bioData.contact.map((contactItem, index) =>
             contactItem.url ? (
-              <a key={index} href={contactItem.url} className="contact-link">
+              <a
+                key={index}
+                href={contactItem.url}
+                className="contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {getContactIcon(contactItem.type)}
                 <span>{contactItem.display}</span>
               </a>
