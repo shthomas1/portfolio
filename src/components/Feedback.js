@@ -29,9 +29,9 @@ const Feedback = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Basic validation
     if (!formData.name || !formData.email) {
       setFormStatus({
@@ -40,7 +40,7 @@ const Feedback = () => {
       });
       return;
     }
-
+  
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
@@ -50,29 +50,50 @@ const Feedback = () => {
       });
       return;
     }
-
-    // In a real application, you would send the data to a server here
-    // For now, we'll just simulate a successful submission
-    console.log("Form data submitted:", formData);
-
-    // Show success message
-    setFormStatus({
-      submitted: true,
-      error: null,
-    });
-
-    // Reset form after submission
-    setFormData({
-      name: "",
-      email: "",
-      rating: 5,
-      usability: 5,
-      design: 5,
-      content: 5,
-      comments: "",
-    });
+  
+    try {
+      // Replace with your actual API URL when deployed
+      const response = await fetch('https://feedbackapi-fff7d5099600.herokuapp.com/api/feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        // Show success message
+        setFormStatus({
+          submitted: true,
+          error: null,
+        });
+  
+        // Reset form after submission
+        setFormData({
+          name: "",
+          email: "",
+          rating: 5,
+          usability: 5,
+          design: 5,
+          content: 5,
+          comments: "",
+        });
+      } else {
+        const errorData = await response.json();
+        setFormStatus({
+          submitted: false,
+          error: errorData.message || "Error submitting feedback. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      setFormStatus({
+        submitted: false,
+        error: "Network error. Please try again later.",
+      });
+    }
   };
-
+  
   // Render a thank you message if the form has been submitted
   if (formStatus.submitted) {
     return (

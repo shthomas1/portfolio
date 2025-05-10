@@ -45,7 +45,7 @@
   },
   {
     "id": 5,
-    "title": "Secure online military communications platform",
+    "title": "Secure communications platform",
     "image": "5.jpg",
     "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",
     "role": "Solo Developer",

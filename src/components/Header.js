@@ -16,7 +16,9 @@ export default function Header() {
             <a
             href="https://www.linkedin.com/in/seanhthomas/"
             className="banner-link"
-            >
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="profile-photo">
               <img
                 src="/linkedinprofilephoto.jpg"
@@ -58,12 +60,14 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link
-              to="https://medium.com/@sean.h.thomas2"
+            <a
+              href="https://medium.com/@sean.h.thomas2"
               className="nav-link blog-link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Technical Journal
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

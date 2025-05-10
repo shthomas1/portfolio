@@ -17,12 +17,12 @@ const S2 = () => {
       </div>
 
       <section className="company-section">
-        <h2 className="section-title">Our Services</h2>
+        <h2 className="section-title">My Work</h2>
         <div className="services-grid">
           <div className="service-card">
             <h3 className="service-title">Software Development</h3>
             <p className="service-description">
-              Custom application development tailored to your specific business needs, 
+              Custom application development tailored to specific business needs, 
               from concept to deployment and maintenance.
             </p>
           </div>
@@ -36,7 +36,7 @@ const S2 = () => {
           <div className="service-card">
             <h3 className="service-title">Network Solutions</h3>
             <p className="service-description">
-              Secure, reliable network design and implementation to keep your 
+              Secure network design and implementation to keep the 
               business connected and protected.
             </p>
           </div>
@@ -51,27 +51,27 @@ const S2 = () => {
       </section>
 
       <section className="company-section">
-        <h2 className="section-title">Our Approach - Based on military Standards, F3EAD</h2>
+        <h2 className="section-title">My Approach - Based on military Standards, F3EAD</h2>
         <div className="approach-steps">
           <div className="approach-step">
             <h3 className="step-number">01</h3>
             <h4 className="step-title">Find</h4>
             <p className="step-description">
-              We begin by understanding your business objectives, challenges, and unique requirements.
+              Begin by understanding your business objectives, challenges, and unique requirements.
             </p>
           </div>
           <div className="approach-step">
             <h3 className="step-number">02</h3>
             <h4 className="step-title">Fix</h4>
             <p className="step-description">
-              Our team develops a tailored strategy and solution architecture designed for your specific needs.
+              Develop a tailored strategy and solution architecture designed for your specific needs.
             </p>
           </div>
           <div className="approach-step">
             <h3 className="step-number">03</h3>
             <h4 className="step-title">Finish</h4>
             <p className="step-description">
-              We build and implement solutions using the latest technologies and best practices.
+              Build and implement solutions using the latest technologies and best practices.
             </p>
           </div>
           <div className="approach-step">
@@ -85,67 +85,17 @@ const S2 = () => {
             <h3 className="step-number">05</h3>
             <h4 className="step-title">Analyze</h4>
             <p className="step-description">
-              Determine what worked, what failed, and draw lessons from our data.
+              Determine what worked, what failed, and draw lessons from gathered data.
             </p>
           </div>
           <div className="approach-step">
             <h3 className="step-number">06</h3>
             <h4 className="step-title">Disseminate</h4>
             <p className="step-description">
-              Outcomes and insights are shared across teams to bolster future efforts.
+              Outcomes and insights are documented to bolster future efforts.
             </p>
           </div>
         </div>
-      </section>
-
-      <section className="company-section">
-        <h2 className="section-title">Why Choose Signal Surge?</h2>
-        <div className="benefits-list">
-          <div className="benefit-item">
-            <h3 className="benefit-title">Technical Expertise</h3>
-            <p className="benefit-description">
-              Our team brings deep technical knowledge across numerous platforms and technologies.
-            </p>
-          </div>
-          <div className="benefit-item">
-            <h3 className="benefit-title">Military-Grade Precision</h3>
-            <p className="benefit-description">
-              Founded by a military professional, we bring discipline and attention to detail to every project.
-            </p>
-          </div>
-          <div className="benefit-item">
-            <h3 className="benefit-title">Client-Focused Approach</h3>
-            <p className="benefit-description">
-              We prioritize your business needs and goals, not just the technology.
-            </p>
-          </div>
-          <div className="benefit-item">
-            <h3 className="benefit-title">Innovative Solutions</h3>
-            <p className="benefit-description">
-              We stay at the forefront of technology to bring you cutting-edge solutions.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="company-section contact-section">
-        <h2 className="section-title">Contact Us</h2>
-        <p className="contact-text">
-          Ready to transform your business with technology solutions that work?
-          Get in touch with Signal Surge LLC today.
-        </p>
-        <div className="contact-info">
-          <a href="mailto:contact@signalsurgellc.com" className="contact-link">
-            contact@signalsurgellc.com
-          </a>
-          <a href="tel:+1234567890" className="contact-link">
-            (123) 456-7890
-          </a>
-          <a href="https://www.idonthaveoneyet.com" className="contact-link">
-            www.signalsurgellc.com
-          </a>
-        </div>
-        <button className="contact-button">Schedule a Consultation</button>
       </section>
     </div>
   );
