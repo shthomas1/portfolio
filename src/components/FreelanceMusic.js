@@ -5,29 +5,39 @@ const FreelanceMusic = () => {
   const projectDetails = {
     title: "Freelance Music",
     subtitle: "Online music education scheduling platform",
-    description: "Platform for teachers to post their music lesson schedule so students can join. A collaborative solution connecting music educators with students through an intuitive scheduling system.",
+    description:
+      "Platform for teachers to post their music lesson schedule so students can join. A collaborative solution connecting music educators with students through an intuitive scheduling system.",
     year: "2025",
     client: "Private Music Academy",
     role: "Scrum Master / Data Engineer",
     duration: "4 months",
-    technologies: ["C#", "JavaScript", "HTML/CSS", "MySQL", "ASP.NET Core", "Entity Framework"],
-    overview: "A full-stack web application that streamlines music education by allowing teachers to manage their schedules and students to book lessons effortlessly.",
+    technologies: [
+      "C#",
+      "JavaScript",
+      "HTML/CSS",
+      "MySQL",
+      "ASP.NET Core",
+      "Entity Framework",
+    ],
+    overview:
+      "A full-stack web application that streamlines music education by allowing teachers to manage their schedules and students to book lessons effortlessly.",
     highlights: [
-      "Successfully launched with 20+ weekly active users",
-      "Reduced manual scheduling time by 75%",
-      "Achieved 95% user satisfaction rate in first month",
-      "Implemented real-time schedule synchronization"
+      "First-time database hosting success",
+      "Successful implementation of Agile Methodology",
+      "Client was very satisfied with overall product and architecture of the project",
+      "Assignment was given an A+, and was one of two considered to present to the University's advisory board"
     ],
     challenges: [
       "Creating real-time schedule updates across user types",
       "Designing user-friendly interface for non-technical teachers",
-      "Building scalable database for growing user base"
+      "Building scalable database for growing user base",
     ],
     outcomes: [
       "Streamlined lesson booking process for students",
-      "Automated email notifications and reminders",
-      "Enabled data-driven insights for academy management"
-    ]
+      "Teachers given full control of their lessons and payment strategy",
+      "Enabled data-driven insights for academy management",
+      "Secure data transfer and password management"
+    ],
   };
 
   return (
@@ -42,7 +52,7 @@ const FreelanceMusic = () => {
       <section className="project-section">
         <h2 className="section-heading">Overview</h2>
         <p className="project-text">{projectDetails.overview}</p>
-        
+
         <div className="project-meta">
           <div className="meta-item">
             <span className="meta-label">Role:</span>
@@ -68,7 +78,9 @@ const FreelanceMusic = () => {
         <h2 className="section-heading">Technologies</h2>
         <div className="tech-list">
           {projectDetails.technologies.map((tech, index) => (
-            <span key={index} className="tech-item">{tech}</span>
+            <span key={index} className="tech-item">
+              {tech}
+            </span>
           ))}
         </div>
       </section>
@@ -78,7 +90,9 @@ const FreelanceMusic = () => {
         <h2 className="section-heading">Key Achievements</h2>
         <ul className="highlights-list">
           {projectDetails.highlights.map((highlight, index) => (
-            <li key={index} className="highlight-item">{highlight}</li>
+            <li key={index} className="highlight-item">
+              {highlight}
+            </li>
           ))}
         </ul>
       </section>
@@ -103,7 +117,7 @@ const FreelanceMusic = () => {
           <div className="role-block">
             <h3>As Scrum Master</h3>
             <ul>
-              <li>Facilitated daily standups and sprint planning</li>
+              <li>Facilitated sprint planning</li>
               <li>Managed product backlog with stakeholders</li>
               <li>Resolved team blockers and improved velocity</li>
               <li>Implemented agile best practices</li>
@@ -136,8 +150,38 @@ const FreelanceMusic = () => {
 
       {/* Call to Action */}
       <section className="project-cta">
-        <p>Interested in learning more about this project?</p>
-        <a href="/bio" className="cta-button">Get in Touch</a>
+        <p>Want to connect with the team behind this project?</p>
+        <div className="team-grid">
+          <a
+            href="https://linkedin.com/in/seanhthomas"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="team-member"
+          >
+            <h3>Sean Thomas</h3>
+            <p>Scrum Master/Data Engineer</p>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/jacob-leigeber-/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="team-member"
+          >
+            <h3>Jacob Leigeber</h3>
+            <p>Team Lead</p>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/waylon-anderson/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="team-member"
+          >
+            <h3>Waylon Anderson</h3>
+            <p>UI/UX Design Lead</p>
+          </a>
+        </div>
       </section>
     </div>
   );

@@ -1,4 +1,6 @@
 -- V.18 -- 05/10/2025 --
+Changelog added
+
 Cards now have a type showing the user what their deployment status is (archived, demo, live)
 
 Major styling change:
