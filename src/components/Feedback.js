@@ -66,7 +66,6 @@ const Feedback = () => {
       if (response.ok) {
         // Don't try to parse JSON if the response might be empty
         // For 201 Created, the body might be empty or not valid JSON
-        let responseData = null;
         const contentType = response.headers.get("content-type");
 
         if (contentType && contentType.includes("application/json")) {
