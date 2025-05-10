@@ -128,10 +128,9 @@ nav a:active {
   box-shadow: 0 2px 8px rgba(44, 123, 229, 0.2);
 }
 
-/* Projects Grid Styling */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Smaller card width */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increased from 220px */
   gap: 1.5rem;
   margin: 1.5rem auto;
   max-width: 1200px;
@@ -147,7 +146,6 @@ nav a:active {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
-  height: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -854,7 +852,7 @@ nav a:active {
 
 @media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
   
   .banner-title {
@@ -894,7 +892,7 @@ nav a:active {
 
 @media (max-width: 480px) {
   .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
   
   .banner-title {
