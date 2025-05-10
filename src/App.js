@@ -1,4 +1,5 @@
 import "./styles/styles.css";
+import "./styles/global-background.css"; // Add this import
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CardGrid from "./components/CardGrid";
@@ -6,13 +7,16 @@ import RevPred from "./components/RevPred";
 import Bio from "./components/Bio";
 import S2 from "./components/S2";
 import CrediTrust from "./components/CrediTrust";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
 import FreelanceMusic from "./components/FreelanceMusic";
+import Home from "./components/Home";
+import Starfield from "./components/Starfield"; // Import Starfield
 
-function App() {
+function AppContent() {
   const [cards, setCards] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     console.log("Attempting to fetch cardinfo.json...");
@@ -69,24 +73,51 @@ function App() {
 
   console.log("Current state of cards:", cards);
 
+  // Conditionally render header based on current route
+  const showHeader = location.pathname !== '/';
+  const isHomePage = location.pathname === '/';
+
+  // Apply special body class for home page
+  useEffect(() => {
+    if (isHomePage) {
+      document.body.classList.add('home-page-body');
+    } else {
+      document.body.classList.remove('home-page-body');
+    }
+    
+    return () => {
+      document.body.classList.remove('home-page-body');
+    };
+  }, [isHomePage]);
+
   return (
-    <div className="App">
+    <div className={`App ${isHomePage ? 'home-page-layout' : ''}`}>
+      {/* Add starfield to non-home pages */}
+      {!isHomePage && <Starfield />}
+      
       <div className="container">
-        <Router>
-          <Header></Header>
-          <Routes>
-            <Route path="/" element={<CardGrid cards={cards} />}></Route>
-            <Route path="/bio" element={<Bio />}></Route>
-            <Route path="/s2" element={<S2 />}></Route>
-            <Route path="/portfolio" element={<Feedback />}></Route>
-            <Route path="/revpred" element={<RevPred />}></Route>
-            <Route path= "/freelance-music" element={<FreelanceMusic></FreelanceMusic>}></Route>
-            <Route path= "/credit" element={<CrediTrust></CrediTrust>}></Route>
-          </Routes>
-        </Router>
+        {showHeader && <Header />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/bio" element={<Bio />} />
+          <Route path="/s2" element={<S2 />} />
+          <Route path="/portfolio" element={<Feedback />} />
+          <Route path="/revpred" element={<RevPred />} />
+          <Route path="/freelance-music" element={<FreelanceMusic />} />
+          <Route path="/credit" element={<CrediTrust />} />
+          <Route path="/projects" element={<CardGrid cards={cards} />} />
+        </Routes>
       </div>
-      <Footer></Footer>
+      {!isHomePage && <Footer />}
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

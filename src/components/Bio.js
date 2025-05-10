@@ -89,6 +89,20 @@ const Bio = () => {
         ))}
       </section>
 
+      {/* Experience Section */}
+      <section className="bio-section">
+        <h2 className="section-title">Experience</h2>
+        {bioData.experience.map((exp, index) => (
+          <div key={index} className="experience-item">
+            <div className="experience-header">
+              <h3 className="experience-title">{exp.title}</h3>
+              <span className="experience-period">{exp.period}</span>
+            </div>
+            <p className="experience-description">{exp.description}</p>
+          </div>
+        ))}
+      </section>
+
       {/* Skills Section */}
       <section className="bio-section">
         <h2 className="section-title">Skills</h2>
@@ -118,20 +132,6 @@ const Bio = () => {
             </ul>
           </div>
         </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="bio-section">
-        <h2 className="section-title">Experience</h2>
-        {bioData.experience.map((exp, index) => (
-          <div key={index} className="experience-item">
-            <div className="experience-header">
-              <h3 className="experience-title">{exp.title}</h3>
-              <span className="experience-period">{exp.period}</span>
-            </div>
-            <p className="experience-description">{exp.description}</p>
-          </div>
-        ))}
       </section>
 
       {/* Education Section */}

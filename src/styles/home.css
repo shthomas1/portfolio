@@ -1,0 +1,250 @@
+/* Home Container - Full screen, no scroll */
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  background: #0a0a0f; /* Darker background for space effect */
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Starfield background */
+.starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Remove default margins/padding for full screen - only on home page */
+.home-page-body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Content wrapper for centered alignment */
+.content-wrapper {
+  text-align: center;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 0.9;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #aaaaaa;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-year {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  background: #ff5722;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+}
+
+/* Floating icons */
+.floating-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.floating-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.floating-icon:hover {
+  background: rgba(255, 87, 34, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 87, 34, 0.7);
+}
+
+.floating-icon:hover svg {
+  transform: scale(1.1);
+}
+
+.icon-label {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #aaaaaa;
+  pointer-events: none;
+}
+
+.floating-icon:hover .icon-label {
+  opacity: 1;
+}
+
+/* Position each icon around the center */
+.projects-icon {
+  top: 150%;
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.bio-icon {
+  top: -150%;
+  right: 20%;
+  animation-delay: -2s;
+}
+
+.contact-icon {
+  bottom: -150%;
+  left: 60%;
+  transform: translateX(-50%);
+  animation-delay: -4s;
+}
+
+.medium-icon {
+  bottom: 125%;
+  right: 70%;
+  animation-delay: -3s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .hero-year {
+    top: 2rem;
+    right: 2rem;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .floating-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .floating-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .projects-icon {
+    top: 15%;
+    left: 20%;
+  }
+  
+  .bio-icon {
+    top: 15%;
+    right: 20%;
+  }
+  
+  .contact-icon {
+    bottom: 25%;
+  }
+}
+
+/* Ensure no scrolling on any parent containers - only for home page */
+.home-page-layout {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page-layout .container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}

@@ -9,7 +9,12 @@ export default function Card({ card }) {
 
   const cardContent = (
     <>
-      {/* Project type badge */}
+      {/* Year pill in top left */}
+      {card.year && (
+        <span className="year-pill">{card.year}</span>
+      )}
+      
+      {/* Project type badge in top right */}
       {card.type && (
         <div className={`project-type ${card.type}`}>{card.type}</div>
       )}
@@ -37,11 +42,12 @@ export default function Card({ card }) {
           </div>
         )}
 
-        {card.year && (
+        {/* Remove year from details section since it's now a pill */}
+        {/* {card.year && (
           <div className="card-detail">
             <span className="detail-label">Year:</span> {card.year}
           </div>
-        )}
+        )} */}
 
         {card.results && (
           <div className="card-detail">
