@@ -1,32 +1,32 @@
 import React from "react";
 import "../styles/projects.css";
 
-const RevPred = () => {
+const CrediTrust = () => {
   const projectDetails = {
-    title: "Revenue Prediction Application",
-    subtitle: "Machine learning CLI for bar sales forecasting",
-    description: "Command line interface application for predicting daily and weekly sales for a bar in Tuscaloosa, Alabama.",
-    year: "2024",
-    client: "Local Tuscaloosa Bar",
+    title: "CrediTrust AI",
+    subtitle: "Credit acceptance prediction platform for PNC Bank",
+    description: "Credit acceptance prediction platform developed for PNC Bank's AIS SCLC 2025 challenge.",
+    year: "2025",
+    client: "PNC Bank (AIS SCLC 2025 Challenge)",
     role: "Solo Developer",
-    duration: "3 weeks",
-    technologies: ["C#", ".NET Core", "Gradient Boosting"],
-    overview: "A machine learning solution that predicts bar revenue with 98% accuracy by analyzing historical sales data, game day patterns, and betting trends.",
+    duration: "November 2024 - January 2025",
+    technologies: ["C#", "JavaScript", "HTML", "CSS"],
+    overview: "An AI-powered credit decision platform that predicts loan acceptance rates with over 70% accuracy, developed as part of the AIS 2025 Fintech challenge.",
     highlights: [
-      "Achieved 98% prediction accuracy (±2% error margin)",
-      "Won 'Best-Logic Award' in programming challenge",
-      "Built custom Gradient Boosting model from scratch",
-      "Reduced inventory waste on game days by 15%"
+      "Achieved over 70% prediction accuracy on random test sets",
+      "Contender for the AIS 2025 Fintech challenge",
+      "Integrated machine learning with financial data analysis",
+      "Created intuitive web interface for credit assessment"
     ],
     challenges: [
-      "Limited historical data for training",
-      "Accounting for Alabama football game day impacts", 
-      "Creating user-friendly CLI for non-technical staff"
+      "Processing complex financial data patterns",
+      "Meeting PNC Bank's regulatory compliance requirements",
+      "Balancing model accuracy with transparency"
     ],
     outcomes: [
-      "Optimized staffing schedules based on predictions",
-      "Self-improving model that adapts over time",
-      "Transformed daily operational decision-making"
+      "Built comprehensive credit risk assessment tool",
+      "Recognition as AIS 2025 Fintech challenge contender",
+      "Platform ready for real-world deployment scenarios"
     ]
   };
 
@@ -112,4 +112,4 @@ const RevPred = () => {
   );
 };
 
-export default RevPred;
+export default CrediTrust;

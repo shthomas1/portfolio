@@ -5,6 +5,7 @@ import CardGrid from "./components/CardGrid";
 import RevPred from "./components/RevPred";
 import Bio from "./components/Bio";
 import S2 from "./components/S2";
+import CrediTrust from "./components/CrediTrust";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
@@ -80,6 +81,7 @@ function App() {
             <Route path="/portfolio" element={<Feedback />}></Route>
             <Route path="/revpred" element={<RevPred />}></Route>
             <Route path= "/freelance-music" element={<FreelanceMusic></FreelanceMusic>}></Route>
+            <Route path= "/credit" element={<CrediTrust></CrediTrust>}></Route>
           </Routes>
         </Router>
       </div>
