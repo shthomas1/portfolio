@@ -52,7 +52,6 @@ const Feedback = () => {
     }
   
     try {
-      // Replace with your actual API URL when deployed
       const response = await fetch('https://feedbackapi-fff7d5099600.herokuapp.com/api/feedback', {
         method: 'POST',
         headers: {
@@ -62,6 +61,27 @@ const Feedback = () => {
       });
   
       if (response.ok) {
+        // Don't try to parse JSON if the response might be empty
+        // For 201 Created, the body might be empty or not valid JSON
+        let responseData = null;
+        const contentType = response.headers.get("content-type");
+        
+        if (contentType && contentType.includes("application/json")) {
+          try {
+            responseData = await response.json();
+          } catch (jsonError) {
+            console.log('Response is not valid JSON, but request was successful');
+          }
+        } else {
+          // If not JSON, just read as text (but don't parse)
+          try {
+            const text = await response.text();
+            console.log('Response text:', text);
+          } catch (textError) {
+            console.log('Could not read response text');
+          }
+        }
+        
         // Show success message
         setFormStatus({
           submitted: true,
@@ -79,10 +99,18 @@ const Feedback = () => {
           comments: "",
         });
       } else {
-        const errorData = await response.json();
+        let errorMessage = "Error submitting feedback. Please try again.";
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          // If error response isn't JSON, use default message
+          console.log('Error response is not JSON');
+        }
+        
         setFormStatus({
           submitted: false,
-          error: errorData.message || "Error submitting feedback. Please try again.",
+          error: errorMessage,
         });
       }
     } catch (error) {
