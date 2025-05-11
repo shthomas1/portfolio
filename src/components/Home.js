@@ -30,6 +30,7 @@ const Home = () => {
   }, []);
   
   return (
+    <div>
     <div className="home-container">
       {/* Starfield background */}
       <div className="starfield">
@@ -100,7 +101,8 @@ const Home = () => {
         </div>
       </div>
       
-      <div className="hero-year">CAO 10 May 2025</div>
+      <div className="hero-year">System Updated 10 May 2025</div>
+    </div>
     </div>
   );
 };

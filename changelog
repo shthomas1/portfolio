@@ -1,3 +1,12 @@
+-- V.23 -- 05/10/2025 --
+Better mobile support. Fixed clipping with navigation link wrapping
+    Nav Link coloring style changed to be consistent across the buttons
+
+Styling fix with the Banner at the top of the main pages
+    Set the distance apart closer
+    Changed the html brackets to the orange that matches the rest of our site
+    Added blur and opacity to the large banner image
+
 -- V.22 -- 05/10/2025 --
 Mobile support for icons on the home page
 

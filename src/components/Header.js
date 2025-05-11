@@ -66,7 +66,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Technical Blog
+              My Medium Page
             </a>
           </li>
         </ul>

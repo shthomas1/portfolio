@@ -81,7 +81,7 @@
 
 .hero-year {
   position: absolute;
-  top: 3rem;
+  bottom: 3rem;
   right: 3rem;
   background: #ff5722;
   color: #ffffff;
@@ -204,7 +204,7 @@
   }
   
   .hero-year {
-    top: 2rem;
+    bottom: 2rem;
     right: 2rem;
     font-size: 0.875rem;
     padding: 0.5rem 1rem;

@@ -3,7 +3,7 @@
 .bio-container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 6rem 2rem 2rem;
+  padding: 3rem 2rem 2rem;
   position: relative;
   z-index: 1;
 }
@@ -293,7 +293,7 @@
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .bio-container {
-    padding: 5rem 1rem 1rem;
+    padding: 1rem 1rem 1rem;
   }
   
   .bio-section {
