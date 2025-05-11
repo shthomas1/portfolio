@@ -2,9 +2,9 @@
 .home-container {
   height: 100vh;
   width: 100vw;
-  background: #0a0a0f; /* Darker background for space effect */
+  background: #0a0a0f;
   color: #ffffff;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   padding: 0;
   position: relative;
   overflow: hidden;
@@ -42,13 +42,6 @@
   }
 }
 
-/* Remove default margins/padding for full screen - only on home page */
-.home-page-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
 /* Content wrapper for centered alignment */
 .content-wrapper {
   text-align: center;
@@ -65,7 +58,7 @@
   color: #ffffff;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   position: relative;
   z-index: 1;
 }
@@ -93,7 +86,7 @@
   box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
 }
 
-/* Floating icons */
+/* Floating icons container */
 .floating-icons {
   position: absolute;
   width: 100%;
@@ -104,6 +97,7 @@
   z-index: 1;
 }
 
+/* Base floating icon styles */
 .floating-icon {
   position: absolute;
   width: 100px;
@@ -140,248 +134,476 @@
   transform: scale(1.1);
 }
 
+/* Icon labels */
 .icon-label {
   position: absolute;
-  bottom: -25px;
+  bottom: -35px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.875rem;
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.3s ease;
-  color: #aaaaaa;
+  color: #ffffff;
   pointer-events: none;
+  z-index: 10;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 .floating-icon:hover .icon-label {
   opacity: 1;
 }
 
-/* Position each icon around the center */
+/* Icon positions */
 .projects-icon {
-  top: 150%;
-  left: 25%;
+  top: -120%;
+  left: 30%;
   animation-delay: 0s;
 }
 
 .bio-icon {
   top: -150%;
-  right: 20%;
+  right: 40%;
   animation-delay: -2s;
 }
 
 .contact-icon {
-  bottom: -150%;
-  left: 60%;
-  transform: translateX(-50%);
+  bottom: -120%;
+  left: 75%;
   animation-delay: -4s;
 }
 
-.medium-icon {
-  bottom: 125%;
+/* Label position adjustments */
+.projects-icon .icon-label,
+.bio-icon .icon-label {
+  bottom: -40px;
+}
+
+.contact-icon .icon-label {
+  bottom: auto;
+  bottom: -40px;
+}
+
+/* Hourglass Twins system */
+.hourglass-twins-container {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  bottom: -140%;
   right: 70%;
-  animation-delay: -3s;
+  z-index: 1;
 }
 
-/* Floating animation */
+/* Sand column */
+.sand-column-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 3px;
+  animation: orbitSandColumn 15s linear infinite;
+  pointer-events: none;
+}
+
+.sand-column {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    rgba(212, 163, 115, 0.8) 20%,
+    rgba(212, 163, 115, 0.8) 80%,
+    transparent 100%
+  );
+}
+
+/* Sand particles */
+.sand-flow-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+  width: 150px;
+  height: 20px;
+  animation: orbitSandFlow 15s linear infinite;
+  pointer-events: none;
+}
+
+.sand-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #d4a373;
+  border-radius: 50%;
+  animation: flowSand 3s linear infinite;
+  opacity: 0;
+}
+
+/* Ash Twin (Medium) */
+.medium-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+  animation: orbitAshTwin 15s linear infinite;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 40% 40%,
+    #d4a373 0%,
+    #c19660 50%,
+    #8b6f47 100%
+  );
+  border: none;
+  box-shadow: 
+    0 0 20px rgba(212, 163, 115, 0.6),
+    inset -3px -3px 10px rgba(0, 0, 0, 0.3),
+    inset 3px 3px 10px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  pointer-events: auto;
+  color: #ffffff;
+}
+
+/* Sand texture for Ash Twin */
+.medium-icon::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 230, 180, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 60% 50%, rgba(255, 230, 180, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, rgba(255, 230, 180, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: sandTexture 20s linear infinite;
+}
+
+/* Ember Twin (LinkedIn) */
+.linkedin-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 50%;
+  animation: orbitEmberTwin 15s linear infinite;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 60% 40%,
+    #8b4513 0%,
+    #654321 50%,
+    #4a3018 100%
+  );
+  border: none;
+  box-shadow: 
+    0 0 25px rgba(139, 69, 19, 0.7),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 15px rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  pointer-events: auto;
+  color: #ffffff;
+}
+
+/* Canyon texture for Ember Twin */
+.linkedin-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(45deg, rgba(0, 0, 0, 0.3) 2px, transparent 2px),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.3) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+  background-size: 15px 15px, 15px 15px, 10px 10px;
+}
+
+/* Twin icons styling */
+.medium-icon svg,
+.linkedin-icon svg {
+  width: 35px;
+  height: 35px;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+/* Hover effects for twins */
+.medium-icon:hover {
+  box-shadow: 0 0 30px rgba(212, 163, 115, 0.9);
+  transform: scale(1.05);
+}
+
+.linkedin-icon:hover {
+  box-shadow: 0 0 35px rgba(139, 69, 19, 0.9);
+  transform: scale(1.05);
+}
+
+/* Animations */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-/* Responsive */
+@keyframes orbitAshTwin {
+  0% { transform: translate(-50%, -50%) rotate(0deg) translateX(75px) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(75px) rotate(-360deg); }
+}
+
+@keyframes orbitEmberTwin {
+  0% { transform: translate(-50%, -50%) rotate(180deg) translateX(75px) rotate(-180deg); }
+  100% { transform: translate(-50%, -50%) rotate(540deg) translateX(75px) rotate(-540deg); }
+}
+
+@keyframes orbitSandColumn {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitSandFlow {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes flowSand {
+  0% { right: 20%; opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { right: 80%; opacity: 0; }
+}
+
+@keyframes sandTexture {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* Mobile responsive styles */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 3rem;
+    margin-bottom: 2rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.25rem;
+    margin-bottom: 3rem;
   }
-  
+
   .hero-year {
     bottom: 2rem;
     right: 2rem;
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
   }
-  
-  .floating-icon {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .floating-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .projects-icon {
-    top: 15%;
-    left: 20%;
-  }
-  
-  .bio-icon {
-    top: 15%;
-    right: 20%;
-  }
-  
-  .contact-icon {
-    bottom: 25%;
-  }
-}
 
-/* Ensure no scrolling on any parent containers - only for home page */
-.home-page-layout {
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-.home-page-layout .container {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-/* Update these mobile styles in your home.css file */
-
-@media (max-width: 768px) {
   .content-wrapper {
     min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center everything */
+    align-items: center;
   }
-  
-  .hero-title {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-  }
-  
-  /* 2x2 Grid layout with equal spacing */
+
+  /* Grid layout for mobile */
   .floating-icons {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 3rem;
+    gap: 2rem;
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
     height: auto;
-    justify-items: center; /* Center items in grid cells */
+    justify-items: center;
     align-items: center;
   }
-  
-  .floating-icon {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    width: 80px;
-    height: 80px;
-    margin: 0;
-    animation: none;
-    transform: none !important;
-  }
-  
-  /* Reset all icon positions on mobile */
+
+  /* Reset all floating icons for mobile */
+  .floating-icon,
   .projects-icon,
   .bio-icon,
   .contact-icon,
-  .medium-icon {
+  .medium-icon,
+  .linkedin-icon {
     position: relative !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
     bottom: auto !important;
     transform: none !important;
+    animation: none;
+    width: 80px;
+    height: 80px;
+    margin: 0 0 40px 0;
   }
-  
+
+  .floating-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Mobile labels */
   .icon-label {
-    opacity: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
     font-size: 0.75rem;
-    bottom: -35px;
+    bottom: -30px;
     white-space: normal;
     width: 100px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     line-height: 1.2;
+    color: #aaaaaa !important;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 3px 5px;
+    border-radius: 3px;
   }
-  
+
   .floating-icon:hover {
+    transform: scale(1.05) !important;
+  }
+
+  /* Hourglass twins mobile */
+  .hourglass-twins-container {
+    position: relative !important;
+    width: auto !important;
+    height: auto !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin: 0 !important;
+    display: contents;
+  }
+
+  .sand-column-container,
+  .sand-flow-container {
+    display: none;
+  }
+
+  /* Twin icons mobile styling */
+  .medium-icon {
+    background: radial-gradient(
+      circle at 40% 40%,
+      #d4a373 0%,
+      #c19660 50%,
+      #8b6f47 100%
+    );
+    box-shadow: 0 0 15px rgba(212, 163, 115, 0.5);
+  }
+
+  .linkedin-icon {
+    background: radial-gradient(
+      circle at 60% 40%,
+      #8b4513 0%,
+      #654321 50%,
+      #4a3018 100%
+    );
+    box-shadow: 0 0 15px rgba(139, 69, 19, 0.5);
+  }
+
+  .medium-icon svg,
+  .linkedin-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .medium-icon:hover,
+  .linkedin-icon:hover {
     transform: scale(1.05) !important;
   }
 }
 
-/* Smaller mobile screens */
+/* Smaller screens */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.1rem;
     margin-bottom: 2.5rem;
   }
-  
+
   .floating-icons {
-    gap: 2.5rem;
-    max-width: 260px; /* Smaller max-width for smaller screens */
+    gap: 1.5rem;
+    max-width: 260px;
   }
-  
-  .floating-icon {
-    width: 70px;
-    height: 70px;
+
+  .floating-icon,
+  .medium-icon,
+  .linkedin-icon {
+    width: 70px !important;
+    height: 70px !important;
+    margin: 0 0 35px 0;
   }
-  
-  .floating-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-  
+
   .icon-label {
     font-size: 0.7rem;
-    bottom: -32px;
+    bottom: -28px;
     width: 90px;
   }
 }
 
-/* Very small mobile screens */
+/* Very small screens */
 @media (max-width: 380px) {
   .hero-title {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-  
+
   .floating-icons {
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 240px;
   }
-  
-  .floating-icon {
-    width: 60px;
-    height: 60px;
+
+  .floating-icon,
+  .medium-icon,
+  .linkedin-icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 0 30px 0;
   }
-  
+
   .icon-label {
     font-size: 0.65rem;
     width: 80px;
-    bottom: -28px;
+    bottom: -25px;
   }
+}
+
+/* Layout containers */
+.home-page-body,
+.home-page-layout {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.home-page-layout .container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
