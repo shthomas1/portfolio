@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/styles.css";
 import { Link } from "react-router-dom";
-import { getTechCategory } from "../utils/techCategories"; // Import the utility
+import { getTechCategory } from "../utils/techCategories";
 
 export default function Card({ card }) {
   if (!card) {
@@ -10,12 +10,10 @@ export default function Card({ card }) {
 
   const cardContent = (
     <>
-      {/* Year pill in top left */}
       {card.year && (
         <span className="year-pill">{card.year}</span>
       )}
       
-      {/* Project type badge in top right */}
       {card.type && (
         <div className={`project-type ${card.type}`}>{card.type}</div>
       )}
@@ -55,10 +53,8 @@ export default function Card({ card }) {
     </>
   );
 
-  // Create a project detail link using the card ID
   const projectDetailLink = `/project/${card.id}`;
   
-  // Always use the project detail route to keep within the Layout
   return (
     <Link to={projectDetailLink} className="card-link">
       <div className="project-card">{cardContent}</div>

@@ -9,7 +9,6 @@ const Bio = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Handle back button click
   const handleBackClick = (e) => {
     e.preventDefault();
     navigate('/');
@@ -38,7 +37,6 @@ const Bio = () => {
       });
   }, []);
 
-  // Function to get the appropriate icon for contact method
   const getContactIcon = (type, size = 18) => {
     switch (type.toLowerCase()) {
       case "github":
@@ -60,12 +58,10 @@ const Bio = () => {
 
   return (
     <div className="bio-container">
-      {/* Back Button */}
       <button onClick={handleBackClick} className="back-button">
         ← Back to Home
       </button>
       
-      {/* Header Section */}
       <div className="bio-header">
         <div className="profile-image-container">
           <img
@@ -92,7 +88,6 @@ const Bio = () => {
         </div>
       </div>
 
-      {/* About Section */}
       <section className="bio-section">
         <h2 className="section-title">About Me</h2>
         {bioData.about.map((paragraph, index) => (
@@ -102,7 +97,6 @@ const Bio = () => {
         ))}
       </section>
 
-      {/* Experience Section */}
       <section className="bio-section">
         <h2 className="section-title">Experience</h2>
         {bioData.experience.map((exp, index) => (
@@ -116,7 +110,6 @@ const Bio = () => {
         ))}
       </section>
 
-      {/* Skills Section */}
       <section className="bio-section">
         <h2 className="section-title">Skills</h2>
         <div className="skills-grid">
@@ -147,7 +140,6 @@ const Bio = () => {
         </div>
       </section>
 
-      {/* Education Section */}
       <section className="bio-section">
         <h2 className="section-title">Education</h2>
         {bioData.education.map((edu, index) => (
@@ -161,7 +153,6 @@ const Bio = () => {
         ))}
       </section>
 
-      {/* Contact Section */}
       <section className="bio-section">
         <h2 className="section-title">Connect With Me!</h2>
         <div className="contact-container">

@@ -64,20 +64,17 @@ const Feedback = () => {
       );
 
       if (response.ok) {
-        // Don't try to parse JSON if the response might be empty
-        // For 201 Created, the body might be empty or not valid JSON
         const contentType = response.headers.get("content-type");
 
         if (contentType && contentType.includes("application/json")) {
           try {
-            await response.json(); // Don't assign to responseData
+            await response.json();
           } catch (jsonError) {
             console.log(
               "Response is not valid JSON, but request was successful"
             );
           }
         } else {
-          // If not JSON, just read as text (but don't parse)
           try {
             const text = await response.text();
             console.log("Response text:", text);
@@ -86,13 +83,11 @@ const Feedback = () => {
           }
         }
 
-        // Show success message
         setFormStatus({
           submitted: true,
           error: null,
         });
 
-        // Reset form after submission
         setFormData({
           name: "",
           email: "",
@@ -108,7 +103,6 @@ const Feedback = () => {
           const errorData = await response.json();
           errorMessage = errorData.message || errorMessage;
         } catch (e) {
-          // If error response isn't JSON, use default message
           console.log("Error response is not JSON");
         }
 
@@ -126,7 +120,6 @@ const Feedback = () => {
     }
   };
 
-  // Render a thank you message if the form has been submitted
   if (formStatus.submitted) {
     return (
       <div className="feedback-container">

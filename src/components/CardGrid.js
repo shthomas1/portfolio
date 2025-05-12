@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function CardGrid({ cards = [] }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate(); // Move this to the top so it's defined before use
+  const navigate = useNavigate();
 
-  // Define handleBackClick before using it
   const handleBackClick = (e) => {
     e.preventDefault();
     navigate("/");
@@ -17,7 +16,6 @@ export default function CardGrid({ cards = [] }) {
     setSearchTerm(e.target.value);
   };
 
-  // Find cards that match the search term
   const displayCards = cards
     ? cards.filter(
         (card) =>
@@ -29,7 +27,6 @@ export default function CardGrid({ cards = [] }) {
 
   return (
     <div className="belly-content">
-      {/* Back button */}
       <button onClick={handleBackClick} className="back-button">
         ← Back to Home
       </button>

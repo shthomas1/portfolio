@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import "../styles/home.css";
 import CardGrid from './CardGrid';
 import ProjectDetail from './ProjectDetail';
-import { getTechCategory } from "../utils/techCategories"; // Import the utility
+import { getTechCategory } from "../utils/techCategories";
 
 const Layout = ({ children, cards = [] }) => {
   const location = useLocation();
@@ -12,20 +12,15 @@ const Layout = ({ children, cards = [] }) => {
   const [cardsData, setCardsData] = useState([]);
   const [, setLoading] = useState(true);
 
-  // Function to extract unique technologies from card data
   const extractTechnologies = (cards) => {
-    // Extract all technologies from all projects
     const techStrings = cards.map(card => card.technologies);
     
-    // Split strings into individual techs and flatten
     const techArray = techStrings.flatMap(tech => 
       tech ? tech.split(',').map(item => item.trim()) : []
     );
     
-    // Create unique list
     const uniqueTechs = [...new Set(techArray)];
     
-    // Map to category using the shared utility
     const categorizedTechs = uniqueTechs.map((tech, index) => {
       return {
         id: index + 1,
@@ -34,7 +29,6 @@ const Layout = ({ children, cards = [] }) => {
       };
     });
 
-    // Sort by category
     const categoryOrder = ["frontend", "backend", "database", "data", "security", "service"];
     
     return categorizedTechs.sort((a, b) => {
@@ -44,11 +38,9 @@ const Layout = ({ children, cards = [] }) => {
     });
   };
 
-  // Load card data and extract technologies
   useEffect(() => {
     setLoading(true);
     
-    // Fetch card data from cardinfo.json
     fetch("/cardinfo.json")
       .then((response) => {
         if (!response.ok) {
@@ -60,7 +52,6 @@ const Layout = ({ children, cards = [] }) => {
         console.log("Successfully loaded card data:", data);
         setCardsData(data);
         
-        // Extract technologies from the card data
         const techList = extractTechnologies(data);
         setTechnologies(techList);
         
@@ -69,17 +60,14 @@ const Layout = ({ children, cards = [] }) => {
       .catch((error) => {
         console.error("Error loading from /cardinfo.json:", error);
         
-        // Try to use the cards prop if available
         if (cards && cards.length > 0) {
           console.log("Using cards prop as fallback:", cards);
           setCardsData(cards);
           
-          // Extract technologies from cards prop
           const techList = extractTechnologies(cards);
           setTechnologies(techList);
         } else {
           console.log("Using hardcoded fallback data");
-          // Fallback to projects data from the example
           const fallbackData = [
             {
               "id": 1,
@@ -140,9 +128,7 @@ const Layout = ({ children, cards = [] }) => {
       });
   }, [cards]);
 
-  // Load project data for project detail pages
   useEffect(() => {
-    // Only fetch projects data if we're on a project detail page
     const isProjectDetail = location.pathname.startsWith('/project/');
     
     if (isProjectDetail) {
@@ -159,25 +145,20 @@ const Layout = ({ children, cards = [] }) => {
         })
         .catch((error) => {
           console.error("Error loading from /projects.json:", error);
-          // Fallback to the card data if available
           setProjectsData(cardsData.length > 0 ? cardsData : []);
         });
     }
   }, [location.pathname, cardsData]);
 
-  // Function to check if a link is active - projects stays active when viewing project details
   const isActive = (path) => {
     if (path === '/projects') {
-      // Keep projects highlighted when viewing individual projects
       return location.pathname === '/projects' || location.pathname.startsWith('/project/');
     }
     return location.pathname === path;
   };
 
-  // Determine if we're on a project detail page
   const isProjectDetail = location.pathname.startsWith('/project/');
 
-  // Technologies component for the belly area - flat layout with color-coded categories
   const TechnologiesSection = () => (
     <div className="belly-technologies">
       <h2 className="tech-heading">Languages and Technologies</h2>
@@ -197,9 +178,7 @@ const Layout = ({ children, cards = [] }) => {
   return (
     <div className="home-container">
       <div className="tree-layout">
-        {/* Main name card with ears and hat */}
         <div className="main-card-container">
-          {/* Social links as hat */}
           <div className="social-hat">
             <Link 
               to="/bio" 
@@ -215,7 +194,6 @@ const Layout = ({ children, cards = [] }) => {
             </Link>
           </div>
           
-          {/* Name card with attached ear buttons */}
           <div className="name-card-with-ears">
             <div className="ear left-ear">
               <a 
@@ -246,9 +224,7 @@ const Layout = ({ children, cards = [] }) => {
           </div>
         </div>
 
-        {/* Content area - always shown now */}
         <div className="content-area">
-          {/* Conditionally render content based on route */}
           {location.pathname === '/' && <TechnologiesSection />}
           {location.pathname === '/bio' && children}
           {location.pathname === '/projects' && <CardGrid cards={cardsData} />}

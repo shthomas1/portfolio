@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/projects.css";
-import { getTechCategory } from "../utils/techCategories"; // Import the utility
+import { getTechCategory } from "../utils/techCategories";
 
 const ProjectDetail = ({ cards = [] }) => {
   const { id } = useParams();
@@ -15,7 +15,6 @@ const ProjectDetail = ({ cards = [] }) => {
       try {
         console.log("ProjectDetail: Loading project with ID:", id);
         
-        // First try to find the project in the cards prop
         const projectId = parseInt(id);
         const foundProject = cards.find(card => card.id === projectId);
         
@@ -26,7 +25,6 @@ const ProjectDetail = ({ cards = [] }) => {
           return;
         }
         
-        // If cards is empty or project not found, fetch from projects.json
         console.log("ProjectDetail: Project not found in cards, fetching from JSON...");
         
         const response = await fetch("/projects.json");
@@ -63,12 +61,10 @@ const ProjectDetail = ({ cards = [] }) => {
     navigate('/projects');
   };
 
-  // Render loading state
   if (loading) {
     return <div className="loading-message">Loading project details...</div>;
   }
 
-  // Render error state
   if (error || !project) {
     return (
       <div className="error-container">
@@ -80,7 +76,6 @@ const ProjectDetail = ({ cards = [] }) => {
     );
   }
 
-  // Helper function to render a section if data exists
   const renderSection = (title, content) => {
     if (!content) return null;
     
@@ -92,7 +87,6 @@ const ProjectDetail = ({ cards = [] }) => {
     );
   };
 
-  // Helper function to render technologies
   const renderTechnologies = () => {
     if (!project.technologies) return null;
     
@@ -105,7 +99,7 @@ const ProjectDetail = ({ cards = [] }) => {
         {techArray.map((tech, index) => (
           <span 
             key={index} 
-            className={`tech-item tech-tag-${getTechCategory(tech)}`} // Add tech-tag-{category} class
+            className={`tech-item tech-tag-${getTechCategory(tech)}`}
           >
             {tech}
           </span>
@@ -116,18 +110,15 @@ const ProjectDetail = ({ cards = [] }) => {
 
   return (
     <div className="project-detail-container">
-      {/* Back button */}
       <button onClick={handleBackClick} className="back-button">
         ← Back to Projects
       </button>
 
-      {/* Title */}
       <section className="project-hero">
         <h1 className="project-title">{project.title}</h1>
         {project.subtitle && <p className="project-subtitle">{project.subtitle}</p>}
       </section>
 
-      {/* Overview Section */}
       <section className="project-section">
         <h2 className="section-heading">Overview</h2>
         <div className="overview-content">
@@ -164,10 +155,8 @@ const ProjectDetail = ({ cards = [] }) => {
         </div>
       </section>
 
-      {/* Technologies Section */}
       {renderSection("Technologies", renderTechnologies())}
 
-      {/* Highlights Section */}
       {project.highlights && project.highlights.length > 0 && renderSection(
         "Key Achievements",
         <ul className="highlights-list">
@@ -177,7 +166,6 @@ const ProjectDetail = ({ cards = [] }) => {
         </ul>
       )}
 
-      {/* Challenge Section */}
       {project.challenges && project.challenges.length > 0 && renderSection(
         "Challenges",
         <div className="challenges-grid">
@@ -190,7 +178,6 @@ const ProjectDetail = ({ cards = [] }) => {
         </div>
       )}
 
-      {/* Features Section */}
       {project.features && project.features.length > 0 && renderSection(
         "Services",
         <div className="features-grid">
@@ -203,7 +190,6 @@ const ProjectDetail = ({ cards = [] }) => {
         </div>
       )}
 
-      {/* Approach Section */}
       {project.approach && project.approach.length > 0 && renderSection(
         "My Approach - Based on military Standards, F3EAD",
         <div className="challenges-grid">
@@ -217,7 +203,6 @@ const ProjectDetail = ({ cards = [] }) => {
         </div>
       )}
 
-      {/* My Role Section */}
       {project.roleDetails && renderSection(
         "My Contribution",
         <div className="role-content">
@@ -244,7 +229,6 @@ const ProjectDetail = ({ cards = [] }) => {
         </div>
       )}
 
-      {/* Outcomes Section */}
       {project.outcomes && project.outcomes.length > 0 && renderSection(
         "Results",
         <div className="outcomes-list">
@@ -257,7 +241,6 @@ const ProjectDetail = ({ cards = [] }) => {
         </div>
       )}
 
-      {/* Results Section from simple projects */}
       {project.results && !project.outcomes && renderSection(
         "Results",
         <div className="outcomes-list">
@@ -268,7 +251,6 @@ const ProjectDetail = ({ cards = [] }) => {
         </div>
       )}
 
-      {/* Team Section */}
       {project.team && project.team.length > 0 && renderSection(
         "Team Members",
         <div className="team-grid">
