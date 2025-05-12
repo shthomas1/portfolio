@@ -1,6 +1,18 @@
 [
+    {
+    "id": 1,
+    "title": "CrediTrust AI",
+    "image": "6.jpg",
+    "description": "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
+    "role": "Solo Developer",
+    "technologies": "C#, Javascript, html, css",
+    "year": "2025",
+    "results": "Contender for the AIS 2025 Fintech challenge. Prediction model was just over 70% accurate when testing against a random test set.",
+    "link": "/credit",
+    "type": "demo"
+  },
   {
-    "id": 4,
+    "id": 2,
     "title": "Freelance Music",
     "image": "FM Logo.png",
     "description": "Platform for teachers to post their music lesson schedule online for students to join. This was a school assignment.",
@@ -24,31 +36,7 @@
     "type": "demo"
   },
   {
-    "id": 6,
-    "title": "CrediTrust AI",
-    "image": "6.jpg",
-    "description": "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
-    "role": "Solo Developer",
-    "technologies": "C#, Javascript, html, css",
-    "year": "2025",
-    "results": "Contender for the AIS 2025 Fintech challenge. Prediction model was just over 70% accurate when testing against a random test set.",
-    "link": "/credit",
-    "type": "demo"
-  },
-  {
-    "id": 2,
-    "title": "Portfolio Platform",
-    "image": "portfoliologo.png",
-    "description": "The application you're using right now!",
-    "role": "Full Stack Developer",
-    "technologies": "C#, React, JSX, html, css",
-    "year": "2025",
-    "results": "You tell me! Click this card to provide feedback",
-    "link": "/portfolio",
-    "type": "live"
-  },
-  {
-    "id": 5,
+    "id": 4,
     "title": "Secure Communications App",
     "image": "5.jpg",
     "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",

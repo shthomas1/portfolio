@@ -19,6 +19,17 @@ body {
   overflow: hidden;
 }
 
+:root {
+  --space-darkest: #000814;
+  --space-dark: #001233;
+  --space-mid: #023e8a;
+  --space-accent: #4895ef;
+  --space-accent-light: #90e0ef;
+  --space-text: #e0fbfc;
+  --space-text-dim: #a9b0df;
+  --space-glow: 0 0 15px rgba(72, 149, 239, 0.6);
+}
+
 .star {
   position: absolute;
   background: #ffffff;

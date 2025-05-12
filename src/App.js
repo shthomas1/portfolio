@@ -1,8 +1,6 @@
 import "./styles/styles.css";
-import "./styles/global-background.css"; // Add this import
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import CardGrid from "./components/CardGrid";
+import "./styles/global-background.css";
+import "./styles/home.css";
 import RevPred from "./components/RevPred";
 import Bio from "./components/Bio";
 import S2 from "./components/S2";
@@ -12,7 +10,8 @@ import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
 import FreelanceMusic from "./components/FreelanceMusic";
 import Home from "./components/Home";
-import Starfield from "./components/Starfield"; // Import Starfield
+import Starfield from "./components/Starfield";
+import Layout from "./components/Layout";
 
 function AppContent() {
   const [cards, setCards] = useState([]);
@@ -73,9 +72,17 @@ function AppContent() {
 
   console.log("Current state of cards:", cards);
 
-  // Conditionally render header based on current route
-  const showHeader = location.pathname !== '/';
-  const isHomePage = location.pathname === '/';
+  // Determine which routes should use the Layout
+  const layoutRoutes = ['/', '/bio', '/projects'];
+  // Add a regex check for project detail routes (/project/1, /project/2, etc.)
+  const isProjectDetailRoute = /^\/project\/\d+$/.test(location.pathname);
+  
+  const currentPathname = location.pathname;
+  const useLayout = layoutRoutes.includes(currentPathname) || isProjectDetailRoute;
+  
+  // Conditionally render header based on current route and layout usage
+  const showHeader = currentPathname !== '/' && !useLayout;
+  const isHomePage = currentPathname === '/';
 
   // Apply special body class for home page
   useEffect(() => {
@@ -92,23 +99,31 @@ function AppContent() {
 
   return (
     <div className={`App ${isHomePage ? 'home-page-layout' : ''}`}>
-      {/* Add starfield to non-home pages */}
-      {!isHomePage && <Starfield />}
+      {/* Add starfield to non-home pages that aren't using the layout */}
+      {!isHomePage && !useLayout && <Starfield />}
       
       <div className="container">
-        {showHeader && <Header />}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/bio" element={<Bio />} />
+          {/* Home route */}
+          <Route path="/" element={<Layout cards={cards} />} />
+          
+          {/* Bio route */}
+          <Route path="/bio" element={<Layout cards={cards}><Bio /></Layout>} />
+          
+          {/* Projects routes - the Layout component handles rendering CardGrid */}
+          <Route path="/projects" element={<Layout cards={cards} />} />
+          
+          {/* Project detail routes - the Layout component handles rendering ProjectDetail */}
+          <Route path="/project/:id" element={<Layout cards={cards} />} />
+          
+          {/* Routes not using the layout */}
           <Route path="/s2" element={<S2 />} />
           <Route path="/portfolio" element={<Feedback />} />
           <Route path="/revpred" element={<RevPred />} />
           <Route path="/freelance-music" element={<FreelanceMusic />} />
           <Route path="/credit" element={<CrediTrust />} />
-          <Route path="/projects" element={<CardGrid cards={cards} />} />
         </Routes>
       </div>
-      {!isHomePage && <Footer />}
     </div>
   );
 }

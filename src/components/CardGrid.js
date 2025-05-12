@@ -20,8 +20,8 @@ export default function CardGrid({ cards = [] }) {
     : [];
 
   return (
-    <div className="container">
-      <h1 className ="projects-title">Here's a preview of my projects!</h1>
+    <div className="belly-content">
+      <h1 className="projects-title">My Projects</h1>
       
       <div>
         <input
@@ -33,9 +33,23 @@ export default function CardGrid({ cards = [] }) {
         />
 
         <div className="projects-grid">
-          {displayCards.map((card) => (
-            <Card card={card} key={card.id} />
-          ))}
+          {displayCards.length > 0 ? (
+            displayCards.map((card) => (
+              <Card card={card} key={card.id} />
+            ))
+          ) : (
+            <div className="no-results">
+              <p>No projects match your search criteria.</p>
+              {searchTerm && (
+                <button 
+                  className="clear-search" 
+                  onClick={() => setSearchTerm("")}
+                >
+                  Clear Search
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

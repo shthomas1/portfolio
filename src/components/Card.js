@@ -42,13 +42,6 @@ export default function Card({ card }) {
           </div>
         )}
 
-        {/* Remove year from details section since it's now a pill */}
-        {/* {card.year && (
-          <div className="card-detail">
-            <span className="detail-label">Year:</span> {card.year}
-          </div>
-        )} */}
-
         {card.results && (
           <div className="card-detail">
             <span className="detail-label">Key Results:</span> {card.results}
@@ -58,12 +51,13 @@ export default function Card({ card }) {
     </>
   );
 
-  // Return either a linked card or regular card based on whether link exists
-  return card.link ? (
-    <Link to={card.link} className="card-link">
+  // Create a project detail link using the card ID
+  const projectDetailLink = `/project/${card.id}`;
+  
+  // Always use the project detail route to keep within the Layout
+  return (
+    <Link to={projectDetailLink} className="card-link">
       <div className="project-card">{cardContent}</div>
     </Link>
-  ) : (
-    <div className="project-card">{cardContent}</div>
   );
 }

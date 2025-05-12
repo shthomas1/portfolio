@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "title": "CrediTrust AI",
+    "image": "6.jpg",
+    "subtitle": "Credit acceptance prediction platform for PNC Bank",
+    "description": "Credit acceptance prediction platform developed for PNC Bank's AIS SCLC 2025 challenge.",
+    "year": "2025",
+    "client": "PNC Bank (AIS SCLC 2025 Challenge)",
+    "role": "Solo Developer",
+    "duration": "November 2024 - January 2025",
+    "technologies": "C#, JavaScript, HTML, CSS",
+    "overview": "An AI-powered credit decision platform that predicts loan acceptance rates with over 70% accuracy, developed as part of the AIS 2025 Fintech challenge.",
+    "highlights": [
+      "Achieved over 70% prediction accuracy on random test sets",
+      "Contender for the AIS 2025 Fintech challenge",
+      "Integrated machine learning with financial data analysis",
+      "Created intuitive web interface for credit assessment"
+    ],
+    "challenges": [
+      "Processing complex financial data patterns",
+      "Meeting PNC Bank's regulatory compliance requirements",
+      "Balancing model accuracy with transparency"
+    ],
+    "outcomes": [
+      "Built comprehensive credit risk assessment tool",
+      "Recognition as AIS 2025 Fintech challenge contender",
+      "Platform ready for real-world deployment scenarios"
+    ],
+    "link": "/credit",
+    "type": "demo",
+    "results": "Contender for the AIS 2025 Fintech challenge. Prediction model was just over 70% accurate when testing against a random test set."
+  },
+  {
+    "id": 2,
+    "title": "Freelance Music",
+    "image": "FM Logo.png",
+    "subtitle": "Online music education scheduling platform",
+    "description": "Platform for teachers to post their music lesson schedule so students can join. A collaborative solution connecting music educators with students through an intuitive scheduling system.",
+    "year": "2025",
+    "client": "Private Music Academy",
+    "role": "Scrum Master / Data Engineer",
+    "duration": "4 months",
+    "technologies": "C#, JavaScript, HTML/CSS, MySQL, ASP.NET Core, Entity Framework",
+    "overview": "A full-stack web application that streamlines music education by allowing teachers to manage their schedules and students to book lessons effortlessly.",
+    "highlights": [
+      "First-time database hosting success",
+      "Successful implementation of Agile Methodology",
+      "Client was very satisfied with overall product and architecture of the project",
+      "Assignment was given an A+, and was one of two considered to present to the University's advisory board"
+    ],
+    "challenges": [
+      "Creating real-time schedule updates across user types",
+      "Designing user-friendly interface for non-technical teachers",
+      "Building scalable database for growing user base"
+    ],
+    "outcomes": [
+      "Streamlined lesson booking process for students",
+      "Teachers given full control of their lessons and payment strategy",
+      "Enabled data-driven insights for academy management",
+      "Secure data transfer and password management"
+    ],
+    "roleDetails": {
+      "scrumMaster": [
+        "Facilitated sprint planning",
+        "Managed product backlog with stakeholders",
+        "Resolved team blockers and improved velocity",
+        "Implemented agile best practices"
+      ],
+      "dataEngineer": [
+        "Designed and implemented MySQL database schema",
+        "Optimized database queries for performance",
+        "Created data migration and backup procedures",
+        "Implemented caching strategies"
+      ]
+    },
+    "team": [
+      {
+        "name": "Sean Thomas",
+        "role": "Scrum Master/Data Engineer",
+        "linkedIn": "https://linkedin.com/in/seanhthomas"
+      },
+      {
+        "name": "Jacob Leigeber",
+        "role": "Team Lead",
+        "linkedIn": "https://www.linkedin.com/in/jacob-leigeber-/"
+      },
+      {
+        "name": "Waylon Anderson",
+        "role": "UI/UX Design Lead",
+        "linkedIn": "https://www.linkedin.com/in/waylon-anderson/"
+      }
+    ],
+    "link": "/freelance-music",
+    "type": "demo",
+    "results": "Client was satisfied with app outcome, and we got a perfect grade in the course."
+  },
+  {
+    "id": 3,
+    "title": "Revenue Prediction Application",
+    "image": "revpred.png",
+    "subtitle": "Machine learning CLI for bar sales forecasting",
+    "description": "Command line interface application for predicting daily and weekly sales for a bar in Tuscaloosa, Alabama.",
+    "year": "2024",
+    "client": "Local Tuscaloosa Bar",
+    "role": "Solo Developer",
+    "duration": "3 weeks",
+    "technologies": "C#, .NET Core, Gradient Boosting, Machine Learning",
+    "overview": "A machine learning solution that predicts bar revenue with 98% accuracy by analyzing historical sales data, game day patterns, and betting trends.",
+    "highlights": [
+      "Achieved 98% prediction accuracy (±2% error margin)",
+      "Won 'Best-Logic Award' in programming challenge",
+      "Built custom Gradient Boosting model from scratch",
+      "Reduced inventory waste on game days by 15%"
+    ],
+    "challenges": [
+      "Limited historical data for training",
+      "Accounting for Alabama football game day impacts", 
+      "Creating user-friendly CLI for non-technical staff"
+    ],
+    "outcomes": [
+      "Optimized staffing schedules based on predictions",
+      "Self-improving model that adapts over time",
+      "Transformed daily operational decision-making"
+    ],
+    "link": "/revpred",
+    "type": "demo",
+    "results": "Predicted sales with a maximum of 2% error on real sales"
+  },
+  {
+    "id": 5,
+    "title": "Signal Surge LLC",
+    "image": "S2 Black.jpg",
+    "subtitle": "Digital technology consultancy focused on innovative solutions",
+    "description": "Digital technology consultancy focused on innovative solutions",
+    "year": "2024-Present",
+    "role": "Founder & Principal Consultant",
+    "technologies": "Software Development, IT Consulting, Network Solutions, Systems Integration, Design",
+    "overview": "Signal Surge LLC provides comprehensive technology consulting services with a focus on innovative solutions for businesses of all sizes.",
+    "features": [
+      {
+        "title": "Software Development",
+        "description": "Custom application development tailored to specific business needs, from concept to deployment and maintenance."
+      },
+      {
+        "title": "IT Consulting",
+        "description": "Strategic technology guidance to optimize your business operations, improve efficiency, and drive growth."
+      },
+      {
+        "title": "Network Solutions",
+        "description": "Secure network design and implementation to keep the business connected and protected."
+      },
+      {
+        "title": "Systems Integration",
+        "description": "Seamless integration of disparate systems to create unified, efficient technology ecosystems."
+      },
+      {
+        "title": "Design",
+        "description": "Creating intuitive user interfaces and engaging experiences that align with business goals and user needs."
+      }
+    ],
+    "approach": [
+      {
+        "step": "01",
+        "title": "Find",
+        "description": "Begin by understanding your business objectives, challenges, and unique requirements."
+      },
+      {
+        "step": "02",
+        "title": "Fix",
+        "description": "Develop a tailored strategy and solution architecture designed for your specific needs."
+      },
+      {
+        "step": "03",
+        "title": "Finish",
+        "description": "Build and implement solutions using the latest technologies and best practices."
+      },
+      {
+        "step": "04",
+        "title": "Exploit",
+        "description": "Gather intelligence for future operations."
+      },
+      {
+        "step": "05",
+        "title": "Analyze",
+        "description": "Determine what worked, what failed, and draw lessons from gathered data."
+      },
+      {
+        "step": "06",
+        "title": "Disseminate",
+        "description": "Outcomes and insights are documented to bolster future efforts."
+      }
+    ],
+    "link": "/s2",
+    "type": "live",
+    "results": "Ongoing consulting business providing technology solutions to clients."
+  }
+]
