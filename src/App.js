@@ -3,7 +3,6 @@ import "./styles/home.css";
 import Bio from "./components/Bio";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Feedback from "./components/Feedback";
 import Layout from "./components/Layout";
 
 function AppContent() {
@@ -64,14 +63,8 @@ function AppContent() {
   }, []);
 
   console.log("Current state of cards:", cards);
-
-  // Determine which routes should use the Layout
-  const layoutRoutes = ['/', '/bio', '/projects'];
-  // Add a regex check for project detail routes (/project/1, /project/2, etc.)
-  const isProjectDetailRoute = /^\/project\/\d+$/.test(location.pathname);
   
   const currentPathname = location.pathname;
-  const useLayout = layoutRoutes.includes(currentPathname) || isProjectDetailRoute;
   
   // Conditionally render header based on current route and layout usage
   const isHomePage = currentPathname === '/';
