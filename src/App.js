@@ -1,14 +1,9 @@
 import "./styles/styles.css";
 import "./styles/home.css";
-import RevPred from "./components/RevPred";
 import Bio from "./components/Bio";
-import S2 from "./components/S2";
-import CrediTrust from "./components/CrediTrust";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
-import FreelanceMusic from "./components/FreelanceMusic";
-import Starfield from "./components/Starfield";
 import Layout from "./components/Layout";
 
 function AppContent() {
@@ -96,8 +91,6 @@ function AppContent() {
 
   return (
     <div className={`App ${isHomePage ? 'home-page-layout' : ''}`}>
-      {/* Add starfield to non-home pages that aren't using the layout */}
-      {!isHomePage && !useLayout && <Starfield />}
       
       <div className="container">
         <Routes>
@@ -114,11 +107,6 @@ function AppContent() {
           <Route path="/project/:id" element={<Layout cards={cards} />} />
           
           {/* Routes not using the layout */}
-          <Route path="/s2" element={<S2 />} />
-          <Route path="/portfolio" element={<Feedback />} />
-          <Route path="/revpred" element={<RevPred />} />
-          <Route path="/freelance-music" element={<FreelanceMusic />} />
-          <Route path="/credit" element={<CrediTrust />} />
         </Routes>
       </div>
     </div>

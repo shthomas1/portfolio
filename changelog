@@ -1,3 +1,8 @@
+-- V.27 -- 05/12/2025 --
+Refactored code component classes
+
+Fixed some overlapping issues with z-indexing in the home page.
+
 -- V.26 -- 05/12/2025 --
 Several updates to styles and usability
 Web styling changed to match across the board with coloring

@@ -65,10 +65,12 @@
   margin-top: -1px; /* Connect with social links above */
 }
 
+
+
 .name-container {
   background: rgba(18, 18, 20, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(40, 40, 45, 0.8);
+  border: 1px solid #ff5722;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   padding: 2.5rem 3rem;
   flex: 1;
@@ -100,7 +102,8 @@
   border: 1px solid #ff5722;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   width: 50px;
-  z-index: 15;
+  z-index: 8;
+  border-bottom: none;
 }
 
 .ear-link {
@@ -131,7 +134,6 @@
 .hat {
   border: 1px solid #ff5722;
   z-index: 20;
-  margin-bottom: 0.5px;
 }
 
 .right-ear .vertical-text {
@@ -149,13 +151,14 @@
 .content-area {
   background: rgba(18, 18, 20, 0.8);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(40, 40, 45, 0.8);
+  border: 1px solid #ff5722;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 900px;
-  margin-top: -1px; /* Connect with name card above */
+  margin-top: -2px; /* Connect with name card above */
   padding: 2rem;
   min-height: 300px; /* Give content some minimum height */
+  z-index: 10;
 }
 
 /* Technologies Section */
@@ -163,6 +166,8 @@
   margin: 2rem 0;
   padding: 1.5rem;
   text-align: center;
+  border: #ff5722;
+  z-index: 10;
 }
 
 .tech-heading {
@@ -198,7 +203,7 @@
   left: 1rem;
   background: rgba(18, 18, 20, 0.8);
   color: white;
-  border: 1px solid rgba(40, 40, 45, 0.8);
+  border: 1px solid #ff5722;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -291,6 +296,7 @@
     left: 0.5rem;
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
+    border: #ff5722
   }
 
   .belly-content .project-hero {

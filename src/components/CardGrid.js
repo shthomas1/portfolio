@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import "../styles/styles.css";
 import Card from "./Card";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function CardGrid({ cards = [] }) {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate(); // Move this to the top so it's defined before use
-  
+
   // Define handleBackClick before using it
   const handleBackClick = (e) => {
     e.preventDefault();
-    navigate('/');
+    navigate("/");
   };
 
   const handleSearchChange = (e) => {
@@ -34,7 +34,7 @@ export default function CardGrid({ cards = [] }) {
         ← Back to Home
       </button>
       <h1 className="projects-title">My Projects</h1>
-      
+
       <div>
         <input
           type="text"
@@ -46,15 +46,13 @@ export default function CardGrid({ cards = [] }) {
 
         <div className="projects-grid">
           {displayCards.length > 0 ? (
-            displayCards.map((card) => (
-              <Card card={card} key={card.id} />
-            ))
+            displayCards.map((card) => <Card card={card} key={card.id} />)
           ) : (
             <div className="no-results">
               <p>No projects match your search criteria.</p>
               {searchTerm && (
-                <button 
-                  className="clear-search" 
+                <button
+                  className="clear-search"
                   onClick={() => setSearchTerm("")}
                 >
                   Clear Search
