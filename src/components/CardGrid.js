@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/styles.css";
 import Card from "./Card";
-import { useParams, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 export default function CardGrid({ cards = [] }) {
   const [searchTerm, setSearchTerm] = useState("");
