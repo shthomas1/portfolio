@@ -1,4 +1,19 @@
--- V.25 -- 05/12/2025
+-- V.26 -- 05/12/2025 --
+Several updates to styles and usability
+Web styling changed to match across the board with coloring
+    Centering has been messed up for the last 3 iterations.
+    Finally solved
+
+Two additional Cards filled out in Projects tab
+
+Languages and Technologies now pull from cardinfo.json so that I can add projects from the web interface later.
+Back Buttons added on individual project pages -> projects
+    and projects -> home
+    and bio -> home
+
+Individual projects now properly pulling from projects.json
+
+-- V.25 -- 05/12/2025 --
 Home page scaled back a bit. It was going in the wrong direction from some bad advice.
 
 to do:

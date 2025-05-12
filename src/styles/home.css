@@ -1,4 +1,4 @@
-/* home.css - Tree Layout with Space Theme */
+@import "./technology-tags.css";
 
 .home-container {
   display: flex;
@@ -34,7 +34,7 @@
 .social-hat {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .social-link {
@@ -97,17 +97,10 @@
   align-items: center;
   justify-content: center;
   background: rgba(18, 18, 20, 0.8);
-  border: 1px solid rgba(40, 40, 45, 0.8);
+  border: 1px solid #ff5722;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   width: 50px;
-}
-
-.left-ear {
-  border-right: none;
-}
-
-.right-ear {
-  border-left: none;
+  z-index: 15;
 }
 
 .ear-link {
@@ -135,91 +128,14 @@
   padding: 0.5rem;
 }
 
+.hat {
+  border: 1px solid #ff5722;
+  z-index: 20;
+  margin-bottom: 0.5px;
+}
+
 .right-ear .vertical-text {
   transform: none;
-}
-
-/* Featured Technologies Section */
-.featured-tech {
-  background: rgba(18, 18, 20, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(40, 40, 45, 0.8);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  padding: 1.8rem 2.5rem;
-  width: 100%;
-  max-width: 900px;
-  margin-top: -1px; /* Connect with name card above */
-}
-
-.tech-heading {
-  font-size: 1.6rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  padding-bottom: 10px;
-  border-bottom: 2px solid #ff5722;
-  position: relative;
-}
-
-.tech-heading::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #ff5722;
-}
-
-.tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-
-.tech-tag {
-  padding: 0.5rem 1.2rem;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.tech-tag:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.tech-tag-frontend {
-  background: rgba(41, 128, 185, 0.5);
-  color: #fff;
-  border: 1px solid rgba(41, 128, 185, 0.8);
-}
-
-.tech-tag-backend {
-  background: rgba(142, 68, 173, 0.5);
-  color: #fff;
-  border: 1px solid rgba(142, 68, 173, 0.8);
-}
-
-.tech-tag-database {
-  background: rgba(39, 174, 96, 0.5);
-  color: #fff;
-  border: 1px solid rgba(39, 174, 96, 0.8);
-}
-
-.tech-tag-data {
-  background: rgba(211, 167, 14, 0.5);
-  color: #fff;
-  border: 1px solid rgba(211, 167, 14, 0.8);
-}
-
-.tech-tag-security {
-  background: rgba(192, 57, 43, 0.5);
-  color: #fff;
-  border: 1px solid rgba(192, 57, 43, 0.8);
 }
 
 /* Active link styling */
@@ -242,54 +158,36 @@
   min-height: 300px; /* Give content some minimum height */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .name-card-with-ears {
-    flex-direction: column;
-  }
-  
-  .ear {
-    width: 100%;
-    height: 40px;
-    border: 1px solid rgba(40, 40, 45, 0.8);
-  }
-  
-  .vertical-text {
-    writing-mode: horizontal-tb;
-    transform: none;
-    padding: 0.5rem 1rem;
-  }
-  
-  .name {
-    font-size: 3rem;
-  }
-  
-  .social-hat {
-    flex-direction: column;
-    gap: 0;
-    align-items: center;
-  }
-  
-  .social-link {
-    margin-bottom: -1px;
-  }
-  
-  .featured-tech {
-    padding: 1.5rem;
-  }
-  
-  .content-area {
-    padding: 1rem;
-  }
+/* Technologies Section */
+.belly-technologies {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  text-align: center;
 }
 
-/* Add these styles to your home.css or projects.css file */
+.tech-heading {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #fff;
+  border-bottom: 2px solid #ff5722;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  left: 50%;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
 
 /* Belly content container */
 .belly-content {
   width: 100%;
   position: relative;
-  padding: 1rem;
+  padding: 0rem;
   color: #e0e0e0;
 }
 
@@ -352,103 +250,96 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .belly-content {
-    padding: 0.5rem;
+  .name-card-with-ears {
+    flex-direction: column;
   }
-  
+
+  .ear {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ff5722;
+    margin-top: 1px;
+  }
+
+  .vertical-text {
+    writing-mode: horizontal-tb;
+    transform: none;
+    padding: 0.5rem 1rem;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .social-hat {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+
+  .social-link {
+    margin-bottom: -1px;
+  }
+
+  .content-area,
+  .belly-content {
+    padding: 1rem;
+  }
+
   .back-button {
     top: 0.5rem;
     left: 0.5rem;
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
   }
-  
+
   .belly-content .project-hero {
     margin-top: 2.5rem;
   }
-  
+
   .belly-content .project-title {
     font-size: 1.8rem;
   }
 }
 
-/* Add these styles to your home.css file */
+@media (max-width: 480px) {
+  .belly-technologies {
+    padding: 1rem;
+  }
 
-.belly-technologies {
-  padding: 2rem 1rem;
-  text-align: center;
-}
+  .tech-heading {
+    font-size: 1.5rem;
+  }
+  /* Make cards smaller on mobile devices */
+  .project-card {
+    max-width: 85%;
+    margin: 0;
+  }
 
-.belly-technologies .tech-heading {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 2rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  position: relative;
-  display: inline-block;
-  padding-bottom: 10px;
-}
+  /* Adjust card content for smaller size */
+  .card-info {
+    padding: 0.8rem;
+  }
 
-.belly-technologies .tech-heading:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background-color: #ff5722;
-  border-radius: 1.5px;
-}
+  .card-title {
+    font-size: 1.2rem;
+  }
 
-.belly-technologies .tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 2rem;
-}
+  .card-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
 
-.belly-technologies .tech-tag {
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
+  /* Make tech pills smaller */
+  .tech-pill {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+  }
 
-.belly-technologies .tech-tag:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Category-specific colors - larger and more vibrant for the belly */
-.belly-technologies .tech-tag-frontend {
-  background: rgba(41, 128, 185, 0.7);
-  color: #fff;
-  border: 1px solid rgba(41, 128, 185, 1);
-}
-
-.belly-technologies .tech-tag-backend {
-  background: rgba(142, 68, 173, 0.7);
-  color: #fff;
-  border: 1px solid rgba(142, 68, 173, 1);
-}
-
-.belly-technologies .tech-tag-database {
-  background: rgba(39, 174, 96, 0.7);
-  color: #fff;
-  border: 1px solid rgba(39, 174, 96, 1);
-}
-
-.belly-technologies .tech-tag-data {
-  background: rgba(211, 167, 14, 0.7);
-  color: #fff;
-  border: 1px solid rgba(211, 167, 14, 1);
-}
-
-.belly-technologies .tech-tag-security {
-  background: rgba(192, 57, 43, 0.7);
-  color: #fff;
-  border: 1px solid rgba(192, 57, 43, 1);
+  /* Smaller badges */
+  .year-pill,
+  .project-type {
+    padding: 4px 12px;
+    font-size: 0.75rem;
+  }
 }

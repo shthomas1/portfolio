@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/styles.css";
 import { Link } from "react-router-dom";
+import { getTechCategory } from "../utils/techCategories"; // Import the utility
 
 export default function Card({ card }) {
   if (!card) {
@@ -35,7 +36,10 @@ export default function Card({ card }) {
         {card.technologies && (
           <div className="card-tech-stack">
             {card.technologies.split(", ").map((tech, index) => (
-              <span key={index} className="tech-pill">
+              <span 
+                key={index} 
+                className={`tech-pill tech-tag-${getTechCategory(tech)}`}
+              >
                 {tech.trim()}
               </span>
             ))}

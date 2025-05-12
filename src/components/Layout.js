@@ -3,10 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import "../styles/home.css";
 import CardGrid from './CardGrid';
 import ProjectDetail from './ProjectDetail';
+import { getTechCategory } from "../utils/techCategories"; // Import the utility
 
 const Layout = ({ children, cards = [] }) => {
   const location = useLocation();
   const [technologies, setTechnologies] = useState([]);
+  const [projectsData, setProjectsData] = useState([]);
+  const [cardsData, setCardsData] = useState([]);
+  const [, setLoading] = useState(true);
 
   // Function to extract unique technologies from card data
   const extractTechnologies = (cards) => {
@@ -21,31 +25,31 @@ const Layout = ({ children, cards = [] }) => {
     // Create unique list
     const uniqueTechs = [...new Set(techArray)];
     
-    // Map to category
-    return uniqueTechs.map((tech, index) => {
-      let category = "frontend";
-      
-      // Define categories based on tech name
-      if (tech.includes("C#") || tech.includes("Rust")) {
-        category = "backend";
-      } else if (tech.includes("MySQL")) {
-        category = "database";
-      } else if (tech.includes("Machine Learning")) {
-        category = "data";
-      } else if (tech.includes("AES-256") || tech.includes("encryption")) {
-        category = "security";
-      }
-      
+    // Map to category using the shared utility
+    const categorizedTechs = uniqueTechs.map((tech, index) => {
       return {
         id: index + 1,
         name: tech,
-        category: category
+        category: getTechCategory(tech)
       };
+    });
+
+    // Sort by category
+    const categoryOrder = ["frontend", "backend", "database", "data", "security", "service"];
+    
+    return categorizedTechs.sort((a, b) => {
+      const indexA = categoryOrder.indexOf(a.category);
+      const indexB = categoryOrder.indexOf(b.category);
+      return indexA - indexB;
     });
   };
 
+  // Load card data and extract technologies
   useEffect(() => {
-    fetch("cardinfo.json")
+    setLoading(true);
+    
+    // Fetch card data from cardinfo.json
+    fetch("/cardinfo.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -53,34 +57,113 @@ const Layout = ({ children, cards = [] }) => {
         return response.json();
       })
       .then((data) => {
+        console.log("Successfully loaded card data:", data);
+        setCardsData(data);
+        
+        // Extract technologies from the card data
         const techList = extractTechnologies(data);
         setTechnologies(techList);
+        
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error loading from /cardinfo.json:", error);
         
         // Try to use the cards prop if available
         if (cards && cards.length > 0) {
+          console.log("Using cards prop as fallback:", cards);
+          setCardsData(cards);
+          
+          // Extract technologies from cards prop
           const techList = extractTechnologies(cards);
           setTechnologies(techList);
         } else {
-          // Fallback to hardcoded data
-          const fallbackTechnologies = [
-            { id: 1, name: "React", category: "frontend" },
-            { id: 2, name: "C#", category: "backend" },
-            { id: 3, name: "JavaScript", category: "frontend" },
-            { id: 4, name: "HTML/CSS", category: "frontend" },
-            { id: 5, name: "MySQL", category: "database" },
-            { id: 6, name: "Machine Learning", category: "data" },
-            { id: 7, name: "Rust", category: "backend" },
-            { id: 8, name: "JSX", category: "frontend" },
-            { id: 9, name: "AES-256", category: "security" }
+          console.log("Using hardcoded fallback data");
+          // Fallback to projects data from the example
+          const fallbackData = [
+            {
+              "id": 1,
+              "title": "CrediTrust AI",
+              "image": "6.jpg",
+              "description": "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
+              "role": "Solo Developer",
+              "technologies": "C#, Javascript, html, css, Random Forest",
+              "year": "2025",
+              "results": "Contender for the AIS 2025 Fintech challenge. Prediction model was just over 70% accurate when testing against a random test set.",
+              "link": "/credit",
+              "type": "demo"
+            },
+            {
+              "id": 2,
+              "title": "Freelance Music",
+              "image": "FM Logo.png",
+              "description": "Platform for teachers to post their music lesson schedule online for students to join. This was a school assignment.",
+              "role": "Scrum Master/Data Engineer",
+              "technologies": "C#, Javascript, html, MySQL",
+              "year": "2025",
+              "results": "Client was satisfied with app outcome, and we got a perfect grade in the course.",
+              "link": "/freelance-music",
+              "type": "demo"
+            },
+            {
+              "id": 3,
+              "title": "Revenue Prediction App",
+              "image": "revpred.png",
+              "description": "Command line interface for predicting sales for a Bar in Tuscaloosa",
+              "role": "Solo Developer",
+              "technologies": "C#, Machine Learning, Gradient Boosting",
+              "year": "2024",
+              "results": "Predicted sales with a maximum of 2% error on real sales",
+              "link": "/RevPred",
+              "type": "demo"
+            },
+            {
+              "id": 4,
+              "title": "Secure Communications App",
+              "image": "5.jpg",
+              "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",
+              "role": "Solo Developer",
+              "technologies": "C#, Rust, AES-256 encryption, Javascript, html",
+              "year": "2025",
+              "results": "Prototype used successfully in training with Army Special Forces.",
+              "link": "/military-comms",
+              "type": "archived"
+            }
           ];
           
-          setTechnologies(fallbackTechnologies);
+          setCardsData(fallbackData);
+          const techList = extractTechnologies(fallbackData);
+          setTechnologies(techList);
         }
+        
+        setLoading(false);
       });
   }, [cards]);
+
+  // Load project data for project detail pages
+  useEffect(() => {
+    // Only fetch projects data if we're on a project detail page
+    const isProjectDetail = location.pathname.startsWith('/project/');
+    
+    if (isProjectDetail) {
+      fetch("/projects.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Successfully loaded project data:", data);
+          setProjectsData(data);
+        })
+        .catch((error) => {
+          console.error("Error loading from /projects.json:", error);
+          // Fallback to the card data if available
+          setProjectsData(cardsData.length > 0 ? cardsData : []);
+        });
+    }
+  }, [location.pathname, cardsData]);
 
   // Function to check if a link is active - projects stays active when viewing project details
   const isActive = (path) => {
@@ -94,7 +177,7 @@ const Layout = ({ children, cards = [] }) => {
   // Determine if we're on a project detail page
   const isProjectDetail = location.pathname.startsWith('/project/');
 
-  // Technologies component for the belly area
+  // Technologies component for the belly area - flat layout with color-coded categories
   const TechnologiesSection = () => (
     <div className="belly-technologies">
       <h2 className="tech-heading">Languages and Technologies</h2>
@@ -120,13 +203,13 @@ const Layout = ({ children, cards = [] }) => {
           <div className="social-hat">
             <Link 
               to="/bio" 
-              className={`social-link left-hat ${isActive('/bio') ? 'active-link' : ''}`}
+              className={`social-link hat ${isActive('/bio') ? 'active-link' : ''}`}
             >
               Read Bio
             </Link>
             <Link 
               to="/projects" 
-              className={`social-link right-hat ${isActive('/projects') ? 'active-link' : ''}`}
+              className={`social-link hat ${isActive('/projects') ? 'active-link' : ''}`}
             >
               View Projects
             </Link>
@@ -136,7 +219,7 @@ const Layout = ({ children, cards = [] }) => {
           <div className="name-card-with-ears">
             <div className="ear left-ear">
               <a 
-                href="https://medium.com/@seanthomas" 
+                href="https://medium.com/@sean.h.thomas2" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="ear-link"
@@ -168,8 +251,8 @@ const Layout = ({ children, cards = [] }) => {
           {/* Conditionally render content based on route */}
           {location.pathname === '/' && <TechnologiesSection />}
           {location.pathname === '/bio' && children}
-          {location.pathname === '/projects' && <CardGrid cards={cards} />}
-          {isProjectDetail && <ProjectDetail cards={cards} />}
+          {location.pathname === '/projects' && <CardGrid cards={cardsData} />}
+          {isProjectDetail && <ProjectDetail cards={projectsData.length > 0 ? projectsData : cardsData} />}
         </div>
       </div>
     </div>

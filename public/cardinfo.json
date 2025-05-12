@@ -2,10 +2,9 @@
     {
     "id": 1,
     "title": "CrediTrust AI",
-    "image": "6.jpg",
     "description": "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
     "role": "Solo Developer",
-    "technologies": "C#, Javascript, html, css",
+    "technologies": "C#, Javascript, html, css, Gradient Boosting",
     "year": "2025",
     "results": "Contender for the AIS 2025 Fintech challenge. Prediction model was just over 70% accurate when testing against a random test set.",
     "link": "/credit",
@@ -14,7 +13,6 @@
   {
     "id": 2,
     "title": "Freelance Music",
-    "image": "FM Logo.png",
     "description": "Platform for teachers to post their music lesson schedule online for students to join. This was a school assignment.",
     "role": "Scrum Master/Data Engineer",
     "technologies": "C#, Javascript, html, MySQL",
@@ -26,10 +24,9 @@
   {
     "id": 3,
     "title": "Revenue Prediction App",
-    "image": "revpred.png",
     "description": "Command line interface for predicting sales for a Bar in Tuscaloosa",
     "role": "Solo Developer",
-    "technologies": "C#, Machine Learning",
+    "technologies": "C#, Machine Learning, Random Forest",
     "year": "2024",
     "results": "Predicted sales with a maximum of 2% error on real sales",
     "link": "/RevPred",
@@ -38,13 +35,23 @@
   {
     "id": 4,
     "title": "Secure Communications App",
-    "image": "5.jpg",
     "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",
     "role": "Solo Developer",
-    "technologies": "C#, Rust, AES-256 encryption, Javascript, html",
+    "technologies": "C#, AES-256 encryption, One-Time Pads, Javascript, html",
     "year": "2025",
     "results": "Prototype used successfully in training with Army Special Forces.",
     "link": "/military-comms",
+    "type": "archived"
+  },
+  {
+    "id": 5,
+    "title": "RVM Forward Operating Base",
+    "description": "This was a Roblox world that I built during the Covid-19 pandemic.",
+    "role": "Solo Developer",
+    "technologies": "Lua, Roblox Studio",
+    "year": "2025",
+    "results": "Users able to use this world for event planning and practice, our team practiced game mechanics successfully.",
+    "link": "/rvm-fob",
     "type": "archived"
   }
 ]

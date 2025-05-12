@@ -2,7 +2,6 @@
   {
     "id": 1,
     "title": "CrediTrust AI",
-    "image": "6.jpg",
     "subtitle": "Credit acceptance prediction platform for PNC Bank",
     "description": "Credit acceptance prediction platform developed for PNC Bank's AIS SCLC 2025 challenge.",
     "year": "2025",
@@ -34,7 +33,6 @@
   {
     "id": 2,
     "title": "Freelance Music",
-    "image": "FM Logo.png",
     "subtitle": "Online music education scheduling platform",
     "description": "Platform for teachers to post their music lesson schedule so students can join. A collaborative solution connecting music educators with students through an intuitive scheduling system.",
     "year": "2025",
@@ -98,7 +96,6 @@
   {
     "id": 3,
     "title": "Revenue Prediction Application",
-    "image": "revpred.png",
     "subtitle": "Machine learning CLI for bar sales forecasting",
     "description": "Command line interface application for predicting daily and weekly sales for a bar in Tuscaloosa, Alabama.",
     "year": "2024",
@@ -115,7 +112,7 @@
     ],
     "challenges": [
       "Limited historical data for training",
-      "Accounting for Alabama football game day impacts", 
+      "Accounting for Alabama football game day impacts",
       "Creating user-friendly CLI for non-technical staff"
     ],
     "outcomes": [
@@ -128,71 +125,46 @@
     "results": "Predicted sales with a maximum of 2% error on real sales"
   },
   {
+    "id": 4,
+    "title": "Secure Communications App",
+    "subtitle": "This application was a demo for a Full-stack Business Programming course. Its intent was to showcase one time pads and their unbreakable encryption.",
+    "year": "2025",
+    "client": "Signal Surge LLC Internal",
+    "role": "Solo Full-Stack Developer",
+    "duration": "1 Week",
+    "technologies": "C#, JavaScript, HTML/CSS, One-Time Pads, AES-256 Encryption",
+    "overview": "A full-stack web application and command-line interface that allowed a users to create one-time pads, use them and automatically delete them when a message was sent for maximum security.",
+    "highlights": [
+      "Special Forces tested and approved",
+      "First time use of Factory Pattern",
+      "Users were very satisfied with overall product and architecture of the project",
+      "Project was greenlit, and I did not have to take my final exam"
+    ],
+    "challenges": [
+      "Single use encryption is a difficult concept to conceptualize",
+      "Implementation of Device and Server nodes proved to be harder than I expected",
+      "Maintenance of Device pads from the server side without communication"
+    ],
+    "outcomes": [
+      "Special Forces teammates were able to communicate key events in a training scenario effectively",
+      "Server-side control of One-Time pads was very effective",
+      "Device storage management for smaller-space or more discreet devices achieved",
+      "Secure end-to-end encryption for data transfer"
+    ],
+    "link": "/military-comms",
+    "type": "archived",
+    "results": "Client was satisfied with app outcome, and we got a perfect grade in the course."
+  },
+  {
     "id": 5,
-    "title": "Signal Surge LLC",
-    "image": "S2 Black.jpg",
-    "subtitle": "Digital technology consultancy focused on innovative solutions",
-    "description": "Digital technology consultancy focused on innovative solutions",
-    "year": "2024-Present",
-    "role": "Founder & Principal Consultant",
-    "technologies": "Software Development, IT Consulting, Network Solutions, Systems Integration, Design",
-    "overview": "Signal Surge LLC provides comprehensive technology consulting services with a focus on innovative solutions for businesses of all sizes.",
-    "features": [
-      {
-        "title": "Software Development",
-        "description": "Custom application development tailored to specific business needs, from concept to deployment and maintenance."
-      },
-      {
-        "title": "IT Consulting",
-        "description": "Strategic technology guidance to optimize your business operations, improve efficiency, and drive growth."
-      },
-      {
-        "title": "Network Solutions",
-        "description": "Secure network design and implementation to keep the business connected and protected."
-      },
-      {
-        "title": "Systems Integration",
-        "description": "Seamless integration of disparate systems to create unified, efficient technology ecosystems."
-      },
-      {
-        "title": "Design",
-        "description": "Creating intuitive user interfaces and engaging experiences that align with business goals and user needs."
-      }
-    ],
-    "approach": [
-      {
-        "step": "01",
-        "title": "Find",
-        "description": "Begin by understanding your business objectives, challenges, and unique requirements."
-      },
-      {
-        "step": "02",
-        "title": "Fix",
-        "description": "Develop a tailored strategy and solution architecture designed for your specific needs."
-      },
-      {
-        "step": "03",
-        "title": "Finish",
-        "description": "Build and implement solutions using the latest technologies and best practices."
-      },
-      {
-        "step": "04",
-        "title": "Exploit",
-        "description": "Gather intelligence for future operations."
-      },
-      {
-        "step": "05",
-        "title": "Analyze",
-        "description": "Determine what worked, what failed, and draw lessons from gathered data."
-      },
-      {
-        "step": "06",
-        "title": "Disseminate",
-        "description": "Outcomes and insights are documented to bolster future efforts."
-      }
-    ],
-    "link": "/s2",
-    "type": "live",
-    "results": "Ongoing consulting business providing technology solutions to clients."
+    "title": "Red Velvet Mafia Forward Operating Base",
+    "subtitle": "Roblox event practice world",
+    "description": "",
+    "year": "2022",
+    "client": "Red Velvet Mafia Roblox Community",
+    "role": "Solo Developer",
+    "duration": "7 months",
+    "technologies": "Lua, Roblox Studio",
+    "overview": "A roblox world complete with several real-world and in-game replicas to mimic realistic movements for the Roblox game -- Jailbreak"
   }
 ]

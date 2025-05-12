@@ -1,6 +1,8 @@
-/* Base Styles */
+@import "./technology-tags.css";
+
+/* ======= Base Styles ======= */
 body {
-  background: #0a0a0f; /* Dark space background */
+  background: #0a0a0f;
   color: #ffffff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -8,7 +10,6 @@ body {
   min-height: 100vh;
 }
 
-/* Container styles */
 .container {
   max-width: 1600px;
   margin: 0 auto;
@@ -17,7 +18,7 @@ body {
   z-index: 1;
 }
 
-/* Header Styles */
+/* ======= Header & Navigation ======= */
 .header {
   margin-bottom: 1rem;
   text-align: center;
@@ -31,7 +32,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* Navigation Styles */
 nav {
   display: flex;
   justify-content: center;
@@ -44,22 +44,22 @@ nav ul {
   margin: 0;
   display: flex;
   gap: 1rem;
-  align-items: stretch;  /* Makes all items same height */
+  align-items: stretch;
 }
 
 nav ul li {
   margin: 0;
-  display: flex;  /* Makes li a flex container */
+  display: flex;
 }
 
 .nav-links {
-  flex-wrap: wrap ;
+  flex-wrap: wrap;
 }
 
 .nav-link {
-  display: flex;  /* Changed to flex */
-  align-items: center;  /* Vertically centers the text */
-  justify-content: center;  /* Horizontally centers the text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.05rem 1rem;
   background: transparent;
   border: 2px solid #ff5722;
@@ -69,9 +69,9 @@ nav ul li {
   font-weight: 500;
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  min-height: 48px;  /* Sets a minimum height for all buttons */
+  min-height: 48px;
   max-width: 70px;
-  height: 100%;  /* Takes full height of parent li */
+  height: 100%;
 }
 
 .nav-link:hover {
@@ -86,63 +86,92 @@ nav a:active {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Styles */
-.footer {
-  margin-top: 3rem;
-  padding: 1.5rem 0;
-  text-align: center;
-  background-color: #222;
-  color: #eee;
-}
-
-/* Projects Section */
+/* ======= Projects Section ======= */
 .projects-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff; /* Changed from #333 to white */
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-/* Search Input Styling */
-.search-input {
+/* Search Input */
+.search-container {
   width: 100%;
   max-width: 600px;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.search-input {
+  width: 100%;
   padding: 0.8rem 1rem;
   font-size: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  margin: auto auto;
-  display: block;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(25, 25, 30, 0.7);
   color: #ffffff;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .search-input:focus {
   outline: none;
   border-color: #ff5722;
   box-shadow: 0 0 15px rgba(255, 87, 34, 0.3);
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .search-input::placeholder {
-  color: #aaaaaa;
+  color: rgba(255, 255, 255, 0.5);
 }
 
+/* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  width: 100%;
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
   margin: 2rem auto;
-  max-width: 1200px;
   padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-/* Card Styling */
+/* No Results State */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(25, 25, 30, 0.5);
+  border: 1px solid rgba(60, 60, 70, 0.8);
+  border-radius: 8px;
+}
+
+.no-results p {
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+.clear-search {
+  background: rgba(255, 87, 34, 0.2);
+  color: #ff5722;
+  border: 1px solid #ff5722;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-search:hover {
+  background: #ff5722;
+  color: white;
+}
+
+/* ======= Card Styling ======= */
 .project-card {
   display: flex;
   flex-direction: column;
@@ -158,6 +187,14 @@ nav a:active {
   max-width: 100%;
 }
 
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(255, 87, 34, 0.3);
+  border-color: rgba(255, 87, 34, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Card Types */
 .project-type {
   position: absolute;
   top: 15px;
@@ -189,46 +226,11 @@ nav a:active {
   color: white;
   box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
 }
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(255, 87, 34, 0.3);
-  border-color: rgba(255, 87, 34, 0.5);
-  background: rgba(255, 255, 255, 0.08);
-}
 
-.project-image-container {
-  position: relative;
-  width: 100%;
-  padding-top: 100%; /* Square aspect ratio */
-  overflow: hidden;
-}
-
-.project-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-image {
-  transform: scale(1.05);
-}
-
-/* Card info section */
-.card-info {
-  padding: 3.5rem 1.5rem 0.1rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  text-align: left;
-}
-
-/* Year pill in top left corner */
+/* Year pill */
 .year-pill {
   position: absolute;
+  margin-bottom: 2.5rem;
   top: 15px;
   left: 15px;
   padding: 6px 16px;
@@ -242,8 +244,17 @@ nav a:active {
   box-shadow: 0 0 15px rgba(255, 87, 34, 0.3);
 }
 
+/* Card Content */
+.card-info {
+  padding: 1.5rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
 .card-title {
-  margin-top: 2rem;
+  margin-top: 1.6rem;
   margin-bottom: 0.75rem;
   font-size: 1.5rem;
   font-weight: 700;
@@ -261,7 +272,6 @@ nav a:active {
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
   color: #aaaaaa;
-  text-align: left;
 }
 
 .card-detail:last-child {
@@ -270,38 +280,18 @@ nav a:active {
   margin-top: auto;
 }
 
-/* Tech stack pills */
-.card-tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-  margin-bottom: 1rem;
-}
-
-.tech-pill {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.tech-pill:hover {
-  background: #ff5722;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
-  border-color: #ff5722;
-}
-
 .detail-label {
   font-weight: 600;
   color: #ff5722;
   margin-right: 0.5rem;
+}
+
+/* Card Tech Stack */
+.card-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0;
 }
 
 /* Card Links */
@@ -313,497 +303,60 @@ nav a:active {
   height: 100%;
 }
 
-.card-link:hover {
-  transform: translateY(-5px);
+/* ======= Footer ======= */
+.footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  background-color: #222;
+  color: #eee;
 }
 
-.card-link:hover .project-card {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.card-link .project-card {
-  transition: box-shadow 0.2s ease;
-  cursor: pointer;
-}
-
-/* Image styles */
+/* ======= Utility Classes ======= */
 .round-image {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  overflow: hidden;
 }
 
-/* Section title */
-.section-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #d63031; /* Alabama crimson */
-  color: #333;
-}
-
-/* Contact links */
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.contact-link-icon {
-  margin-right: 10px;
-}
-
-/* Company Page Styles */
-.company-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.company-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.company-logo {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 15px;
-}
-
-.company-name {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.company-tagline {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.company-section {
-  margin-bottom: 50px;
-}
-
-.company-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color: #444;
-}
-
-/* Services grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
-}
-
-.service-card {
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-}
-
-.service-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.service-description {
-  color: #555;
-  line-height: 1.5;
-}
-
-/* Approach steps */
-.approach-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.approach-step {
-  position: relative;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.approach-step:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-}
-
-.step-number {
+/* ======= Back Button ======= */
+.back-button {
   position: absolute;
-  top: -15px;
-  right: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #d63031; /* Alabama crimson */
-}
-
-.step-title {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.step-description {
-  color: #555;
-  line-height: 1.5;
-}
-
-/* Benefits list */
-.benefits-list {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
-}
-
-.benefit-item {
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.benefit-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-}
-
-.benefit-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.benefit-description {
-  color: #555;
-  line-height: 1.5;
-}
-
-/* Contact section */
-.contact-section {
-  text-align: center;
-}
-
-.contact-text {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #444;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.contact-button,
-.contact-link {
-  padding: 12px 24px;
-  background-color: #d63031; /* Alabama crimson */
+  top: 1rem;
+  left: 1rem;
+  background: rgba(18, 18, 20, 0.8);
   color: white;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-
-.contact-button:hover,
-.contact-link:hover {
-  background-color: #ff00008a;
-  color: black;
-}
-
-/* Feedback Page Styles */
-.feedback-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.feedback-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.feedback-header h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.feedback-header p {
-  font-size: 1.1rem;
-  color: #666;
-}
-
-.feedback-form {
-  background-color: #f9f9f9;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #444;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(40, 40, 45, 0.8);
+  padding: 0.5rem 1rem;
   border-radius: 4px;
-  font-size: 1rem;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.rating-slider {
-  display: flex;
-  align-items: center;
-}
-
-.rating-slider input[type="range"] {
-  flex: 1;
-  height: 8px;
-  -webkit-appearance: none;
-  background: #e0e0e0;
-  border-radius: 4px;
-  outline: none;
-  margin-right: 15px;
-}
-
-.rating-slider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #d63031; /* Alabama crimson */
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  z-index: 10;
 }
 
-.rating-slider input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #d63031; /* Alabama crimson */
-  cursor: pointer;
-  border: none;
-}
-
-.rating-value {
-  font-weight: bold;
-  min-width: 40px;
-  text-align: right;
-}
-
-.aspect-rating {
-  margin-bottom: 15px;
-}
-
-.aspect-rating label {
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.required {
-  color: #d63031; /* Alabama crimson */
-}
-
-.feedback-button {
-  background-color: #d63031; /* Alabama crimson */
+.back-button:hover {
+  background: #ff5722;
   color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: block;
-  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
 }
 
-.feedback-button:hover {
-  background-color: #b52b2b;
-}
-
-.feedback-error {
-  background-color: #ffe6e6;
-  color: #d63031; /* Alabama crimson */
-  padding: 12px;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  font-weight: 500;
-  border-left: 4px solid #d63031;
-}
-
-.feedback-success {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.feedback-success h2 {
-  color: #2a9d8f;
-  margin-bottom: 15px;
-}
-
-.feedback-success p {
-  margin-bottom: 25px;
-  color: #555;
-}
-
-/* Responsive Styles */
-@media (min-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .approach-steps {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .approach-step {
-    flex-basis: calc(33.33% - 20px);
-  }
-
-  .benefits-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
-  }
-
-  .projects-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-info {
-    padding: 1.2rem;
-  }
-
-  .card-title {
-    font-size: 1.3rem;
-  }
-
-  .card-description {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  }
-
-  .banner-title {
-    font-size: 6vw;
-    right: 5%;
-    bottom: 30%;
-  }
-
-  .profile-photo {
-    left: 5%;
-    width: 25%;
-  }
-}
-
-@media (max-width: 600px) {
-  .feedback-form {
-    padding: 15px;
-  }
-
-  .feedback-button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-
-  .banner-title {
-    font-size: 8vw;
-    right: 5%;
-    bottom: 20%;
-  }
-
-  .profile-photo {
-    width: 30%;
-    left: 5%;
-  }
-}
-
-/* Banner container setup */
+/* ======= Banner Styling ======= */
 .banner-container {
   position: relative;
   width: 100%;
-  overflow: hidden; /* Keep content within bounds */
+  overflow: hidden;
 }
 
-/* Banner image full width */
 .banner-image {
   width: 100%;
   display: block;
   position: relative;
   border-radius: 25px;
-  filter: blur(8px) opacity(0.5)
+  filter: blur(8px) opacity(0.5);
 }
 
-/* Banner content positioning */
 .banner-content {
   position: absolute;
   top: 0;
@@ -816,16 +369,14 @@ nav a:active {
   padding: 0 20%;
 }
 
-/* Profile photo scaling */
 .profile-photo {
-  position: relative; /* For LinkedIn logo positioning */
-  width: 16vw; /* Viewport-relative sizing */
-  max-width: 180px; /* Cap the maximum size */
-  min-width: 60px; /* Ensure visibility on small screens */
-  margin-right: 5%; /* Space between photo and text */
+  position: relative;
+  width: 16vw;
+  max-width: 180px;
+  min-width: 60px;
+  margin-right: 5%;
 }
 
-/* Profile image styling */
 .round-image2 {
   width: 100%;
   height: auto;
@@ -835,12 +386,11 @@ nav a:active {
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.3);
 }
 
-/* LinkedIn logo positioning */
 .linkedin-logo {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 25%; /* Size relative to profile photo */
+  width: 25%;
   height: auto;
   z-index: 3;
 }
@@ -850,16 +400,14 @@ nav a:active {
   height: auto;
 }
 
-/* Banner title (name) styling */
 .banner-title {
-  font-size: 4vw; /* Viewport-relative sizing */
+  font-size: 4vw;
   font-family: "Source Code Pro", monospace;
-  white-space: nowrap; /* Prevent wrapping */
+  white-space: nowrap;
 }
 
-/* Bracket and name color */
 .bracket {
-  color: #ff5722; /* Alabama crimson */
+  color: #ff5722;
   display: inline-block;
 }
 
@@ -869,8 +417,31 @@ nav a:active {
   margin: 0 0.3vw;
 }
 
-/* Banner Responsive adjustments */
+/* ======= Loading & Error States ======= */
+.loading-message,
+.error-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+}
+
+.error-message {
+  color: #ff5722;
+}
+
+/* ======= Responsive Styles ======= */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding: 0 1rem;
+  }
+  
   .banner-content {
     padding: 0 5%;
   }
@@ -882,9 +453,33 @@ nav a:active {
   .profile-photo {
     width: 18vw;
   }
+  
+  .back-button {
+    top: 0.7rem;
+    left: 0.7rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .search-input {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.9rem;
+  }
+  
+  .card-info {
+    padding: 1.2rem 1rem;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+  }
+  
   .banner-title {
     font-size: 6vw;
   }
@@ -892,72 +487,21 @@ nav a:active {
   .profile-photo {
     width: 20vw;
   }
-}
+  
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  
+  .projects-title {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem;
+  }
 
-/* Add these styles to your styles.css file */
-
-.projects-title {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-.search-input {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  margin-bottom: 1.5rem;
-  background: rgba(25, 25, 30, 0.7);
-  border: 1px solid rgba(60, 60, 70, 0.8);
-  color: white;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.search-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #ff5722;
-  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.3);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.no-results {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 3rem 1rem;
-  background: rgba(25, 25, 30, 0.5);
-  border: 1px solid rgba(60, 60, 70, 0.8);
-  border-radius: 8px;
-}
-
-.no-results p {
-  margin-bottom: 1rem;
-  color: #e0e0e0;
-  font-size: 1.1rem;
-}
-
-.clear-search {
-  background: rgba(255, 87, 34, 0.2);
-  color: #ff5722;
-  border: 1px solid #ff5722;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.clear-search:hover {
-  background: #ff5722;
-  color: white;
+    .project-card {
+    max-width: 85%;
+    margin: 0 auto;
+  }
 }

@@ -1,5 +1,4 @@
 import "./styles/styles.css";
-import "./styles/global-background.css";
 import "./styles/home.css";
 import RevPred from "./components/RevPred";
 import Bio from "./components/Bio";

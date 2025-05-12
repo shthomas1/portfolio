@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/projects.css";
+import { getTechCategory } from "../utils/techCategories"; // Import the utility
 
 const ProjectDetail = ({ cards = [] }) => {
   const { id } = useParams();
@@ -13,7 +14,6 @@ const ProjectDetail = ({ cards = [] }) => {
     const loadProject = async () => {
       try {
         console.log("ProjectDetail: Loading project with ID:", id);
-        console.log("ProjectDetail: Available cards:", cards);
         
         // First try to find the project in the cards prop
         const projectId = parseInt(id);
@@ -30,7 +30,6 @@ const ProjectDetail = ({ cards = [] }) => {
         console.log("ProjectDetail: Project not found in cards, fetching from JSON...");
         
         const response = await fetch("/projects.json");
-        console.log("ProjectDetail: Fetch response:", response);
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -64,16 +63,16 @@ const ProjectDetail = ({ cards = [] }) => {
     navigate('/projects');
   };
 
+  // Render loading state
   if (loading) {
-    return (
-      <div className="loading-message">Loading project details...</div>
-    );
+    return <div className="loading-message">Loading project details...</div>;
   }
 
-  if (error) {
+  // Render error state
+  if (error || !project) {
     return (
-      <div>
-        <div className="error-message">{error}</div>
+      <div className="error-container">
+        <div className="error-message">{error || "Project not found"}</div>
         <button onClick={handleBackClick} className="back-button">
           ← Back to Projects
         </button>
@@ -81,25 +80,42 @@ const ProjectDetail = ({ cards = [] }) => {
     );
   }
 
-  if (!project) {
+  // Helper function to render a section if data exists
+  const renderSection = (title, content) => {
+    if (!content) return null;
+    
     return (
-      <div>
-        <div className="error-message">Project not found</div>
-        <button onClick={handleBackClick} className="back-button">
-          ← Back to Projects
-        </button>
+      <section className="project-section">
+        <h2 className="section-heading">{title}</h2>
+        {content}
+      </section>
+    );
+  };
+
+  // Helper function to render technologies
+  const renderTechnologies = () => {
+    if (!project.technologies) return null;
+    
+    const techArray = typeof project.technologies === 'string' 
+      ? project.technologies.split(",").map(tech => tech.trim())
+      : project.technologies;
+    
+    return (
+      <div className="tech-list">
+        {techArray.map((tech, index) => (
+          <span 
+            key={index} 
+            className={`tech-item tech-tag-${getTechCategory(tech)}`} // Add tech-tag-{category} class
+          >
+            {tech}
+          </span>
+        ))}
       </div>
     );
-  }
-
-  // Debug output of what we're rendering
-  console.log("ProjectDetail: Rendering project:", project);
-  console.log("ProjectDetail: Project has highlights:", project.highlights ? project.highlights.length : 'none');
-  console.log("ProjectDetail: Project has challenges:", project.challenges ? project.challenges.length : 'none');
-  console.log("ProjectDetail: Project has features:", project.features ? project.features.length : 'none');
+  };
 
   return (
-    <div>
+    <div className="project-detail-container">
       {/* Back button */}
       <button onClick={handleBackClick} className="back-button">
         ← Back to Projects
@@ -149,143 +165,126 @@ const ProjectDetail = ({ cards = [] }) => {
       </section>
 
       {/* Technologies Section */}
-      {project.technologies && (
-        <section className="project-section">
-          <h2 className="section-heading">Technologies</h2>
-          <div className="tech-list">
-            {typeof project.technologies === 'string' ? 
-              project.technologies.split(", ").map((tech, index) => (
-                <span key={index} className="tech-item">{tech.trim()}</span>
-              )) :
-              project.technologies.map((tech, index) => (
-                <span key={index} className="tech-item">{tech}</span>
-              ))
-            }
-          </div>
-        </section>
-      )}
+      {renderSection("Technologies", renderTechnologies())}
 
       {/* Highlights Section */}
-      {project.highlights && project.highlights.length > 0 && (
-        <section className="project-section">
-          <h2 className="section-heading">Key Achievements</h2>
-          <ul className="highlights-list">
-            {project.highlights.map((highlight, index) => (
-              <li key={index} className="highlight-item">{highlight}</li>
-            ))}
-          </ul>
-        </section>
+      {project.highlights && project.highlights.length > 0 && renderSection(
+        "Key Achievements",
+        <ul className="highlights-list">
+          {project.highlights.map((highlight, index) => (
+            <li key={index} className="highlight-item">{highlight}</li>
+          ))}
+        </ul>
       )}
 
       {/* Challenge Section */}
-      {project.challenges && project.challenges.length > 0 && (
-        <section className="project-section">
-          <h2 className="section-heading">Challenges</h2>
-          <div className="challenges-grid">
-            {project.challenges.map((challenge, index) => (
-              <div key={index} className="challenge-card">
-                <span className="challenge-number">{index + 1}</span>
-                <p>{challenge}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      {project.challenges && project.challenges.length > 0 && renderSection(
+        "Challenges",
+        <div className="challenges-grid">
+          {project.challenges.map((challenge, index) => (
+            <div key={index} className="challenge-card">
+              <span className="challenge-number">{index + 1}</span>
+              <p>{challenge}</p>
+            </div>
+          ))}
+        </div>
       )}
 
-      {/* Features Section for S2/Signal Surge */}
-      {project.features && project.features.length > 0 && (
-        <section className="project-section">
-          <h2 className="section-heading">Services</h2>
-          <div className="features-grid">
-            {project.features.map((feature, index) => (
-              <div key={index} className="feature-card">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      {/* Features Section */}
+      {project.features && project.features.length > 0 && renderSection(
+        "Services",
+        <div className="features-grid">
+          {project.features.map((feature, index) => (
+            <div key={index} className="feature-card">
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
       )}
 
-      {/* Approach Section for S2/Signal Surge */}
-      {project.approach && project.approach.length > 0 && (
-        <section className="project-section">
-          <h2 className="section-heading">My Approach - Based on military Standards, F3EAD</h2>
-          <div className="challenges-grid">
-            {project.approach.map((step, index) => (
-              <div key={index} className="challenge-card">
-                <div className="challenge-number">{step.step}</div>
-                <h4 style={{ color: '#ffffff', marginBottom: '0.5rem' }}>{step.title}</h4>
-                <p>{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      {/* Approach Section */}
+      {project.approach && project.approach.length > 0 && renderSection(
+        "My Approach - Based on military Standards, F3EAD",
+        <div className="challenges-grid">
+          {project.approach.map((step, index) => (
+            <div key={index} className="challenge-card">
+              <div className="challenge-number">{step.step}</div>
+              <h4 style={{ color: '#ffffff', marginBottom: '0.5rem' }}>{step.title}</h4>
+              <p>{step.description}</p>
+            </div>
+          ))}
+        </div>
       )}
 
-      {/* My Role Section for Freelance Music */}
-      {project.roleDetails && (
-        <section className="project-section">
-          <h2 className="section-heading">My Contribution</h2>
-          <div className="role-content">
-            {project.roleDetails.scrumMaster && (
-              <div className="role-block">
-                <h3>As Scrum Master</h3>
-                <ul>
-                  {project.roleDetails.scrumMaster.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {project.roleDetails.dataEngineer && (
-              <div className="role-block">
-                <h3>As Data Engineer</h3>
-                <ul>
-                  {project.roleDetails.dataEngineer.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </section>
+      {/* My Role Section */}
+      {project.roleDetails && renderSection(
+        "My Contribution",
+        <div className="role-content">
+          {project.roleDetails.scrumMaster && (
+            <div className="role-block">
+              <h3>As Scrum Master</h3>
+              <ul>
+                {project.roleDetails.scrumMaster.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {project.roleDetails.dataEngineer && (
+            <div className="role-block">
+              <h3>As Data Engineer</h3>
+              <ul>
+                {project.roleDetails.dataEngineer.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       )}
 
       {/* Outcomes Section */}
-      {project.outcomes && project.outcomes.length > 0 && (
-        <section className="project-section">
-          <h2 className="section-heading">Results</h2>
-          <div className="outcomes-list">
-            {project.outcomes.map((outcome, index) => (
-              <div key={index} className="outcome-item">
-                <span className="outcome-icon">✓</span>
-                <p>{outcome}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      {project.outcomes && project.outcomes.length > 0 && renderSection(
+        "Results",
+        <div className="outcomes-list">
+          {project.outcomes.map((outcome, index) => (
+            <div key={index} className="outcome-item">
+              <span className="outcome-icon">✓</span>
+              <p>{outcome}</p>
+            </div>
+          ))}
+        </div>
       )}
 
-      {/* Team Section for Freelance Music */}
-      {project.team && project.team.length > 0 && (
-        <section className="project-section">
-          <h2 className="section-heading">Team Members</h2>
-          <div className="team-grid">
-            {project.team.map((member, index) => (
-              <a
-                key={index}
-                href={member.linkedIn}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="team-member"
-              >
-                <h3>{member.name}</h3>
-                <p>{member.role}</p>
-              </a>
-            ))}
+      {/* Results Section from simple projects */}
+      {project.results && !project.outcomes && renderSection(
+        "Results",
+        <div className="outcomes-list">
+          <div className="outcome-item">
+            <span className="outcome-icon">✓</span>
+            <p>{project.results}</p>
           </div>
-        </section>
+        </div>
+      )}
+
+      {/* Team Section */}
+      {project.team && project.team.length > 0 && renderSection(
+        "Team Members",
+        <div className="team-grid">
+          {project.team.map((member, index) => (
+            <a
+              key={index}
+              href={member.linkedIn}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="team-member"
+            >
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </a>
+          ))}
+        </div>
       )}
     </div>
   );

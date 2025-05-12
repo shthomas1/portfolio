@@ -1,9 +1,11 @@
-/* Shared Project Page Styles */
+@import './technology-tags.css';
 
 .project-container {
-  max-width: 900px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* Option 1: Card-style with border */

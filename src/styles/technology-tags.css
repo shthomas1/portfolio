@@ -1,0 +1,67 @@
+/* Shared styling for technology tags */
+.tech-tag, .tech-pill, .tech-item {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 0.2rem;
+  transition: all 0.2s ease;
+}
+
+/* Updated color palette for tech tags to match dark/orange theme */
+.tech-tag-frontend, 
+.tech-pill.tech-tag-frontend, 
+.tech-item.tech-tag-frontend {
+  background: rgba(41, 121, 255, 0.2);
+  color: #70a9ff;
+  border: 1px solid rgba(41, 121, 255, 0.4);
+}
+
+.tech-tag-backend, 
+.tech-pill.tech-tag-backend, 
+.tech-item.tech-tag-backend {
+  background: rgba(142, 36, 170, 0.2);
+  color: #c490d1;
+  border: 1px solid rgba(142, 36, 170, 0.4);
+}
+
+.tech-tag-database, 
+.tech-pill.tech-tag-database, 
+.tech-item.tech-tag-database {
+  background: rgba(67, 160, 71, 0.2);
+  color: #7dbd80;
+  border: 1px solid rgba(67, 160, 71, 0.4);
+}
+
+.tech-tag-data, 
+.tech-pill.tech-tag-data, 
+.tech-item.tech-tag-data {
+  background: rgba(255, 143, 0, 0.2);
+  color: #ffb74d;
+  border: 1px solid rgba(255, 143, 0, 0.4);
+}
+
+.tech-tag-security, 
+.tech-pill.tech-tag-security, 
+.tech-item.tech-tag-security {
+  background: rgba(211, 47, 47, 0.2);
+  color: #ef5350;
+  border: 1px solid rgba(211, 47, 47, 0.4);
+}
+
+.tech-tag-service, 
+.tech-pill.tech-tag-service, 
+.tech-item.tech-tag-service {
+  background: rgba(2, 136, 209, 0.2);
+  color: #4fc3f7;
+  border: 1px solid rgba(59, 82, 94, 0.4);
+}
+
+/* Hover effect to slightly brighten */
+.tech-tag:hover, 
+.tech-pill:hover, 
+.tech-item:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
