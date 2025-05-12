@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import "../styles/home.css";
 import CardGrid from './CardGrid';
 import ProjectDetail from './ProjectDetail';
@@ -7,7 +7,6 @@ import ProjectDetail from './ProjectDetail';
 const Layout = ({ children, cards = [] }) => {
   const location = useLocation();
   const [technologies, setTechnologies] = useState([]);
-  const { id } = useParams(); // Will be undefined on routes without an id parameter
 
   // Function to extract unique technologies from card data
   const extractTechnologies = (cards) => {

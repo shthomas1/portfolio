@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback";
 import FreelanceMusic from "./components/FreelanceMusic";
-import Home from "./components/Home";
 import Starfield from "./components/Starfield";
 import Layout from "./components/Layout";
 
@@ -81,7 +80,6 @@ function AppContent() {
   const useLayout = layoutRoutes.includes(currentPathname) || isProjectDetailRoute;
   
   // Conditionally render header based on current route and layout usage
-  const showHeader = currentPathname !== '/' && !useLayout;
   const isHomePage = currentPathname === '/';
 
   // Apply special body class for home page
