@@ -213,7 +213,7 @@ const Layout = ({ children, cards = [] }) => {
             
             <div className="ear right-ear">
               <a 
-                href="https://linkedin.com/in/seanthomas" 
+                href="https://linkedin.com/in/seanhthomas" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="ear-link"
