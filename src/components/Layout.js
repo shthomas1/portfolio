@@ -4,6 +4,7 @@ import "../styles/home.css";
 import CardGrid from './CardGrid';
 import ProjectDetail from './ProjectDetail';
 import { getTechCategory } from "../utils/techCategories";
+import '../styles/backButton.css';
 
 const Layout = ({ children, cards = [] }) => {
   const location = useLocation();

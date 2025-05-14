@@ -1,28 +1,12 @@
 /* Bio Page Specific Styles - Space Theme */
 
 .bio-container {
-  max-width: 900px;
+  width: 100%; /* Changed from max-width: 900px to width: 100% */
   margin: 0 auto;
   padding: 5rem 2rem 2rem;
   position: relative;
   z-index: 1;
-}
-
-/* Back button styling - moved to top for better organization */
-.back-button {
-  position: absolute;
-  top: 0rem;
-  left: 0rem;
-  margin: 1rem;
-  background: rgba(18, 18, 20, 0.8);
-  color: white;
-  border: 1px solid #ff5722;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  z-index: 10;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .back-button:hover {
@@ -44,6 +28,8 @@
   border-radius: 12px;
   border: 1px solid #ff5722;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 @media (min-width: 768px) {
@@ -67,8 +53,8 @@
 }
 
 .round-image {
-  width: 180px;
-  height: 180px;
+  width: clamp(120px, 20vw, 180px); /* Responsive image size */
+  height: clamp(120px, 20vw, 180px); /* Responsive image size */
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid rgba(255, 255, 255, 0.2);
@@ -77,10 +63,11 @@
 
 .bio-header-content {
   flex: 1;
+  width: 100%; /* Ensure full width */
 }
 
 .bio-name {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
   color: #ffffff;
   margin-bottom: 8px;
   font-weight: 700;
@@ -88,7 +75,7 @@
 }
 
 .bio-title {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem); /* Responsive font size */
   color: #ff5722;
   margin-bottom: 20px;
   font-weight: 400;
@@ -100,6 +87,7 @@
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  width: 100%; /* Ensure full width */
 }
 
 @media (min-width: 768px) {
@@ -111,7 +99,7 @@
 .skill-tag {
   padding: 6px 16px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem); /* Responsive font size */
   font-weight: 500;
   transition: all 0.2s ease;
   backdrop-filter: blur(5px);
@@ -149,10 +137,12 @@
   border-radius: 12px;
   border: 1px solid #ff5722;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .section-title {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem); /* Responsive font size */
   color: #ffffff;
   margin-bottom: 25px;
   padding-bottom: 10px;
@@ -162,7 +152,7 @@
 }
 
 .bio-paragraph {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem); /* Responsive font size */
   line-height: 1.7;
   color: #e0e0e0;
   margin-bottom: 16px;
@@ -177,6 +167,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  width: 100%; /* Ensure full width */
 }
 
 @media (min-width: 768px) {
@@ -185,32 +176,61 @@
   }
 }
 
+/* For very small screens, ensure column layout */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 15px; /* Reduce gap for smaller screens */
+  }
+}
+
 .skills-column {
   background: rgba(255, 255, 255, 0.03);
-  padding: 20px;
+  padding: 15px; /* Reduced from 20px */
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box; /* Include padding in width calculation */
+  width: 100%; /* Ensure full width */
+  overflow-wrap: break-word; /* Allow words to break */
+  word-wrap: break-word; /* For older browsers */
+}
+
+@media (max-width: 360px) {
+  .skills-column {
+    padding: 10px; /* Further reduce padding for ultra-small screens */
+  }
 }
 
 .skills-category {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem); /* Reduced minimum size */
   color: #ff5722;
-  margin-bottom: 15px;
+  margin-bottom: 12px; /* Reduced from 15px */
   font-weight: 600;
+  text-align: center; /* Center category heading on ultra-small screens */
 }
 
 .skills-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%; /* Ensure full width */
 }
 
 .skills-list li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
+  padding-left: 20px; /* Reduced from 25px */
+  margin-bottom: 8px; /* Reduced from 10px */
   color: #e0e0e0;
-  line-height: 1.5;
+  line-height: 1.4; /* Reduced from 1.5 */
+  font-size: clamp(0.85rem, 1.2vw, 1rem); /* Reduced minimum size */
+  overflow-wrap: break-word; /* Allow words to break */
+  word-wrap: break-word; /* For older browsers */
+}
+
+@media (max-width: 360px) {
+  .skills-list li {
+    padding-left: 15px; /* Reduced padding for ultra-small screens */
+  }
 }
 
 .skills-list li::before {
@@ -230,6 +250,8 @@
   border-radius: 8px;
   transition: all 0.2s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .experience-item:hover,
@@ -252,11 +274,12 @@
   margin-bottom: 10px;
   flex-wrap: wrap;
   gap: 10px;
+  width: 100%; /* Ensure full width */
 }
 
 .experience-title,
 .education-degree {
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.2rem); /* Responsive font size */
   color: #ffffff;
   font-weight: 600;
   margin: 0;
@@ -264,7 +287,7 @@
 
 .experience-period,
 .education-period {
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem); /* Responsive font size */
   color: #ff5722;
   font-weight: 500;
   white-space: nowrap;
@@ -275,6 +298,7 @@
   color: #e0e0e0;
   line-height: 1.6;
   margin: 0;
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Responsive font size */
 }
 
 /* Contact Section */
@@ -283,6 +307,7 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  width: 100%; /* Ensure full width */
 }
 
 .contact-link {
@@ -298,6 +323,9 @@
   transition: all 0.3s ease;
   font-weight: 500;
   backdrop-filter: blur(5px);
+  flex: 1; /* Allow links to grow */
+  max-width: 300px; /* Prevent links from getting too wide */
+  justify-content: center; /* Center content */
 }
 
 .contact-link:hover {
@@ -313,44 +341,96 @@
   height: 20px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
   .bio-container {
-    padding: 2.5rem 1rem 1rem; /* Increased top padding to account for the back button */
+    padding: 3rem 1rem 1rem; /* Adjusted top padding for global back button */
   }
 
   .bio-section {
     padding: 20px;
   }
 
-  .bio-name {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .contact-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
   .contact-link {
     justify-content: center;
-  }
-
-  /* Adjust back button for small screens */
-  .back-button {
-    top: 0.5rem;
-    left: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    border: #ff5722;
+    max-width: 100%; /* Changed from 80% to 100% for mobile to use full width */
   }
 
   /* Adjust header spacing to ensure it doesn't overlap with the back button */
   .bio-header {
     margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio-container {
+    padding: 3rem 0.5rem 0.5rem; /* Reduced horizontal padding */
+    width: 100%;
+  }
+  
+  .bio-section,
+  .bio-header {
+    padding: 12px; /* Further reduced padding */
+    border-radius: 8px; /* Smaller border radius */
+  }
+  
+  /* Make sure all content remains readable */
+  .bio-paragraph, 
+  .skills-list li, 
+  .experience-description, 
+  .education-description {
+    font-size: 0.9rem; /* Slightly smaller minimum font size */
+  }
+  
+  .section-title {
+    font-size: clamp(1.2rem, 3vw, 1.5rem); /* Smaller section titles */
+    margin-bottom: 15px; /* Reduced margin */
+    padding-bottom: 8px; /* Reduced padding */
+  }
+  
+  /* Adjust experience and education items */
+  .experience-item,
+  .education-item {
+    padding: 12px; /* Reduced padding */
+    margin-bottom: 15px; /* Reduced margin */
+  }
+}
+
+/* Ultra-small screen adjustments (under 360px) */
+@media (max-width: 360px) {
+  .bio-container {
+    padding: 3rem 0.25rem 0.25rem; /* Minimal padding */
+  }
+  
+  .bio-section,
+  .bio-header {
+    padding: 10px; /* Minimal padding */
+    margin-bottom: 15px; /* Reduced spacing between sections */
+  }
+  
+  /* Further reduce fonts for ultra-small screens */
+  .bio-name {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .bio-title {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+  
+  /* Adjust skill tags to fit better */
+  .skill-tag {
+    padding: 4px 10px; /* Smaller padding */
+    font-size: 0.8rem; /* Smaller font */
+  }
+  
+  /* Ensure experience headers fit */
+  .experience-header,
+  .education-header {
+    flex-direction: column; /* Stack title and period */
+    align-items: flex-start;
+  }
+  
+  .experience-period,
+  .education-period {
+    margin-top: 2px;
   }
 }

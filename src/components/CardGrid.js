@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import "../styles/styles.css";
 import Card from "./Card";
-import { useNavigate } from "react-router-dom";
+import BackButton from "./BackButton";
 
 export default function CardGrid({ cards = [] }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate();
-
-  const handleBackClick = (e) => {
-    e.preventDefault();
-    navigate("/");
-  };
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -27,9 +21,7 @@ export default function CardGrid({ cards = [] }) {
 
   return (
     <div className="belly-content">
-      <button onClick={handleBackClick} className="back-button">
-        ← Back to Home
-      </button>
+      <BackButton destination="/" />
       <h1 className="projects-title">My Projects</h1>
 
       <div>

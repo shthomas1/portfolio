@@ -2,7 +2,7 @@
 
 .project-container {
   width: 100%;
-  max-width: 800px;
+  max-width: calc(100% - 2px); /* Ensure proper edge alignment */
   margin: 0 auto;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -12,18 +12,22 @@
 .project-hero.dark {
   background: #111827;
   border: 1px solid #374151;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .project-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
   color: #ffffff;
   margin-bottom: 10px;
+  word-break: break-word; /* Handle long titles */
 }
 
 .project-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem); /* Responsive font size */
   color: #aaaaaa;
   font-style: italic;
+  word-break: break-word; /* Handle long subtitles */
 }
 
 /* Section Styles */
@@ -37,6 +41,8 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .project-section::before {
@@ -54,12 +60,13 @@
 }
 
 .section-heading {
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 3vw, 1.8rem); /* Responsive font size */
   color: #ffffff;
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 2px solid #ff5722;
   position: relative;
+  word-break: break-word; /* Handle long headings */
 }
 
 .section-heading::after {
@@ -74,7 +81,7 @@
 }
 
 .project-text {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem); /* Responsive font size */
   line-height: 1.8;
   color: #e0e0e0;
   margin-bottom: 20px;
@@ -93,6 +100,7 @@
   font-weight: bold;
 }
 
+/* Project meta section */
 .project-meta {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -103,6 +111,10 @@
   margin-top: 25px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  place-items: center; /* Centers both horizontally and vertically */
+  justify-content: center; /* Ensures items are centered when fewer than fit a row */
 }
 
 .meta-item {
@@ -112,6 +124,9 @@
   transition: all 0.3s ease;
   position: relative;
   background: rgba(255, 255, 255, 0.02);
+  width: 100%;
+  max-width: 300px; /* Prevent items from getting too wide */
+  box-sizing: border-box;
 }
 
 .meta-item:hover {
@@ -125,15 +140,16 @@
   font-weight: 600;
   color: #ff5722;
   margin-bottom: 5px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem); /* Responsive font size */
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .meta-value {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem); /* Responsive font size */
   color: #ffffff;
   font-weight: 500;
+  word-break: break-word; /* Handle long values */
 }
 
 /* Add specific styling for different sections */
@@ -178,6 +194,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tech-item {
@@ -185,7 +203,7 @@
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem); /* Responsive font size */
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -203,6 +221,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .highlight-item {
@@ -211,6 +231,8 @@
   margin-bottom: 15px;
   color: #e0e0e0;
   line-height: 1.5;
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Responsive font size */
+  word-break: break-word; /* Handle long text */
 }
 
 .highlight-item::before {
@@ -227,6 +249,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .challenge-card {
@@ -236,6 +260,8 @@
   position: relative;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .challenge-number {
@@ -257,6 +283,8 @@
   margin: 0;
   color: #e0e0e0;
   line-height: 1.5;
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Responsive font size */
+  word-break: break-word; /* Handle long text */
 }
 
 /* Outcomes/Results Section */
@@ -264,6 +292,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .outcome-item {
@@ -274,6 +304,8 @@
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .outcome-icon {
@@ -287,6 +319,8 @@
   margin: 0;
   color: #e0e0e0;
   line-height: 1.5;
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Responsive font size */
+  word-break: break-word; /* Handle long text */
 }
 
 /* Call to Action Section */
@@ -297,10 +331,12 @@
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .project-cta p {
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.2rem); /* Responsive font size */
   color: #e0e0e0;
   margin-bottom: 20px;
   font-weight: 500;
@@ -328,6 +364,8 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
   margin-top: 25px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .feature-card {
@@ -337,6 +375,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .feature-card:hover {
@@ -358,14 +398,17 @@
 
 .feature-card h3 {
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem); /* Responsive font size */
   margin-bottom: 10px;
+  word-break: break-word; /* Handle long headings */
 }
 
 .feature-card p {
   color: #e0e0e0;
   line-height: 1.5;
   margin: 0;
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Responsive font size */
+  word-break: break-word; /* Handle long text */
 }
 
 /* Role Section */
@@ -373,6 +416,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .role-block {
@@ -380,18 +425,22 @@
   padding: 25px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .role-block h3 {
   color: #ff5722;
   margin-bottom: 15px;
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.2rem); /* Responsive font size */
+  word-break: break-word; /* Handle long headings */
 }
 
 .role-block ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .role-block li {
@@ -400,6 +449,8 @@
   margin-bottom: 10px;
   color: #e0e0e0;
   line-height: 1.5;
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Responsive font size */
+  word-break: break-word; /* Handle long text */
 }
 
 .role-block li::before {
@@ -411,51 +462,17 @@
   font-size: 1.2rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .project-title {
-    font-size: 2rem;
-  }
-  
-  .section-heading {
-    font-size: 1.5rem;
-  }
-  
-  .project-meta,
-  .challenges-grid,
-  .outcomes-list,
-  .features-grid,
-  .role-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .project-cta {
-    padding: 30px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-title {
-    font-size: 1.8rem;
-  }
-  
-  .project-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .tech-item {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-  }
-}
-
 /* Team CTA section */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  max-width: 900px;
+  max-width: calc(100% - 2px); /* Ensure proper edge alignment */
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  place-items: center; /* Centers both horizontally and vertically */
+  justify-content: center; /* Ensures items are centered when fewer than fit a row */
 }
 
 .team-member {
@@ -470,6 +487,9 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 320px; /* Prevent team members from getting too wide */
+  box-sizing: border-box;
 }
 
 /* Add LinkedIn indicator */
@@ -495,17 +515,19 @@
 }
 
 .team-member h3 {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem); /* Responsive font size */
   margin-bottom: 8px;
   color: #ffffff;
   font-weight: 600;
+  word-break: break-word; /* Handle long names */
 }
 
 .team-member p {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Responsive font size */
   color: #e0e0e0;
   margin: 0;
   font-weight: 400;
+  word-break: break-word; /* Handle long text */
 }
 
 /* Hover effect - LinkedIn accent color */
@@ -531,25 +553,138 @@
   transform: translateX(0);
 }
 
-/* Responsive design */
+/* Enhanced responsive design */
 @media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-    max-width: 350px;
+  .project-title {
+    font-size: clamp(1.6rem, 3vw, 2rem);
   }
   
-  .team-member {
-    padding: 25px 20px;
+  .section-heading {
+    font-size: clamp(1.3rem, 2.5vw, 1.5rem);
   }
-}
-
-@media (max-width: 480px) {
+  
+  .project-meta,
+  .challenges-grid,
+  .outcomes-list,
+  .features-grid,
+  .role-content {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
   .project-cta {
     padding: 30px 20px;
   }
   
-  .project-cta p {
-    font-size: 1.1rem;
+  .project-section {
+    padding: 20px 15px;
     margin-bottom: 30px;
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .team-member {
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-container {
+    padding: 0 0.5rem;
+  }
+  
+  .project-title {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+  }
+  
+  .project-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+  
+  .tech-item {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .project-section {
+    padding: 15px 12px;
+    margin-bottom: 25px;
+  }
+  
+  .section-heading {
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
+    margin-bottom: 15px;
+  }
+  
+  .project-meta {
+    padding: 15px;
+    gap: 15px;
+    grid-template-columns: 1fr; /* Single column for very small screens */
+  }
+  
+  .meta-item {
+    padding: 10px 8px;
+    max-width: 100%; /* Allow items to take full width */
+  }
+  
+  .challenges-grid,
+  .outcomes-list,
+  .features-grid,
+  .role-content,
+  .team-grid {
+    grid-template-columns: 1fr; /* Single column for very small screens */
+  }
+  
+  .challenge-card,
+  .outcome-item,
+  .feature-card,
+  .role-block,
+  .team-member {
+    max-width: 100%; /* Allow items to take full width */
+  }
+}
+
+/* Ultra-small screen adjustments */
+@media (max-width: 360px) {
+  .project-container {
+    padding: 0 0.25rem;
+  }
+  
+  .project-section {
+    padding: 12px 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tech-item {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .team-grid {
+    gap: 15px;
+  }
+  
+  .team-member {
+    padding: 20px 10px;
+  }
+  
+  .highlight-item,
+  .role-block li {
+    padding-left: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .project-text {
+    padding-left: 5px;
+  }
+  
+  /* Ensure buttons are usable on small screens */
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    width: calc(100% - 40px);
+    max-width: 200px;
   }
 }

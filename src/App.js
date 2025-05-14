@@ -4,6 +4,7 @@ import Bio from "./components/Bio";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
+import './styles/backButton.css';
 
 function AppContent() {
   const [cards, setCards] = useState([]);

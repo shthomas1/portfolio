@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Mail, Github, Linkedin, MapPin } from "lucide-react";
 import "../styles/bio.css";
-import { useNavigate } from "react-router-dom";
+import BackButton from "./BackButton";
 
 const Bio = () => {
   const [bioData, setBioData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
-
-  const handleBackClick = (e) => {
-    e.preventDefault();
-    navigate('/');
-  };
 
   useEffect(() => {
     console.log("Attempting to fetch bioinfo.json...");
@@ -58,9 +52,7 @@ const Bio = () => {
 
   return (
     <div className="bio-container">
-      <button onClick={handleBackClick} className="back-button">
-        ← Back to Home
-      </button>
+      <BackButton destination="/" />
       
       <div className="bio-header">
         <div className="profile-image-container">
@@ -166,12 +158,10 @@ const Bio = () => {
                 rel="noopener noreferrer"
               >
                 {getContactIcon(contactItem.type)}
-                <span>{contactItem.display}</span>
               </a>
             ) : (
               <div key={index} className="contact-link">
                 {getContactIcon(contactItem.type)}
-                <span>{contactItem.display}</span>
               </div>
             )
           )}

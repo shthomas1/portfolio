@@ -11,6 +11,8 @@
   text-align: center;
   position: relative;
   z-index: 1;
+  width: 100%; /* Changed from auto to 100% */
+  box-sizing: border-box; /* Add this to include padding in width calculation */
 }
 
 .tree-layout {
@@ -18,7 +20,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  /* Removed max-width to allow full expansion */
+  max-width: calc(100% - 4px); /* Ensure proper edges */
 }
 
 /* Main card container with hat and ears */
@@ -27,7 +30,8 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 900px;
+  /* Removed max-width to allow full expansion */
+  max-width: calc(100% - 2px); /* Ensure proper edges */
 }
 
 /* Social links as hat */
@@ -35,6 +39,8 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .social-link {
@@ -48,7 +54,10 @@
   backdrop-filter: blur(5px);
   border: 1px solid rgba(40, 40, 45, 0.8);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  min-width: 120px;
+  flex: 1; /* Allow links to grow */
+  min-width: 80px; /* Reduced from 120px */
+  margin-bottom: auto;
+  text-align: center;
 }
 
 .social-link:hover {
@@ -62,10 +71,14 @@
   display: flex;
   align-items: stretch;
   width: 100%;
-  margin-top: -1px; /* Connect with social links above */
+  margin: auto auto;
+  max-width: calc(100% - 2px); /* Ensure it doesn't overflow */
 }
 
-
+/* Both left and right ears */
+.left-ear, .right-ear {
+  width: clamp(30px, 5vw, 50px); /* Standard ear width */
+}
 
 .name-container {
   background: rgba(18, 18, 20, 0.8);
@@ -74,11 +87,11 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   padding: 2.5rem 3rem;
   flex: 1;
-  max-width: 700px;
+  /* Removed max-width to allow full expansion */
 }
 
 .name {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive font size */
   margin-bottom: 0.5rem;
   font-weight: 700;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
@@ -87,7 +100,7 @@
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive font size */
   font-weight: 400;
   color: #ff5722;
   margin-top: 0;
@@ -101,7 +114,7 @@
   background: rgba(18, 18, 20, 0.8);
   border: 1px solid #ff5722;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  width: 50px;
+  width: clamp(30px, 5vw, 50px); /* Responsive width */
   z-index: 8;
   border-bottom: none;
 }
@@ -129,6 +142,7 @@
   font-weight: 500;
   letter-spacing: 1px;
   padding: 0.5rem;
+  font-size: clamp(0.7rem, 1.5vw, 1rem); /* Responsive font size */
 }
 
 .hat {
@@ -154,11 +168,12 @@
   border: 1px solid #ff5722;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 900px;
+  max-width: calc(100% - 2px); /* Ensure proper alignment */
   margin-top: -2px; /* Connect with name card above */
   padding: 2rem;
   min-height: 300px; /* Give content some minimum height */
   z-index: 10;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Technologies Section */
@@ -168,10 +183,12 @@
   text-align: center;
   border: #ff5722;
   z-index: 10;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .tech-heading {
-  font-size: 1.75rem;
+  font-size: clamp(1.2rem, 3vw, 1.75rem); /* Responsive font size */
   margin-bottom: 1.5rem;
   text-align: center;
   color: #fff;
@@ -194,22 +211,7 @@
   position: relative;
   padding: 0rem;
   color: #e0e0e0;
-}
-
-/* Back button styling */
-.back-button {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(18, 18, 20, 0.8);
-  color: white;
-  border: 1px solid #ff5722;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  z-index: 10;
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .back-button:hover {
@@ -230,21 +232,15 @@
   color: #ff5722;
 }
 
-/* Project content adjustments for belly area */
-.belly-content .project-hero {
-  margin-top: 3rem; /* Make space for the back button */
-  text-align: center;
-}
-
 .belly-content .project-title {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 4vw, 2.2rem); /* Responsive font size */
   color: #ffffff;
   margin-bottom: 0.5rem;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .belly-content .project-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 2vw, 1.2rem); /* Responsive font size */
   color: #ff5722;
   margin-bottom: 2rem;
 }
@@ -253,99 +249,74 @@
   margin-bottom: 2.5rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .name-card-with-ears {
-    flex-direction: column;
-  }
-
-  .ear {
+/* Small screen adjustments */
+@media (max-width: 480px) {
+  .home-container {
     width: 100%;
-    height: 40px;
-    border: 1px solid #ff5722;
-    margin-top: 1px;
+    padding: 0.5rem;
+    border: none;
   }
-
-  .vertical-text {
-    writing-mode: horizontal-tb;
-    transform: none;
-    padding: 0.5rem 1rem;
+  
+  .name-container {
+    padding: 1.5rem 1rem;
   }
-
-  .name {
-    font-size: 3rem;
+  
+  .content-area {
+    padding: 1.5rem 1rem;
   }
-
-  .social-hat {
-    flex-direction: column;
-    gap: 0;
-    align-items: center;
+  
+  .ear-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
-
-  .social-link {
-    margin-bottom: -1px;
+  
+  .social-link, .hat-link {
+    padding: 0.6rem 1rem;
+    min-width: 60px;
+    font-size: 0.9rem;
   }
-
-  .content-area,
-  .belly-content {
-    padding: 1rem;
+  
+  .social-hat, .hat {
+    gap: 0.5rem;
+    width: calc(100% - 2px); /* Ensure proper alignment with other elements */
   }
-
-  .back-button {
-    top: 0.5rem;
-    left: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    border: #ff5722
-  }
-
+  
+  /* Adjust project hero spacing on mobile */
   .belly-content .project-hero {
-    margin-top: 2.5rem;
-  }
-
-  .belly-content .project-title {
-    font-size: 1.8rem;
+    margin-top: 3.5rem; /* Less spacing needed on smaller screens */
   }
 }
 
-@media (max-width: 480px) {
-  .belly-technologies {
-    padding: 1rem;
+/* Ultra-small screen adjustments */
+@media (max-width: 360px) {
+  .home-container {
+    padding: 0.25rem;
   }
-
-  .tech-heading {
-    font-size: 1.5rem;
+  
+  .name-container {
+    padding: 1rem 0.5rem;
   }
-  /* Make cards smaller on mobile devices */
-  .project-card {
-    max-width: 85%;
-    margin: 0;
+  
+  .content-area {
+    padding: 1rem 0.5rem;
   }
-
-  /* Adjust card content for smaller size */
-  .card-info {
-    padding: 0.8rem;
-  }
-
-  .card-title {
-    font-size: 1.2rem;
-  }
-
-  .card-description {
+  
+  .social-link, .hat-link, .ear-link {
+    padding: 0.5rem 0.8rem;
+    min-width: 50px;
     font-size: 0.85rem;
-    margin-bottom: 0.8rem;
   }
-
-  /* Make tech pills smaller */
-  .tech-pill {
-    padding: 0.2rem 0.5rem;
-    font-size: 0.75rem;
+  
+  .name {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
   }
-
-  /* Smaller badges */
-  .year-pill,
-  .project-type {
-    padding: 4px 12px;
-    font-size: 0.75rem;
+  
+  .title {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+  
+  /* Adjust project hero spacing on very small screens */
+  .belly-content .project-hero {
+    margin-top: 3rem; /* Even less spacing on very small screens */
   }
 }

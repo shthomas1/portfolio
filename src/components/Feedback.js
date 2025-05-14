@@ -1,276 +1,266 @@
-import React, { useState } from "react";
-import "../styles/styles.css";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import "../styles/projects.css";
+import { getTechCategory } from "../utils/techCategories";
+import BackButton from "./BackButton";
 
-const Feedback = () => {
-  // State for form fields
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    rating: 5,
-    usability: 5,
-    design: 5,
-    content: 5,
-    comments: "",
-  });
+const ProjectDetail = ({ cards = [] }) => {
+  const { id } = useParams();
+  const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // State for form status
-  const [formStatus, setFormStatus] = useState({
-    submitted: false,
-    error: null,
-  });
-
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Basic validation
-    if (!formData.name || !formData.email) {
-      setFormStatus({
-        submitted: false,
-        error: "Please fill out all required fields.",
-      });
-      return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setFormStatus({
-        submitted: false,
-        error: "Please enter a valid email address.",
-      });
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        "https://feedbackapi-fff7d5099600.herokuapp.com/api/feedback",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+  useEffect(() => {
+    const loadProject = async () => {
+      try {
+        console.log("ProjectDetail: Loading project with ID:", id);
+        
+        const projectId = parseInt(id);
+        const foundProject = cards.find(card => card.id === projectId);
+        
+        if (foundProject) {
+          console.log("ProjectDetail: Found project in cards:", foundProject);
+          setProject(foundProject);
+          setLoading(false);
+          return;
         }
-      );
-
-      if (response.ok) {
-        const contentType = response.headers.get("content-type");
-
-        if (contentType && contentType.includes("application/json")) {
-          try {
-            await response.json();
-          } catch (jsonError) {
-            console.log(
-              "Response is not valid JSON, but request was successful"
-            );
-          }
+        
+        console.log("ProjectDetail: Project not found in cards, fetching from JSON...");
+        
+        const response = await fetch("/projects.json");
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log("ProjectDetail: Loaded JSON data:", data);
+        
+        const projectFromJson = data.find(p => p.id === projectId);
+        
+        if (projectFromJson) {
+          console.log("ProjectDetail: Found project in JSON:", projectFromJson);
+          setProject(projectFromJson);
         } else {
-          try {
-            const text = await response.text();
-            console.log("Response text:", text);
-          } catch (textError) {
-            console.log("Could not read response text");
-          }
+          console.error(`Project with ID ${projectId} not found in any source`);
+          setError(`Project with ID ${projectId} not found`);
         }
-
-        setFormStatus({
-          submitted: true,
-          error: null,
-        });
-
-        setFormData({
-          name: "",
-          email: "",
-          rating: 5,
-          usability: 5,
-          design: 5,
-          content: 5,
-          comments: "",
-        });
-      } else {
-        let errorMessage = "Error submitting feedback. Please try again.";
-        try {
-          const errorData = await response.json();
-          errorMessage = errorData.message || errorMessage;
-        } catch (e) {
-          console.log("Error response is not JSON");
-        }
-
-        setFormStatus({
-          submitted: false,
-          error: errorMessage,
-        });
+      } catch (error) {
+        console.error("Error loading project details:", error);
+        setError(`Error loading project: ${error.message}`);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Error submitting feedback:", error);
-      setFormStatus({
-        submitted: false,
-        error: "Network error. Please try again later.",
-      });
-    }
-  };
+    };
 
-  if (formStatus.submitted) {
+    loadProject();
+  }, [id, cards]);
+
+  if (loading) {
+    return <div className="loading-message">Loading project details...</div>;
+  }
+
+  if (error || !project) {
     return (
-      <div className="feedback-container">
-        <div className="feedback-success">
-          <h2>Thank You for Your Feedback!</h2>
-          <p>
-            I appreciate you taking the time to provide feedback on my portfolio
-            platform.
-          </p>
-          <button
-            className="feedback-button"
-            onClick={() => setFormStatus({ submitted: false, error: null })}
-          >
-            Submit Another Response
-          </button>
-        </div>
+      <div className="error-container">
+        <div className="error-message">{error || "Project not found"}</div>
+        <BackButton destination="/projects" />
       </div>
     );
   }
 
-  return (
-    <div className="feedback-container">
-      <div className="feedback-header">
-        <h1>Portfolio Feedback</h1>
-        <p>
-          Thank you for checking out my portfolio platform! I'd love to hear
-          your thoughts on how it can be improved.
-        </p>
-      </div>
+  const renderSection = (title, content) => {
+    if (!content) return null;
+    
+    return (
+      <section className="project-section">
+        <h2 className="section-heading">{title}</h2>
+        {content}
+      </section>
+    );
+  };
 
-      {formStatus.error && (
-        <div className="feedback-error">{formStatus.error}</div>
+  const renderTechnologies = () => {
+    if (!project.technologies) return null;
+    
+    const techArray = typeof project.technologies === 'string' 
+      ? project.technologies.split(",").map(tech => tech.trim())
+      : project.technologies;
+    
+    return (
+      <div className="tech-list">
+        {techArray.map((tech, index) => (
+          <span 
+            key={index} 
+            className={`tech-item tech-tag-${getTechCategory(tech)}`}
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <div className="project-detail-container">
+      <BackButton destination="/projects" />
+
+      <section className="project-hero">
+        <h1 className="project-title">{project.title}</h1>
+        {project.subtitle && <p className="project-subtitle">{project.subtitle}</p>}
+      </section>
+
+      <section className="project-section">
+        <h2 className="section-heading">Overview</h2>
+        <div className="overview-content">
+          <p className="project-text">
+            {project.overview || project.description}
+          </p>
+          
+          <div className="project-meta">
+            {project.role && (
+              <div className="meta-item">
+                <span className="meta-label">ROLE:</span>
+                <span className="meta-value">{project.role}</span>
+              </div>
+            )}
+            {project.year && (
+              <div className="meta-item">
+                <span className="meta-label">YEAR:</span>
+                <span className="meta-value">{project.year}</span>
+              </div>
+            )}
+            {project.client && (
+              <div className="meta-item">
+                <span className="meta-label">CLIENT:</span>
+                <span className="meta-value">{project.client}</span>
+              </div>
+            )}
+            {project.duration && (
+              <div className="meta-item">
+                <span className="meta-label">DURATION:</span>
+                <span className="meta-value">{project.duration}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {renderSection("Technologies", renderTechnologies())}
+
+      {project.highlights && project.highlights.length > 0 && renderSection(
+        "Key Achievements",
+        <ul className="highlights-list">
+          {project.highlights.map((highlight, index) => (
+            <li key={index} className="highlight-item">{highlight}</li>
+          ))}
+        </ul>
       )}
 
-      <form className="feedback-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">
-            Name <span className="required">*</span>
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your name"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">
-            Email <span className="required">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your email address"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="rating">Overall Rating</label>
-          <div className="rating-slider">
-            <input
-              type="range"
-              id="rating"
-              name="rating"
-              min="1"
-              max="10"
-              value={formData.rating}
-              onChange={handleChange}
-            />
-            <span className="rating-value">{formData.rating}/10</span>
-          </div>
-        </div>
-
-        <div className="form-group">
-          <h3>Rate Specific Aspects</h3>
-
-          <div className="aspect-rating">
-            <label htmlFor="usability">Usability</label>
-            <div className="rating-slider">
-              <input
-                type="range"
-                id="usability"
-                name="usability"
-                min="1"
-                max="10"
-                value={formData.usability}
-                onChange={handleChange}
-              />
-              <span className="rating-value">{formData.usability}/10</span>
+      {project.challenges && project.challenges.length > 0 && renderSection(
+        "Challenges",
+        <div className="challenges-grid">
+          {project.challenges.map((challenge, index) => (
+            <div key={index} className="challenge-card">
+              <span className="challenge-number">{index + 1}</span>
+              <p>{challenge}</p>
             </div>
-          </div>
+          ))}
+        </div>
+      )}
 
-          <div className="aspect-rating">
-            <label htmlFor="design">Visual Design</label>
-            <div className="rating-slider">
-              <input
-                type="range"
-                id="design"
-                name="design"
-                min="1"
-                max="10"
-                value={formData.design}
-                onChange={handleChange}
-              />
-              <span className="rating-value">{formData.design}/10</span>
+      {project.features && project.features.length > 0 && renderSection(
+        "Services",
+        <div className="features-grid">
+          {project.features.map((feature, index) => (
+            <div key={index} className="feature-card">
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
             </div>
-          </div>
+          ))}
+        </div>
+      )}
 
-          <div className="aspect-rating">
-            <label htmlFor="content">Content Quality</label>
-            <div className="rating-slider">
-              <input
-                type="range"
-                id="content"
-                name="content"
-                min="1"
-                max="10"
-                value={formData.content}
-                onChange={handleChange}
-              />
-              <span className="rating-value">{formData.content}/10</span>
+      {project.approach && project.approach.length > 0 && renderSection(
+        "My Approach - Based on military Standards, F3EAD",
+        <div className="challenges-grid">
+          {project.approach.map((step, index) => (
+            <div key={index} className="challenge-card">
+              <div className="challenge-number">{step.step}</div>
+              <h4 style={{ color: '#ffffff', marginBottom: '0.5rem' }}>{step.title}</h4>
+              <p>{step.description}</p>
             </div>
+          ))}
+        </div>
+      )}
+
+      {project.roleDetails && renderSection(
+        "My Contribution",
+        <div className="role-content">
+          {project.roleDetails.scrumMaster && (
+            <div className="role-block">
+              <h3>As Scrum Master</h3>
+              <ul>
+                {project.roleDetails.scrumMaster.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {project.roleDetails.dataEngineer && (
+            <div className="role-block">
+              <h3>As Data Engineer</h3>
+              <ul>
+                {project.roleDetails.dataEngineer.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      {project.outcomes && project.outcomes.length > 0 && renderSection(
+        "Results",
+        <div className="outcomes-list">
+          {project.outcomes.map((outcome, index) => (
+            <div key={index} className="outcome-item">
+              <span className="outcome-icon">✓</span>
+              <p>{outcome}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {project.results && !project.outcomes && renderSection(
+        "Results",
+        <div className="outcomes-list">
+          <div className="outcome-item">
+            <span className="outcome-icon">✓</span>
+            <p>{project.results}</p>
           </div>
         </div>
+      )}
 
-        <div className="form-group">
-          <label htmlFor="comments">Additional Comments</label>
-          <textarea
-            id="comments"
-            name="comments"
-            value={formData.comments}
-            onChange={handleChange}
-            placeholder="Share any additional thoughts, suggestions, or ideas for improvement..."
-            rows="5"
-          ></textarea>
+      {project.team && project.team.length > 0 && renderSection(
+        "Team Members",
+        <div className="team-grid">
+          {project.team.map((member, index) => (
+            <a
+              key={index}
+              href={member.linkedIn}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="team-member"
+            >
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </a>
+          ))}
         </div>
-
-        <button type="submit" className="feedback-button">
-          Submit Feedback
-        </button>
-      </form>
+      )}
     </div>
   );
 };
 
-export default Feedback;
+export default ProjectDetail;

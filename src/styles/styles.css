@@ -8,14 +8,17 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  padding-top: 3.5rem;
 }
 
 .container {
   max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 /* ======= Header & Navigation ======= */
@@ -23,6 +26,7 @@ body {
   margin-bottom: 1rem;
   text-align: center;
   padding: 2rem 0;
+  width: 100%;
 }
 
 .app-subtitle {
@@ -36,6 +40,7 @@ nav {
   display: flex;
   justify-content: center;
   margin: 1rem 0;
+  width: 100%;
 }
 
 nav ul {
@@ -45,6 +50,8 @@ nav ul {
   display: flex;
   gap: 1rem;
   align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 nav ul li {
@@ -54,6 +61,7 @@ nav ul li {
 
 .nav-links {
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-link {
@@ -89,10 +97,11 @@ nav a:active {
 /* ======= Projects Section ======= */
 .projects-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   margin: 2rem 0 1.5rem;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  width: 100%;
 }
 
 /* Search Input */
@@ -133,11 +142,19 @@ nav a:active {
   display: grid;
   width: 100%;
   max-width: 1200px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(clamp(250px, 30%, 400px), 1fr));
   gap: 2rem;
   margin: 2rem auto;
   padding: 0 1rem;
   box-sizing: border-box;
+  justify-content: center; /* Center grid content */
+}
+
+.card-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 /* No Results State */
@@ -148,6 +165,10 @@ nav a:active {
   background: rgba(25, 25, 30, 0.5);
   border: 1px solid rgba(60, 60, 70, 0.8);
   border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .no-results p {
@@ -183,8 +204,9 @@ nav a:active {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   position: relative;
-  margin: 0 auto;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -251,6 +273,8 @@ nav a:active {
   flex-direction: column;
   flex-grow: 1;
   text-align: left;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card-title {
@@ -259,6 +283,7 @@ nav a:active {
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
+  word-break: break-word; /* Handle long titles */
 }
 
 .card-description {
@@ -266,12 +291,14 @@ nav a:active {
   color: #cccccc;
   margin-bottom: 1.2rem;
   line-height: 1.6;
+  word-break: break-word; /* Handle long descriptions */
 }
 
 .card-detail {
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
   color: #aaaaaa;
+  word-break: break-word; /* Handle long details */
 }
 
 .card-detail:last-child {
@@ -292,6 +319,7 @@ nav a:active {
   flex-wrap: wrap;
   gap: 8px;
   margin: 1rem 0;
+  width: 100%;
 }
 
 /* Card Links */
@@ -310,6 +338,7 @@ nav a:active {
   text-align: center;
   background-color: #222;
   color: #eee;
+  width: 100%;
 }
 
 /* ======= Utility Classes ======= */
@@ -318,22 +347,6 @@ nav a:active {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-/* ======= Back Button ======= */
-.back-button {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(18, 18, 20, 0.8);
-  color: white;
-  border: 1px solid #ff5722;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  z-index: 10;
 }
 
 .back-button:hover {
@@ -347,6 +360,9 @@ nav a:active {
   position: relative;
   width: 100%;
   overflow: hidden;
+  max-width: calc(100% - 2px); /* Ensure proper edge alignment */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .banner-image {
@@ -415,6 +431,7 @@ nav a:active {
   color: white;
   display: inline-block;
   margin: 0 0.3vw;
+  text-size-adjust: 80%;
 }
 
 /* ======= Loading & Error States ======= */
@@ -423,6 +440,9 @@ nav a:active {
   text-align: center;
   padding: 3rem 1rem;
   font-size: 1.1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .error-message {
@@ -430,7 +450,13 @@ nav a:active {
 }
 
 /* ======= Responsive Styles ======= */
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -438,8 +464,9 @@ nav a:active {
 
 @media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(clamp(220px, 80%, 350px), 1fr));
     padding: 0 1rem;
+    gap: 1.5rem;
   }
   
   .banner-content {
@@ -454,11 +481,13 @@ nav a:active {
     width: 18vw;
   }
   
-  .back-button {
-    top: 0.7rem;
-    left: 0.7rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
+  /* Body padding adjusted for global back button */
+  body {
+    padding-top: 3rem;
+  }
+  
+  .container {
+    padding-top: 0.5rem;
   }
 }
 
@@ -488,20 +517,37 @@ nav a:active {
     width: 20vw;
   }
   
-  .back-button {
-    top: 0.5rem;
-    left: 0.5rem;
-    padding: 0.4rem 0.7rem;
-    font-size: 0.8rem;
-  }
-  
   .projects-title {
     font-size: 1.8rem;
     margin: 1.5rem 0 1rem;
   }
+  
+  .projects-grid {
+    grid-template-columns: minmax(250px, 1fr);
+    gap: 1.5rem;
+  }
+  
+  body {
+    padding-top: 2.8rem; /* Reduced top padding for smaller screens */
+  }
+}
 
-    .project-card {
-    max-width: 85%;
-    margin: 0 auto;
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .card-info {
+    padding: 1rem 0.8rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  
+  .year-pill, .project-type {
+    font-size: 0.75rem;
+    padding: 4px 10px;
   }
 }

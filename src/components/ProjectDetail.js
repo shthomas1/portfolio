@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../styles/projects.css";
 import { getTechCategory } from "../utils/techCategories";
+import BackButton from "./BackButton";
 
 const ProjectDetail = ({ cards = [] }) => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const loadProject = async () => {
@@ -56,11 +56,6 @@ const ProjectDetail = ({ cards = [] }) => {
     loadProject();
   }, [id, cards]);
 
-  const handleBackClick = (e) => {
-    e.preventDefault();
-    navigate('/projects');
-  };
-
   if (loading) {
     return <div className="loading-message">Loading project details...</div>;
   }
@@ -69,9 +64,7 @@ const ProjectDetail = ({ cards = [] }) => {
     return (
       <div className="error-container">
         <div className="error-message">{error || "Project not found"}</div>
-        <button onClick={handleBackClick} className="back-button">
-          ← Back to Projects
-        </button>
+        <BackButton destination="/projects" />
       </div>
     );
   }
@@ -110,9 +103,7 @@ const ProjectDetail = ({ cards = [] }) => {
 
   return (
     <div className="project-detail-container">
-      <button onClick={handleBackClick} className="back-button">
-        ← Back to Projects
-      </button>
+      <BackButton destination="/projects" />
 
       <section className="project-hero">
         <h1 className="project-title">{project.title}</h1>
