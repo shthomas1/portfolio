@@ -157,6 +157,85 @@
   },
   {
     "id": 5,
+    "title": "Personal Portfolio Platform",
+    "subtitle": "React-based developer portfolio with responsive design",
+    "description": "A modern portfolio website built with React and responsive design principles to showcase my development projects and skills.",
+    "year": "2025",
+    "client": "Self",
+    "role": "Full-Stack Developer",
+    "duration": "4 weeks",
+    "technologies": "React, JavaScript, CSS, React Router, Lucide Icons, Responsive Design",
+    "overview": "A clean, modern portfolio website built from scratch using React with responsive design principles. Features project showcase cards, detailed project pages, bio section with skills overview, and a feedback mechanism for visitors.",
+    "highlights": [
+      "Fully responsive design that works across all device sizes",
+      "Interactive project cards with dynamic filtering",
+      "Component-based architecture for maintainability",
+      "Integrated feedback system for visitor comments",
+      "Custom global back button implementation"
+    ],
+    "challenges": [
+      "Creating a consistent responsive design across all screen sizes",
+      "Implementing an efficient project filtering system",
+      "Building reusable components that maintain visual consistency",
+      "Optimizing performance for mobile devices"
+    ],
+    "approach": [
+      {
+        "step": "1",
+        "title": "Planning",
+        "description": "Started with wireframes and component hierarchy to establish the structure and user flow of the portfolio"
+      },
+      {
+        "step": "2",
+        "title": "Component Architecture",
+        "description": "Designed reusable components like cards, navigation elements, and layout containers for consistent styling"
+      },
+      {
+        "step": "3",
+        "title": "Responsive Framework",
+        "description": "Built a mobile-first CSS approach with media queries and fluid sizing using clamp() and relative units"
+      },
+      {
+        "step": "4",
+        "title": "Data Structure",
+        "description": "Created JSON data structures for projects and bio information to make content management easier"
+      },
+      {
+        "step": "5",
+        "title": "Polish & Refinement",
+        "description": "Added animations, transitions, and refined the UI based on user feedback and testing"
+      }
+    ],
+    "outcomes": [
+      "Created a professional showcase for development projects and skills",
+      "Demonstrated React and front-end development expertise",
+      "Built a platform that can be easily updated with new projects",
+      "Implemented responsive design principles for all device sizes"
+    ],
+    "features": [
+      {
+        "title": "Project Showcase",
+        "description": "Interactive cards with filtering by technology and search functionality"
+      },
+      {
+        "title": "Detailed Project Pages",
+        "description": "In-depth views of each project with challenges, approach, and outcomes"
+      },
+      {
+        "title": "Skills Overview",
+        "description": "Visual representation of technical skills with categorized tags"
+      },
+      {
+        "title": "Feedback System",
+        "description": "Form for visitors to provide ratings and comments on the portfolio"
+      }
+    ],
+    "link": "/portfolio",
+    "type": "live",
+    "results": "Successfully created a responsive portfolio that effectively showcases projects and skills while demonstrating front-end development capabilities."
+  },
+  {
+    "id": 6,
     "title": "Red Velvet Mafia Forward Operating Base",
     "subtitle": "Roblox event practice world",
     "description": "",

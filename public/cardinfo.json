@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": 1,
     "title": "CrediTrust AI",
     "description": "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
@@ -45,11 +45,22 @@
   },
   {
     "id": 5,
+    "title": "Personal Portfolio Platform",
+    "description": "A modern, responsive portfolio website built with React to showcase my development projects and technical skills.",
+    "role": "Full-Stack Developer",
+    "technologies": "React, JavaScript, CSS, React Router, Responsive Design",
+    "year": "2025",
+    "results": "Created a professional, responsive platform that effectively showcases projects while demonstrating front-end development capabilities.",
+    "link": "/portfolio",
+    "type": "live"
+  },
+  {
+    "id": 6,
     "title": "RVM Forward Operating Base",
     "description": "This was a Roblox world that I built during the Covid-19 pandemic.",
     "role": "Solo Developer",
     "technologies": "Lua, Roblox Studio",
-    "year": "2025",
+    "year": "2022",
     "results": "Users able to use this world for event planning and practice, our team practiced game mechanics successfully.",
     "link": "/rvm-fob",
     "type": "archived"
