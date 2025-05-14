@@ -164,7 +164,7 @@
     "client": "Self",
     "role": "Full-Stack Developer",
     "duration": "4 weeks",
-    "technologies": "React, JavaScript, CSS, React Router, Lucide Icons, Responsive Design",
+    "technologies": "React, JavaScript, CSS, React Router, Lucide Icons, Responsive Design, C#, .NET api",
     "overview": "A clean, modern portfolio website built from scratch using React with responsive design principles. Features project showcase cards, detailed project pages, bio section with skills overview, and a feedback mechanism for visitors.",
     "highlights": [
       "Fully responsive design that works across all device sizes",
