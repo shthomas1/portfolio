@@ -1,5 +1,22 @@
-Thank you for looking into my page. I want to make this useable by others at some point, 
-so I will eventually change the inputs from all of the Component pages to API calls so that anyone can put their own information in.
+Thank you for checking out my portfolio. The site loads project data from JSON
+files so it can be easily extended.
 
-Right now, all you would need to do to change the majority of information is change the JSON files: cardinfo and projects. These hold most of the information on the site.
-You would also need to go change the links in the javascript as well as names, but I imagine if you made it to the github, you knew that.
+## Adding or Editing Projects
+
+Project summaries and timeline entries are stored in
+`public/cardinfo.json`. More detailed data for each project lives in
+`public/projects.json` under the same `id` value.
+
+To add a new project:
+
+1. Append an object to `public/cardinfo.json` with the basic information
+   (`id`, `title`, `year`, `description`, etc.).
+2. Add a matching entry in `public/projects.json` that contains the
+   extended details shown on the single project page.
+
+Once these files are updated the site will display the new project on the
+timeline and the project detail page will be automatically available at
+`/project/<id>`.
+
+The Projects tab has been removed now that the timeline links directly to
+each project.

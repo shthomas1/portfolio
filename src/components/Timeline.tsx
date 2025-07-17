@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/timeline.css';
 
 interface Card {
@@ -31,11 +32,11 @@ const Timeline: React.FC = () => {
         {sorted.map(card => (
           <div key={card.id} className="timeline-item">
             <div className="timeline-point" />
-            <div className="timeline-content">
+            <Link to={`/project/${card.id}`} className="timeline-content">
               <span className="timeline-year">{card.year}</span>
               <h3 className="timeline-header">{card.title}</h3>
               {card.description && <p>{card.description}</p>}
-            </div>
+            </Link>
           </div>
         ))}
       </div>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import "../styles/home.css";
-import CardGrid from './CardGrid';
 import ProjectDetail from './ProjectDetail';
 import { getTechCategory } from "../utils/techCategories";
 import '../styles/backButton.css';
@@ -159,8 +158,8 @@ const Layout: React.FC<LayoutProps> = ({ children, cards = [] }) => {
   }, [location.pathname, cardsData]);
 
   const isActive = (path: string) => {
-    if (path === '/projects') {
-      return location.pathname === '/projects' || location.pathname.startsWith('/project/');
+    if (path === '/timeline') {
+      return location.pathname === '/timeline' || location.pathname.startsWith('/project/');
     }
     return location.pathname === path;
   };
@@ -193,12 +192,6 @@ const Layout: React.FC<LayoutProps> = ({ children, cards = [] }) => {
               className={`social-link hat ${isActive('/bio') ? 'active-link' : ''}`}
             >
               Read Bio
-            </Link>
-            <Link
-              to="/projects"
-              className={`social-link hat ${isActive('/projects') ? 'active-link' : ''}`}
-            >
-              View Projects
             </Link>
             <Link
               to="/timeline"
@@ -242,7 +235,6 @@ const Layout: React.FC<LayoutProps> = ({ children, cards = [] }) => {
           {location.pathname === '/' && <TechnologiesSection />}
           {location.pathname === '/bio' && children}
           {location.pathname === '/timeline' && children}
-          {location.pathname === '/projects' && <CardGrid cards={cardsData} />}
           {isProjectDetail && <ProjectDetail cards={projectsData.length > 0 ? projectsData : cardsData} />}
         </div>
       </div>
