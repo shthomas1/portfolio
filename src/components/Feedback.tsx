@@ -3,19 +3,40 @@ import { useParams } from "react-router-dom";
 import "../styles/projects.css";
 import { getTechCategory } from "../utils/techCategories";
 import BackButton from "./BackButton";
+import { CardData } from "./Card";
 
-const ProjectDetail = ({ cards = [] }) => {
+interface Project extends CardData {
+  subtitle?: string;
+  client?: string;
+  duration?: string;
+  highlights?: string[];
+  challenges?: string[];
+  features?: { title: string; description: string }[];
+  approach?: { step: string; title: string; description: string }[];
+  roleDetails?: {
+    scrumMaster?: string[];
+    dataEngineer?: string[];
+  };
+  outcomes?: string[];
+  team?: { name: string; role: string; linkedIn: string }[];
+}
+
+interface ProjectDetailProps {
+  cards?: Project[];
+}
+
+const ProjectDetail: React.FC<ProjectDetailProps> = ({ cards = [] }) => {
   const { id } = useParams();
-  const [project, setProject] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [project, setProject] = useState<Project | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const loadProject = async () => {
       try {
         console.log("ProjectDetail: Loading project with ID:", id);
         
-        const projectId = parseInt(id);
+        const projectId = parseInt(id as string);
         const foundProject = cards.find(card => card.id === projectId);
         
         if (foundProject) {

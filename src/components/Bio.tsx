@@ -3,10 +3,24 @@ import { Mail, Github, Linkedin, MapPin } from "lucide-react";
 import "../styles/bio.css";
 import BackButton from "./BackButton";
 
-const Bio = () => {
-  const [bioData, setBioData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+interface BioData {
+  name: string;
+  title: string;
+  profileImage: string;
+  skills: { name: string; color: string }[];
+  about: string[];
+  experience: { title: string; period: string; description: string }[];
+  technicalSkills: string[];
+  militarySkills: string[];
+  certificates: string[];
+  education: { degree: string; period: string; description: string }[];
+  contact: { type: string; url?: string }[];
+}
+
+const Bio: React.FC = () => {
+  const [bioData, setBioData] = useState<BioData | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     console.log("Attempting to fetch bioinfo.json...");
@@ -31,7 +45,7 @@ const Bio = () => {
       });
   }, []);
 
-  const getContactIcon = (type, size = 18) => {
+  const getContactIcon = (type: string, size = 18) => {
     switch (type.toLowerCase()) {
       case "github":
         return <Github size={size} className="contact-link-icon" />;

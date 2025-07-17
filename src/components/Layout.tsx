@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import "../styles/home.css";
 import CardGrid from './CardGrid';
@@ -6,14 +6,21 @@ import ProjectDetail from './ProjectDetail';
 import { getTechCategory } from "../utils/techCategories";
 import '../styles/backButton.css';
 
-const Layout = ({ children, cards = [] }) => {
-  const location = useLocation();
-  const [technologies, setTechnologies] = useState([]);
-  const [projectsData, setProjectsData] = useState([]);
-  const [cardsData, setCardsData] = useState([]);
-  const [, setLoading] = useState(true);
+import { CardData } from './Card';
 
-  const extractTechnologies = (cards) => {
+interface LayoutProps {
+  children?: ReactNode;
+  cards?: CardData[];
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, cards = [] }) => {
+  const location = useLocation();
+  const [technologies, setTechnologies] = useState<{id: number; name: string; category: string;}[]>([]);
+  const [projectsData, setProjectsData] = useState<CardData[]>([]);
+  const [cardsData, setCardsData] = useState<CardData[]>([]);
+  const [, setLoading] = useState<boolean>(true);
+
+  const extractTechnologies = (cards: CardData[]) => {
     const techStrings = cards.map(card => card.technologies);
     
     const techArray = techStrings.flatMap(tech => 
@@ -151,7 +158,7 @@ const Layout = ({ children, cards = [] }) => {
     }
   }, [location.pathname, cardsData]);
 
-  const isActive = (path) => {
+  const isActive = (path: string) => {
     if (path === '/projects') {
       return location.pathname === '/projects' || location.pathname.startsWith('/project/');
     }
@@ -181,17 +188,23 @@ const Layout = ({ children, cards = [] }) => {
       <div className="tree-layout">
         <div className="main-card-container">
           <div className="social-hat">
-            <Link 
-              to="/bio" 
+            <Link
+              to="/bio"
               className={`social-link hat ${isActive('/bio') ? 'active-link' : ''}`}
             >
               Read Bio
             </Link>
-            <Link 
-              to="/projects" 
+            <Link
+              to="/projects"
               className={`social-link hat ${isActive('/projects') ? 'active-link' : ''}`}
             >
               View Projects
+            </Link>
+            <Link
+              to="/timeline"
+              className={`social-link hat ${isActive('/timeline') ? 'active-link' : ''}`}
+            >
+              Timeline
             </Link>
           </div>
           
@@ -228,6 +241,7 @@ const Layout = ({ children, cards = [] }) => {
         <div className="content-area">
           {location.pathname === '/' && <TechnologiesSection />}
           {location.pathname === '/bio' && children}
+          {location.pathname === '/timeline' && children}
           {location.pathname === '/projects' && <CardGrid cards={cardsData} />}
           {isProjectDetail && <ProjectDetail cards={projectsData.length > 0 ? projectsData : cardsData} />}
         </div>
