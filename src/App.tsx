@@ -90,7 +90,6 @@ function AppContent() {
           <Route path="/" element={<Layout cards={cards} />} />
           <Route path="/bio" element={<Layout cards={cards}><Bio /></Layout>} />
           <Route path="/timeline" element={<Layout cards={cards}><Timeline /></Layout>} />
-          <Route path="/projects" element={<Layout cards={cards} />} />
           <Route path="/project/:id" element={<Layout cards={cards} />} />
         </Routes>
       </div>
