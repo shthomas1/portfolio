@@ -3,7 +3,22 @@ import "../styles/styles.css";
 import { Link } from "react-router-dom";
 import { getTechCategory } from "../utils/techCategories";
 
-export default function Card({ card }) {
+export interface CardData {
+  id: number;
+  title: string;
+  description?: string;
+  role?: string;
+  technologies?: string;
+  year?: string;
+  results?: string;
+  type?: string;
+}
+
+interface CardProps {
+  card: CardData;
+}
+
+const Card: React.FC<CardProps> = ({ card }) => {
   if (!card) {
     return <div className="error-card">Card data is missing</div>;
   }
@@ -60,4 +75,6 @@ export default function Card({ card }) {
       <div className="project-card">{cardContent}</div>
     </Link>
   );
-}
+};
+
+export default Card;

@@ -2,10 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/backButton.css";
 
-const BackButton = ({ destination = "/" }) => {
+interface BackButtonProps {
+  destination?: string;
+}
+
+const BackButton: React.FC<BackButtonProps> = ({ destination = "/" }) => {
   const navigate = useNavigate();
 
-  const handleBackClick = (e) => {
+  const handleBackClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate(destination);
   };

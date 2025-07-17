@@ -1,6 +1,6 @@
-// src/utils/techCategories.js
+// src/utils/techCategories.ts
 
-export const getTechCategory = (tech) => {
+export const getTechCategory = (tech: string): string => {
   tech = tech.toLowerCase().trim();
 
   if (

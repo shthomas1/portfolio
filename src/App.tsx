@@ -1,13 +1,15 @@
 import "./styles/styles.css";
 import "./styles/home.css";
 import Bio from "./components/Bio";
+import Timeline from "./components/Timeline";
+import { CardData } from "./components/Card";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
 import './styles/backButton.css';
 
 function AppContent() {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState<CardData[]>([]);
   const location = useLocation();
 
   useEffect(() => {
@@ -93,6 +95,9 @@ function AppContent() {
           
           {/* Bio route */}
           <Route path="/bio" element={<Layout cards={cards}><Bio /></Layout>} />
+
+          {/* Timeline route */}
+          <Route path="/timeline" element={<Layout cards={cards}><Timeline /></Layout>} />
           
           {/* Projects routes - the Layout component handles rendering CardGrid */}
           <Route path="/projects" element={<Layout cards={cards} />} />

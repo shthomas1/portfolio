@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "../styles/styles.css";
-import Card from "./Card";
+import Card, { CardData } from "./Card";
 import BackButton from "./BackButton";
 
-export default function CardGrid({ cards = [] }) {
+interface CardGridProps {
+  cards?: CardData[];
+}
+
+const CardGrid: React.FC<CardGridProps> = ({ cards = [] }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchChange = (e) => {
@@ -53,4 +57,6 @@ export default function CardGrid({ cards = [] }) {
       </div>
     </div>
   );
-}
+};
+
+export default CardGrid;
