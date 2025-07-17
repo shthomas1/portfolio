@@ -52,7 +52,6 @@ function AppContent() {
               {
                 id: 1,
                 title: "Test Project",
-                image: "default.jpg",
                 description:
                   "This is a test project to see if cards display correctly.",
                 role: "Developer",
@@ -69,10 +68,8 @@ function AppContent() {
   
   const currentPathname = location.pathname;
   
-  // Conditionally render header based on current route and layout usage
   const isHomePage = currentPathname === '/';
 
-  // Apply special body class for home page
   useEffect(() => {
     if (isHomePage) {
       document.body.classList.add('home-page-body');
@@ -90,22 +87,11 @@ function AppContent() {
       
       <div className="container">
         <Routes>
-          {/* Home route */}
           <Route path="/" element={<Layout cards={cards} />} />
-          
-          {/* Bio route */}
           <Route path="/bio" element={<Layout cards={cards}><Bio /></Layout>} />
-
-          {/* Timeline route */}
           <Route path="/timeline" element={<Layout cards={cards}><Timeline /></Layout>} />
-          
-          {/* Projects routes - the Layout component handles rendering CardGrid */}
           <Route path="/projects" element={<Layout cards={cards} />} />
-          
-          {/* Project detail routes - the Layout component handles rendering ProjectDetail */}
           <Route path="/project/:id" element={<Layout cards={cards} />} />
-          
-          {/* Routes not using the layout */}
         </Routes>
       </div>
     </div>

@@ -7,6 +7,7 @@ export interface CardData {
   id: number;
   title: string;
   description?: string;
+  overview?: string;
   role?: string;
   technologies?: string;
   year?: string;
