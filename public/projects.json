@@ -245,5 +245,30 @@
     "duration": "7 months",
     "technologies": "Lua, Roblox Studio",
     "overview": "A roblox world complete with several real-world and in-game replicas to mimic realistic movements for the Roblox game: Jailbreak. My game featured a Bugatti Chiron, Tesla Roadster, and an MH-6 Little Bird helicopter."
+  },
+  {
+    "id": 7,
+    "title": "GAP Prediction Modeling",
+    "subtitle": "Accurate forecasting of Gross Auction Proceeds",
+    "description": "Developed XGBoost and SARIMAX models to forecast auction proceeds with minimal error.",
+    "year": "2025",
+    "client": "Internal Project",
+    "role": "Solo Data Scientist",
+    "duration": "July 2025 (1 month)",
+    "technologies": "Python, XGBoost, SARIMAX, scikit-learn, matplotlib, seaborn",
+    "overview": "Self-taught Python to build machine learning models predicting Gross Auction Proceeds using historical GAP, CCI, and Lots Sold data.",
+    "highlights": [
+      "~1% residual error within 5 sigma",
+      "XGBoost model incorporating multiple lagged factors",
+      "SARIMAX model accounting for company acquisition"
+    ],
+    "challenges": [
+      "Learning Python and libraries from scratch",
+      "Limited historical data for extreme cases"
+    ],
+    "outcomes": [
+      "Forecast accuracy improved from 90% to ~99%",
+      "Established baseline for future predictive analytics"
+    ]
   }
 ]
