@@ -64,5 +64,15 @@
     "results": "Users able to use this world for event planning and practice, our team practiced game mechanics successfully.",
     "link": "/rvm-fob",
     "type": "archived"
+  },
+  {
+    "id": 7,
+    "title": "GAP Prediction Modeling",
+    "description": "Built XGBoost and SARIMAX models to predict Gross Auction Proceeds with near 1% error.",
+    "role": "Solo Data Scientist",
+    "technologies": "Python, XGBoost, SARIMAX, scikit-learn, matplotlib, seaborn",
+    "year": "2025",
+    "results": "Improved forecasting accuracy from 90% to ~99% within 5 sigma",
+    "type": "demo"
   }
 ]
