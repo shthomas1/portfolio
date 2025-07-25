@@ -25,7 +25,7 @@ const CardGrid: React.FC<CardGridProps> = ({ cards = [] }) => {
 
   return (
     <div className="belly-content">
-      <BackButton destination="/" />
+      <BackButton />
       <h1 className="projects-title">My Projects</h1>
 
       <div>
