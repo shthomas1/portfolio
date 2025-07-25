@@ -66,7 +66,7 @@ const Bio: React.FC = () => {
 
   return (
     <div className="bio-container">
-      <BackButton destination="/" />
+      <BackButton />
       
       <div className="bio-header">
         <div className="profile-image-container">

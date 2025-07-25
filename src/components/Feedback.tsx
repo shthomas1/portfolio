@@ -85,7 +85,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ cards = [] }) => {
     return (
       <div className="error-container">
         <div className="error-message">{error || "Project not found"}</div>
-        <BackButton destination="/projects" />
+        <BackButton />
       </div>
     );
   }
@@ -124,7 +124,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ cards = [] }) => {
 
   return (
     <div className="project-detail-container">
-      <BackButton destination="/projects" />
+      <BackButton />
 
       <section className="project-hero">
         <h1 className="project-title">{project.title}</h1>
