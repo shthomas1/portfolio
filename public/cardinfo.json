@@ -5,7 +5,8 @@
     "description": "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
     "role": "Team Developer",
     "technologies": "C#, JavaScript, html, CSS, Random Forest",
-    "year": "2024-2025",
+    "year": "Nov 2024 - Feb 2025",
+    "startDate": "2024-11",
     "results": "Contender for the AIS 2025 Fintech challenge. Team project from Nov 2024 to Feb 2025 with a model accuracy just over 70% on a random test set.",
     "link": "/credit",
     "type": "demo"
@@ -16,7 +17,8 @@
     "description": "Platform for teachers to post their music lesson schedule online for students to join. My first school-sanctioned team project where I learned leadership and followership.",
     "role": "Scrum Master/Data Engineer",
     "technologies": "C#, JavaScript, html, MySQL",
-    "year": "2025",
+    "year": "Jan - Apr 2025",
+    "startDate": "2025-01",
     "results": "Client was satisfied with app outcome, and we got a perfect grade in the course.",
     "link": "/freelance-music",
     "type": "demo"
@@ -27,7 +29,8 @@
     "description": "C# CLI that predicts restaurant sales using LightGBM gradient boosting.",
     "role": "Solo Developer",
     "technologies": "C#, LightGBM, Gradient Boosting",
-    "year": "2024",
+    "year": "Nov - Dec 2024",
+    "startDate": "2024-11",
     "results": "Two-week project in Nov–Dec 2024 predicting sales with a maximum 2% error on real data.",
     "link": "/RevPred",
     "type": "demo"
@@ -38,7 +41,8 @@
     "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",
     "role": "Solo Developer",
     "technologies": "C#, AES-256 Encryption, One-Time Pads, JavaScript, html",
-    "year": "2025",
+    "year": "Mar - Apr 2025",
+    "startDate": "2025-03",
     "results": "Prototype used successfully in training with Army Special Forces. Developed from March to April 2025.",
     "link": "/military-comms",
     "type": "archived"
@@ -49,7 +53,8 @@
     "description": "The site you are viewing now. Started in May 2025, converted from JavaScript to TypeScript and includes a backend for logging user interactions (currently disabled).",
     "role": "Full-Stack Developer",
     "technologies": "React, TypeScript, CSS, Responsive Design, C#, ASP.NET",
-    "year": "2025",
+    "year": "May 2025 - Present",
+    "startDate": "2025-05",
     "results": "Created a professional, responsive platform that demonstrates full-stack capability.",
     "link": "/portfolio",
     "type": "live"
@@ -60,7 +65,8 @@
     "description": "Roblox world built during Covid-19 featuring realistic MH-6 Little Bird, Bugatti Chiron, Tesla Roadster and UH-60 Blackhawk.",
     "role": "Solo Developer",
     "technologies": "Lua, Roblox Studio",
-    "year": "2020-2021",
+    "year": "Mar 2020 - Jan 2021",
+    "startDate": "2020-03",
     "results": "Used for event practice from March 2020 to January 2021. Now decommissioned but visitable at https://www.roblox.com/games/5234643173/Red-Velvet-Mafias-Forward-Operating-Base.",
     "link": "/rvm-fob",
     "type": "archived"
@@ -71,7 +77,8 @@
     "description": "Built XGBoost and SARIMAX models to predict auction revenue with near 1% error.",
     "role": "Solo Data Scientist",
     "technologies": "Python, XGBoost, SARIMAX, scikit-learn, matplotlib, seaborn",
-    "year": "2025",
+    "year": "Jul - Aug 2025",
+    "startDate": "2025-07",
     "results": "Improved forecasting accuracy from 90% to ~99% within 5 sigma. Project ran July–August 2025.",
     "type": "demo"
   }

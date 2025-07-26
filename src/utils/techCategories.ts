@@ -11,12 +11,23 @@ export const getTechCategory = (tech: string): string => {
     tech.includes("asp")
   ) {
     return "backend";
-  } else if (tech.includes("mysql") || tech.includes("database")) {
+  } else if (
+    tech.includes("mysql") ||
+    tech.includes("database") ||
+    tech.includes("sql")
+  ) {
     return "database";
   } else if (
     tech.includes("machine learning") ||
     tech.includes("gradient") ||
     tech.includes("random forest") ||
+    tech.includes("xgboost") ||
+    tech.includes("sarimax") ||
+    tech.includes("scikit") ||
+    tech.includes("matplotlib") ||
+    tech.includes("seaborn") ||
+    tech.includes("lightgbm") ||
+    tech.includes("python") ||
     tech.includes("ai")
   ) {
     return "data";
@@ -38,6 +49,8 @@ export const getTechCategory = (tech: string): string => {
     tech.includes("html") ||
     tech.includes("css") ||
     tech.includes("javascript") ||
+    tech.includes("typescript") ||
+    tech.includes("react") ||
     tech.includes("js") ||
     tech.includes("design")
   ) {

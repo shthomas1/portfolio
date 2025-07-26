@@ -7,5 +7,6 @@ export interface CardData {
   role?: string;
   technologies?: string;
   year?: string;
+  startDate?: string;
   results?: string;
 }
