@@ -352,7 +352,8 @@
 
   .contact-link {
     justify-content: center;
-    max-width: 100%; /* Changed from 80% to 100% for mobile to use full width */
+    max-width: 300px;
+    width: 100%;
   }
 
   /* Adjust header spacing to ensure it doesn't overlap with the back button */

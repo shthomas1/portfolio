@@ -7,6 +7,7 @@ interface Card {
   id: number;
   title: string;
   year?: string;
+  startDate?: string;
   description?: string;
 }
 
@@ -21,9 +22,9 @@ const Timeline: React.FC = () => {
   }, []);
 
   const sorted = [...cards].sort((a, b) => {
-    const yearA = parseInt(a.year || '0', 10);
-    const yearB = parseInt(b.year || '0', 10);
-    return yearB - yearA;
+    const dateA = a.startDate ? new Date(a.startDate) : new Date(0);
+    const dateB = b.startDate ? new Date(b.startDate) : new Date(0);
+    return dateB.getTime() - dateA.getTime();
   });
 
   return (
