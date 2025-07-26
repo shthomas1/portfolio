@@ -52,7 +52,7 @@
     "title": "Personal Portfolio Platform",
     "description": "The site you are viewing now. Started in May 2025, converted from JavaScript to TypeScript and includes a backend for logging user interactions (currently disabled).",
     "role": "Full-Stack Developer",
-    "technologies": "React, TypeScript, CSS, Responsive Design, C#, ASP.NET",
+    "technologies": "React, TypeScript, CSS, C#, ASP.NET",
     "year": "May 2025 - Present",
     "startDate": "2025-05",
     "results": "Created a professional, responsive platform that demonstrates full-stack capability.",
