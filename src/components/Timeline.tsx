@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import BackButton from './BackButton';
 import '../styles/timeline.css';
 
 interface Card {
@@ -27,6 +28,7 @@ const Timeline: React.FC = () => {
 
   return (
     <div className="timeline-container">
+      <BackButton />
       <h1 className="timeline-title">Project Timeline</h1>
       <div className="timeline">
         {sorted.map(card => (
