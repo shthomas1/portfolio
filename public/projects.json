@@ -4,10 +4,10 @@
     "title": "CrediTrust AI",
     "subtitle": "Credit acceptance prediction platform for PNC Bank",
     "description": "Credit acceptance prediction platform developed for PNC Bank's AIS SCLC 2025 challenge.",
-    "year": "2025",
+    "year": "2024-2025",
     "client": "PNC Bank (AIS SCLC 2025 Challenge)",
-    "role": "Solo Developer",
-    "duration": "November 2024 - January 2025",
+    "role": "Team Developer",
+    "duration": "November 2024 - February 2025",
     "technologies": "C#, JavaScript, HTML, CSS",
     "overview": "An AI-powered credit decision platform that predicts loan acceptance rates with over 70% accuracy, developed as part of the AIS 2025 Fintech challenge.",
     "highlights": [
@@ -34,11 +34,11 @@
     "id": 2,
     "title": "Freelance Music",
     "subtitle": "Online music education scheduling platform",
-    "description": "Platform for teachers to post their music lesson schedule so students can join. A collaborative solution connecting music educators with students through an intuitive scheduling system.",
+    "description": "Platform for teachers to post their music lesson schedule so students can join. My first school-sanctioned team project where I learned leadership and followership.",
     "year": "2025",
     "client": "Private Music Academy",
     "role": "Scrum Master / Data Engineer",
-    "duration": "4 months",
+    "duration": "January - April 2025",
     "technologies": "C#, JavaScript, HTML/CSS, MySQL, ASP.NET Core, Entity Framework",
     "overview": "A full-stack web application that streamlines music education by allowing teachers to manage their schedules and students to book lessons effortlessly.",
     "highlights": [
@@ -95,14 +95,14 @@
   },
   {
     "id": 3,
-    "title": "Revenue Prediction Application",
-    "subtitle": "Machine learning CLI for bar sales forecasting",
-    "description": "Command line interface application for predicting daily and weekly sales for a bar in Tuscaloosa, Alabama.",
+    "title": "Restaurant Revenue ML Model",
+    "subtitle": "Machine learning CLI for restaurant sales forecasting",
+    "description": "Command line interface application for predicting daily and weekly restaurant sales using LightGBM gradient boosting.",
     "year": "2024",
     "client": "Local Tuscaloosa Bar",
     "role": "Solo Developer",
-    "duration": "3 weeks",
-    "technologies": "C#, .NET Core, Gradient Boosting, Machine Learning",
+    "duration": "2 weeks (Nov - Dec 2024)",
+    "technologies": "C#, .NET Core, LightGBM, Gradient Boosting",
     "overview": "A machine learning solution that predicts bar revenue with 98% accuracy by analyzing historical sales data, game day patterns, and betting trends.",
     "highlights": [
       "Achieved 98% prediction accuracy (±2% error margin)",
@@ -122,7 +122,7 @@
     ],
     "link": "/revpred",
     "type": "demo",
-    "results": "Predicted sales with a maximum of 2% error on real sales"
+    "results": "Two-week project completed in Nov–Dec 2024 that predicted sales with a maximum 2% error on real data"
   },
   {
     "id": 4,
@@ -131,7 +131,7 @@
     "year": "2025",
     "client": "Signal Surge LLC Internal",
     "role": "Solo Full-Stack Developer",
-    "duration": "1 Week",
+    "duration": "March - April 2025",
     "technologies": "C#, JavaScript, HTML/CSS, One-Time Pads, AES-256 Encryption",
     "overview": "A full-stack web application and command-line interface that allowed a users to create one-time pads, use them and automatically delete them when a message was sent for maximum security.",
     "highlights": [
@@ -158,13 +158,13 @@
   {
     "id": 5,
     "title": "Personal Portfolio Platform",
-    "subtitle": "React-based developer portfolio with responsive design",
-    "description": "A modern portfolio website built with React and responsive design principles to showcase my development projects and skills.",
+    "subtitle": "React/TypeScript portfolio with optional backend logging",
+    "description": "The site you are viewing now. Started in May 2025, converted from JavaScript to TypeScript and includes a backend to log user interactions (currently disabled).",
     "year": "2025",
     "client": "Self",
     "role": "Full-Stack Developer",
-    "duration": "4 weeks",
-    "technologies": "React, JavaScript, CSS, React Router, Lucide Icons, Responsive Design, C#, ASP.NET",
+    "duration": "May 2025 - Present",
+    "technologies": "React, TypeScript, CSS, React Router, Lucide Icons, Responsive Design, C#, ASP.NET",
     "overview": "A clean, modern portfolio website built from scratch using React with responsive design principles. Features project showcase cards, detailed project pages, bio section with skills overview, and a feedback mechanism for visitors.",
     "highlights": [
       "Fully responsive design that works across all device sizes",
@@ -232,29 +232,29 @@
     ],
     "link": "/portfolio",
     "type": "live",
-    "results": "Successfully created a responsive portfolio that effectively showcases projects and skills while demonstrating front-end development capabilities."
+    "results": "Responsive platform demonstrating full-stack skills; backend logging currently disconnected"
   },
   {
     "id": 6,
     "title": "Red Velvet Mafia Forward Operating Base",
     "subtitle": "Roblox event practice world",
-    "description": "",
-    "year": "2022",
+    "description": "Roblox world featuring MH-6 Little Bird, UH-60 Blackhawk, Bugatti Chiron and Tesla Roadster for realistic event practice.",
+    "year": "2020-2021",
     "client": "Red Velvet Mafia Roblox Community",
     "role": "Solo Developer",
-    "duration": "7 months",
+    "duration": "March 2020 - January 2021",
     "technologies": "Lua, Roblox Studio",
-    "overview": "A roblox world complete with several real-world and in-game replicas to mimic realistic movements for the Roblox game: Jailbreak. My game featured a Bugatti Chiron, Tesla Roadster, and an MH-6 Little Bird helicopter."
+    "overview": "A Roblox world built during Covid-19 for Jailbreak training with realistic vehicles. Decommissioned but still accessible at https://www.roblox.com/games/5234643173/Red-Velvet-Mafias-Forward-Operating-Base."
   },
   {
     "id": 7,
-    "title": "GAP Prediction Modeling",
+    "title": "Auction Revenue Forecasting",
     "subtitle": "Accurate forecasting of Gross Auction Proceeds",
     "description": "Developed XGBoost and SARIMAX models to forecast auction proceeds with minimal error.",
     "year": "2025",
     "client": "Internal Project",
     "role": "Solo Data Scientist",
-    "duration": "July 2025 (1 month)",
+    "duration": "July - August 2025",
     "technologies": "Python, XGBoost, SARIMAX, scikit-learn, matplotlib, seaborn",
     "overview": "Self-taught Python to build machine learning models predicting Gross Auction Proceeds using historical GAP, CCI, and Lots Sold data.",
     "highlights": [
