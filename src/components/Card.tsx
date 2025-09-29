@@ -1,7 +1,8 @@
-import React from "react";
+import React, { KeyboardEvent, MouseEvent, useMemo, useState } from "react";
 import "../styles/styles.css";
 import { Link } from "react-router-dom";
 import { getTechCategory } from "../utils/techCategories";
+import InfoModal from "./InfoModal";
 
 export interface CardData {
   id: number;
@@ -14,6 +15,7 @@ export interface CardData {
   startDate?: string;
   results?: string;
   type?: string;
+  link?: string;
 }
 
 interface CardProps {
@@ -21,9 +23,42 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ card }) => {
-  if (!card) {
-    return <div className="error-card">Card data is missing</div>;
-  }
+  const [showPortfolioModal, setShowPortfolioModal] = useState(false);
+
+  const isPortfolioCard = useMemo(
+    () =>
+      card.title.toLowerCase() === "personal portfolio platform" ||
+      card.id === 5 ||
+      card.link === "/portfolio",
+    [card.id, card.link, card.title]
+  );
+
+  const knownInternalLinks = useMemo(() => new Set(["/whobrew"]), []);
+
+  const destination = useMemo(() => {
+    if (isPortfolioCard) {
+      return null;
+    }
+
+    if (card.link && card.link.startsWith("http")) {
+      return card.link;
+    }
+
+    if (card.link && knownInternalLinks.has(card.link)) {
+      return card.link;
+    }
+
+    return `/project/${card.id}`;
+  }, [card.id, card.link, isPortfolioCard, knownInternalLinks]);
+
+  const handleCardClick = (
+    event: MouseEvent<HTMLAnchorElement | HTMLDivElement> | KeyboardEvent<HTMLDivElement>
+  ) => {
+    if (isPortfolioCard) {
+      event.preventDefault();
+      setShowPortfolioModal(true);
+    }
+  };
 
   const cardContent = (
     <>
@@ -70,12 +105,69 @@ const Card: React.FC<CardProps> = ({ card }) => {
     </>
   );
 
-  const projectDetailLink = `/project/${card.id}`;
-  
+  const cardBody = (
+    <div className="project-card">{cardContent}</div>
+  );
+
+  const renderLinkWrapper = () => {
+    if (isPortfolioCard) {
+      return (
+        <div
+          className="card-link"
+          role="button"
+          tabIndex={0}
+          onClick={handleCardClick}
+          onKeyDown={(event) => {
+            if (["Enter", " ", "Spacebar", "Space"].includes(event.key)) {
+              handleCardClick(event);
+            }
+          }}
+        >
+          {cardBody}
+        </div>
+      );
+    }
+
+    if (destination && destination.startsWith("http")) {
+      return (
+        <a
+          href={destination}
+          className="card-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleCardClick}
+        >
+          {cardBody}
+        </a>
+      );
+    }
+
+    return (
+      <Link to={destination || `/project/${card.id}`} className="card-link" onClick={handleCardClick}>
+        {cardBody}
+      </Link>
+    );
+  };
+
   return (
-    <Link to={projectDetailLink} className="card-link">
-      <div className="project-card">{cardContent}</div>
-    </Link>
+    <>
+      {renderLinkWrapper()}
+      {showPortfolioModal && (
+        <InfoModal
+          title="You're already here"
+          onClose={() => setShowPortfolioModal(false)}
+        >
+          <p>
+            This personal portfolio is the project itself. Every interaction, animation,
+            and detail you see represents the level of polish I bring to my work.
+          </p>
+          <p>
+            Feel free to explore the sections, inspect the code, and imagine how the
+            same attention to craft can support your next idea.
+          </p>
+        </InfoModal>
+      )}
+    </>
   );
 };
 

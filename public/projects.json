@@ -270,5 +270,25 @@
       "Forecast accuracy improved from 90% to ~99%",
       "Established baseline for future predictive analytics"
     ]
+  },
+  {
+    "id": 8,
+    "title": "WhoBrew Tap-Based Business Card",
+    "subtitle": "Tap-enabled calling card for instant portfolio launches",
+    "description": "A physical business card with a tap-to-visit NFC chip that links to your online portfolio or contact info.",
+    "year": "Since Sep 2025",
+    "client": "Independent Makers",
+    "role": "Product Designer/Developer",
+    "duration": "September 2025 - Present",
+    "technologies": "React, TypeScript, CSS, NFC",
+    "overview": "A premium physical card with embedded NFC that directs contacts to a curated online profile hosted within the portfolio platform.",
+    "highlights": [
+      "Tap-to-open experience for instant contact exchange",
+      "Embossed matte finish with customizable artwork",
+      "Landing page analytics for follow-up and engagement tracking"
+    ],
+    "results": "Pilot launched in September 2025.",
+    "link": "/whobrew",
+    "type": "live"
   }
 ]
