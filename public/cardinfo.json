@@ -77,9 +77,33 @@
     "description": "Built XGBoost and SARIMAX models to predict auction revenue with near 1% error.",
     "role": "Solo Data Scientist",
     "technologies": "Python, XGBoost, SARIMAX, scikit-learn",
-    "year": "Jul - Aug 2025",
+    "year": "Since Jul 2025",
     "startDate": "2025-07",
     "results": "Improved forecasting accuracy from 90% to ~99% within 5 sigma. Project ran July–August 2025.",
     "type": "demo"
+  },
+  {
+    "id": 8,
+    "title": "WhoBrew Tap-Based Business Card",
+    "description": "A physical business card with a tap-to-visit NFC chip that links to your online portfolio or contact info.",
+    "role": "Product Designer/Developer",
+    "technologies": "React, TypeScript, CSS, C#, NFC",
+    "year": "Since Sep 2025",
+    "startDate": "2025-09",
+    "results": "Pilot launched in September 2025.",
+    "link": "",
+    "type": "live"
+  },
+  {
+    "id": 9,
+    "title": "Summer Open Hackathon",
+    "description": "36-Hour Hackathon for anyone to join online.",
+    "role": "Founder",
+    "technologies": "Various",
+    "year": "Jun 2025",
+    "startDate": "2025-06",
+    "results": "95+ Participants, 4 Categories, 12 Judges.",
+    "link": "https://summeropen2025.com",
+    "type": "live"
   }
 ]

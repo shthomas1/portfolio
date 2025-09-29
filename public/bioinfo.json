@@ -3,19 +3,18 @@
     "title": "Full-Stack Software Engineer",
     "profileImage": "./AISphoto.jpg",
     "about": [
-      "My name is Sean Thomas. I am a student at the University of Alabama studying Management Information Systems. I graduate with my BS in Business Administration in May of 2026, and intend to continue my studies online.",
-      "I own an IT Consulting firm named Signal Surge LLC.",
-      "I am a Sergeant in the Alabama Army National Guard as a Signals Intelligence Analyst. I have a single deployment to Northwest Africa and have earned several military honors and awards.",
-      "I am a Full-Stack Software Engineer and I love creating a great User Experience on top of solid business logic."
+      "My name is Sean Thomas. I graduate with my BS in Business Administration in May of 2026, and intend to continue my studies online.",
+      "I founded an IT Consulting firm named Signal Surge LLC.",
+      "I am a Sergeant in the Alabama Army National Guard with a Top Secret/SCI Clearance.",
+      "I am a Business-First Software Engineer and I love solving business problems elegantly."
     ],
     "technicalSkills": [
       "Full-Stack Development",
-      "Operational Implementation",
+      "Software Design",
       "IT Consulting",
       "Software Engineering"
     ],
     "militarySkills": [
-      "Signals Intelligence",
       "Military Reporting",
       "Leadership",
       "Strategic Analysis",
@@ -23,15 +22,15 @@
       "Language Fluency: English, Spanish"
     ],
     "certificates":[
-      "Top Secret/SCI clearance",
-      "Certified NSA Reporter",
-      "Counterintelligence Polygraph"
+      "Top Secret/SCI w/ CI Poly",
+      "Six Sigma Black Belt",
+      "Certified NSA Reporter"
     ],
     "experience": [
       {
         "title": "Data Intern - JJ Kane",
         "period": "Since June 2025",
-        "description": "Building dashboards for internal customers like Customer Solutions, Management and Sales."
+        "description": "Building long-term insights for internal customers such as Customer Solutions, Management and Sales."
       },
       {
         "title": "Safety Undergraduate Researcher - Engineering Safety",
@@ -40,23 +39,23 @@
       },
       {
         "title": "Teaching Assistant - Univ of AL",
-        "period": "January 2025 - May 2025",
-        "description": "Assisted in teaching 100+ students the basics of C# and problem solving with code."
+        "period": "Since January 2025",
+        "description": "Assisted in teaching 250+ students in multiple languages including Python, JS, and C#."
       },
       {
         "title": "Information Technology Manager - Levy, Univ of AL",
         "period": "Since September 2024",
-        "description": "Responsible for maintaining Point-of-Sale services for $5 Million+ of transactions per year"
+        "description": "Responsible for maintaining Point-of-Sale services for $5 Million+ of transactions per year with a team of 3 part-time workers."
       },
       {
-        "title": "Owner, Principal Consultant - Signal Surge LLC",
+        "title": "Founder, Principal Consultant - Signal Surge LLC",
         "period": "Since May 2024",
-        "description": "Running an IT Consulting firm focused on providing technical solutions and services. See the My Company tab for more."
+        "description": "Running an IT Consulting firm focused on providing technical solutions and services. Recently Launched WhoBrew, a tap-based Business Card service."
       },
       {
         "title": "Sergeant - 20th Special Forces Group",
         "period": "Since May 2021",
-        "description": "Serving as a Signals Intelligence Analyst with deployment experience in Northwest Africa."
+        "description": "Supporting Special Forces Intelligence Operations as a Collector, Analyst, and Leader."
       }
     ],
     "education": [
