@@ -1,241 +1,33 @@
-import React, { useState, useEffect, ReactNode } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import "../styles/home.css";
+import React, { ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
+import '../styles/home.css';
 import ProjectDetail from './ProjectDetail';
-import { getTechCategory } from "../utils/techCategories";
-import '../styles/backButton.css';
-
+import FloatingSocialButtons from './FloatingSocialButtons';
 import { CardData } from './Card';
+import { Project } from '../types/Project';
 
 interface LayoutProps {
   children?: ReactNode;
   cards?: CardData[];
+  projects?: Project[];
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, cards = [] }) => {
+const Layout: React.FC<LayoutProps> = ({ children, cards = [], projects = [] }) => {
   const location = useLocation();
-  const [technologies, setTechnologies] = useState<{id: number; name: string; category: string;}[]>([]);
-  const [projectsData, setProjectsData] = useState<CardData[]>([]);
-  const [cardsData, setCardsData] = useState<CardData[]>([]);
-  const [, setLoading] = useState<boolean>(true);
-
-  const extractTechnologies = (cards: CardData[]) => {
-    const techStrings = cards.map(card => card.technologies);
-    
-    const techArray = techStrings.flatMap(tech => 
-      tech ? tech.split(',').map(item => item.trim()) : []
-    );
-    
-    const uniqueTechs = [...new Set(techArray)];
-    
-    const categorizedTechs = uniqueTechs.map((tech, index) => {
-      return {
-        id: index + 1,
-        name: tech,
-        category: getTechCategory(tech)
-      };
-    });
-
-    const categoryOrder = ["frontend", "backend", "database", "data", "security", "service"];
-    
-    return categorizedTechs.sort((a, b) => {
-      const indexA = categoryOrder.indexOf(a.category);
-      const indexB = categoryOrder.indexOf(b.category);
-      return indexA - indexB;
-    });
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    
-    fetch("/cardinfo.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Successfully loaded card data:", data);
-        setCardsData(data);
-        
-        const techList = extractTechnologies(data);
-        setTechnologies(techList);
-        
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error loading from /cardinfo.json:", error);
-        
-        if (cards && cards.length > 0) {
-          console.log("Using cards prop as fallback:", cards);
-          setCardsData(cards);
-          
-          const techList = extractTechnologies(cards);
-          setTechnologies(techList);
-        } else {
-          console.log("Using hardcoded fallback data");
-          const fallbackData = [
-            {
-              "id": 1,
-              "title": "CrediTrust AI",
-              "image": "6.jpg",
-              "description": "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
-              "role": "Team Developer",
-              "technologies": "C#, Javascript, html, css, Random Forest",
-              "year": "2024-2025",
-              "results": "Contender for the AIS 2025 Fintech challenge. Team project from Nov 2024 to Feb 2025 with model accuracy just over 70% on a random test set.",
-              "link": "/credit",
-              "type": "demo"
-            },
-            {
-              "id": 2,
-              "title": "Freelance Music",
-              "image": "FM Logo.png",
-              "description": "Platform for teachers to post their music lesson schedule online for students to join. My first school-sanctioned team project where I learned leadership and followership.",
-              "role": "Scrum Master/Data Engineer",
-              "technologies": "C#, Javascript, html, MySQL",
-              "year": "2025",
-              "results": "Client was satisfied with app outcome, and we got a perfect grade in the course.",
-              "link": "/freelance-music",
-              "type": "demo"
-            },
-            {
-              "id": 3,
-              "title": "Restaurant Revenue ML Model",
-              "image": "revpred.png",
-              "description": "CLI predicting restaurant sales using LightGBM gradient boosting",
-              "role": "Solo Developer",
-              "technologies": "C#, Machine Learning, LightGBM, Gradient Boosting",
-              "year": "2024",
-              "results": "Two-week project completed in Nov–Dec 2024 with 2% error on real sales",
-              "link": "/RevPred",
-              "type": "demo"
-            },
-            {
-              "id": 4,
-              "title": "Secure Communications App",
-              "image": "5.jpg",
-              "description": "This application was a demo for using AES-256 encryption and one-time pads for a Business Programming course.",
-              "role": "Solo Developer",
-              "technologies": "C#, Rust, AES-256 encryption, Javascript, html",
-              "year": "2025",
-              "results": "Prototype used successfully in training with Army Special Forces. Developed March–April 2025.",
-              "link": "/military-comms",
-              "type": "archived"
-            }
-          ];
-          
-          setCardsData(fallbackData);
-          const techList = extractTechnologies(fallbackData);
-          setTechnologies(techList);
-        }
-        
-        setLoading(false);
-      });
-  }, [cards]);
-
-  useEffect(() => {
-    const isProjectDetail = location.pathname.startsWith('/project/');
-    
-    if (isProjectDetail) {
-      fetch("/projects.json")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log("Successfully loaded project data:", data);
-          setProjectsData(data);
-        })
-        .catch((error) => {
-          console.error("Error loading from /projects.json:", error);
-          setProjectsData(cardsData.length > 0 ? cardsData : []);
-        });
-    }
-  }, [location.pathname, cardsData]);
-
-  const isActive = (path: string) => {
-    if (path === '/timeline') {
-      return location.pathname === '/timeline' || location.pathname.startsWith('/project/');
-    }
-    return location.pathname === path;
-  };
-
   const isProjectDetail = location.pathname.startsWith('/project/');
-
-  const TechnologiesSection = () => (
-    <div className="belly-technologies">
-      <h2 className="tech-heading">Languages and Technologies</h2>
-      <div className="tech-tags">
-        {technologies.map(tech => (
-          <span 
-            key={tech.id} 
-            className={`tech-tag tech-tag-${tech.category}`}
-          >
-            {tech.name}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
+  const projectSource = projects.length > 0 ? projects : cards;
 
   return (
-    <div className="home-container">
-      <div className="tree-layout">
-        <div className="main-card-container">
-          <div className="social-hat">
-            <Link
-              to="/bio"
-              className={`social-link hat ${isActive('/bio') ? 'active-link' : ''}`}
-            >
-              Read Bio
-            </Link>
-            <Link
-              to="/timeline"
-              className={`social-link hat ${isActive('/timeline') ? 'active-link' : ''}`}
-            >
-              Timeline
-            </Link>
-          </div>
-          
-          <div className="name-card-with-ears">
-            <div className="ear left-ear">
-              <a 
-                href="https://medium.com/@sean.h.thomas2" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="ear-link"
-              >
-                <span className="vertical-text">Medium</span>
-              </a>
-            </div>
-            
-            <div className="name-container">
-              <h1 className="name">Sean Thomas</h1>
-              <h2 className="title">Full Stack Developer</h2>
-            </div>
-            
-            <div className="ear right-ear">
-              <a 
-                href="https://linkedin.com/in/seanhthomas" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="ear-link"
-              >
-                <span className="vertical-text">LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="content-area">
-          {location.pathname === '/' && <TechnologiesSection />}
-          {location.pathname === '/bio' && children}
-          {location.pathname === '/timeline' && children}
-          {isProjectDetail && <ProjectDetail cards={projectsData.length > 0 ? projectsData : cardsData} />}
+    <div className="layout-shell">
+      <FloatingSocialButtons />
+      <div className="layout-surface">
+        <div className="layout-gradient" />
+        <div className="layout-content container">
+          {isProjectDetail ? (
+            <ProjectDetail cards={projectSource} />
+          ) : (
+            children
+          )}
         </div>
       </div>
     </div>

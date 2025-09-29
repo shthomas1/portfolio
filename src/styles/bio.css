@@ -1,18 +1,32 @@
 /* Bio Page Specific Styles - Space Theme */
 
 .bio-container {
-  width: 100%; /* Changed from max-width: 900px to width: 100% */
+  width: 100%;
   margin: 0 auto;
   padding: 5rem 2rem 2rem;
   position: relative;
   z-index: 1;
-  box-sizing: border-box; /* Include padding in width calculation */
+  box-sizing: border-box;
+}
+
+.bio-container--section {
+  padding: 0;
 }
 
 .back-button:hover {
   background: #ff5722;
   color: white;
   box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.bio-empty-state {
+  margin: 0;
+  padding: 1.5rem;
+  text-align: center;
+  color: rgba(233, 235, 255, 0.85);
+  background: rgba(16, 20, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
 }
 
 /* Header Section */
@@ -30,6 +44,14 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 100%; /* Ensure full width */
   box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.bio-container--section .bio-header {
+  background: rgba(16, 20, 40, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -139,6 +161,18 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 100%; /* Ensure full width */
   box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.bio-container--section .bio-section {
+  margin-bottom: 1.25rem;
+  background: rgba(16, 20, 40, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  padding: 1.5rem;
+}
+
+.bio-container--section .bio-section:last-of-type {
+  margin-bottom: 0;
 }
 
 .section-title {
