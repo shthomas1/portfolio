@@ -38,56 +38,63 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
   return (
     <div className="home-page">
       <section className="home-hero">
-        <div className="hero-text">
-          <p className="hero-eyebrow">Hello, I'm {bioData?.name || 'Sean Thomas'}</p>
-          <h1 className="hero-heading">
-            Building human-centered products with disciplined execution.
-          </h1>
-          <p className="hero-description">
-            {bioData?.title || 'Full Stack Developer'} blending software engineering,
-            operational leadership, and data fluency to deliver resilient digital
-            experiences.
-          </p>
-          <div className="hero-actions">
-            <a className="hero-button" href="#projects">
-              Explore projects
-            </a>
-            {linkedinProfile && (
-              <a
-                className="hero-button hero-button--secondary"
-                href={linkedinProfile}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Connect on LinkedIn
+        <div className="hero-content">
+          <div className="hero-text">
+            <p className="hero-eyebrow">Hello, I'm {bioData?.name || 'Sean Thomas'}</p>
+            <h1 className="hero-heading">
+              Building human-centered products with disciplined execution.
+            </h1>
+            <p className="hero-description">
+              {bioData?.title || 'Full Stack Developer'} blending software engineering,
+              operational leadership, and data fluency to deliver resilient digital
+              experiences.
+            </p>
+            <div className="hero-metrics">
+              <div className="hero-metric">
+                <span className="metric-label">Projects shipped</span>
+                <span className="metric-value">{cards.length || '—'}</span>
+              </div>
+              <div className="hero-metric">
+                <span className="metric-label">Disciplines connected</span>
+                <span className="metric-value">
+                  {technologies.length > 0 ? new Set(technologies.map((tech) => tech.category)).size : '—'}
+                </span>
+              </div>
+              <div className="hero-metric">
+                <span className="metric-label">Years in motion</span>
+                <span className="metric-value">{yearsOfExperience || '—'}</span>
+              </div>
+            </div>
+            <div className="hero-actions">
+              <a className="hero-button" href="#projects">
+                Explore projects
               </a>
-            )}
+              {linkedinProfile && (
+                <a
+                  className="hero-button hero-button--secondary"
+                  href={linkedinProfile}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Connect on LinkedIn
+                </a>
+              )}
+            </div>
           </div>
-        </div>
 
-        <div className="hero-highlights">
-          <div className="highlight-card">
-            <span className="highlight-label">Projects shipped</span>
-            <span className="highlight-value">{cards.length || '—'}</span>
-            <p className="highlight-description">
-              Web apps, machine learning workflows, and secure communication tools.
-            </p>
-          </div>
-          <div className="highlight-card">
-            <span className="highlight-label">Disciplines connected</span>
-            <span className="highlight-value">
-              {technologies.length > 0 ? new Set(technologies.map((tech) => tech.category)).size : '—'}
-            </span>
-            <p className="highlight-description">
-              From frontend polish to backend automation and data intelligence.
-            </p>
-          </div>
-          <div className="highlight-card">
-            <span className="highlight-label">Years in motion</span>
-            <span className="highlight-value">{yearsOfExperience || '—'}</span>
-            <p className="highlight-description">
-              Continuous learning across classrooms, client engagements, and the field.
-            </p>
+          <div className="hero-portrait">
+            <div className="hero-portrait-frame">
+              <img
+                src="/images/headshot.jpg"
+                alt="Professional headshot of Sean Thomas"
+                className="hero-portrait-image"
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = '/images/default.jpg';
+                }}
+              />
+              <div className="hero-portrait-glow" />
+            </div>
           </div>
         </div>
       </section>

@@ -9,6 +9,7 @@ import { TechnologyTag } from "./types/Technology";
 import { BioData } from "./types/Bio";
 import { Project } from "./types/Project";
 import { getTechCategory } from "./utils/techCategories";
+import WhoBrew from "./components/WhoBrew";
 
 const fallbackCards: CardData[] = [
   {
@@ -147,6 +148,14 @@ const AppContent = () => {
               technologies={technologies}
               loading={loading}
             />
+          </Layout>
+        }
+      />
+      <Route
+        path="/whobrew"
+        element={
+          <Layout cards={cards} projects={projects}>
+            <WhoBrew />
           </Layout>
         }
       />
