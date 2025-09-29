@@ -3,23 +3,7 @@ import { useParams } from "react-router-dom";
 import "../styles/projects.css";
 import { getTechCategory } from "../utils/techCategories";
 import BackButton from "./BackButton";
-import { CardData } from "./Card";
-
-interface Project extends CardData {
-  subtitle?: string;
-  client?: string;
-  duration?: string;
-  highlights?: string[];
-  challenges?: string[];
-  features?: { title: string; description: string }[];
-  approach?: { step: string; title: string; description: string }[];
-  roleDetails?: {
-    scrumMaster?: string[];
-    dataEngineer?: string[];
-  };
-  outcomes?: string[];
-  team?: { name: string; role: string; linkedIn: string }[];
-}
+import { Project } from "../types/Project";
 
 interface ProjectDetailProps {
   cards?: Project[];
