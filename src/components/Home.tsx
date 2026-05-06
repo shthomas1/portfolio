@@ -19,28 +19,12 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
     (contact) => contact.type.toLowerCase() === 'linkedin'
   )?.url;
 
-  const yearsOfExperience = useMemo(() => {
-    const years = cards
-      .map((card) => card.year)
-      .filter((year): year is string => Boolean(year))
-      .map((year) => parseInt(year.slice(0, 4), 10))
-      .filter((year) => !Number.isNaN(year));
-
-    if (!years.length) {
-      return null;
-    }
-
-    const earliest = Math.min(...years);
-    const current = new Date().getFullYear();
-    return current - earliest + 1;
-  }, [cards]);
-
   const heroHeading =
     bioData?.heroHeading ??
     'Building human-centered products with disciplined execution.';
   const heroDescription =
     bioData?.heroDescription ??
-    `${bioData?.title || 'Full Stack Developer'} blending software engineering, operational leadership, and data fluency to deliver resilient digital experiences.`;
+    `${bioData?.title || 'Software Consultant'} blending software engineering, operational leadership, and data fluency to deliver resilient digital experiences.`;
   const portraitSrc = bioData?.profileImage ?? '/images/default.jpg';
   const portraitAlt = `Portrait of ${bioData?.name ?? ''}`.trim() || 'Portrait';
 
@@ -52,22 +36,6 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
             <p className="hero-eyebrow">Hello, I'm {bioData?.name || ''}</p>
             <h1 className="hero-heading">{heroHeading}</h1>
             <p className="hero-description">{heroDescription}</p>
-            <div className="hero-metrics">
-              <div className="hero-metric">
-                <span className="metric-label">Projects shipped</span>
-                <span className="metric-value">{cards.length || '—'}</span>
-              </div>
-              <div className="hero-metric">
-                <span className="metric-label">Disciplines connected</span>
-                <span className="metric-value">
-                  {technologies.length > 0 ? new Set(technologies.map((tech) => tech.category)).size : '—'}
-                </span>
-              </div>
-              <div className="hero-metric">
-                <span className="metric-label">Years in motion</span>
-                <span className="metric-value">{yearsOfExperience || '—'}</span>
-              </div>
-            </div>
             <div className="hero-actions">
               <a className="hero-button" href="#projects">
                 Explore projects
