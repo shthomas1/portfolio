@@ -5,21 +5,23 @@ import ProjectDetail from './ProjectDetail';
 import FloatingSocialButtons from './FloatingSocialButtons';
 import { CardData } from './Card';
 import { Project } from '../types/Project';
+import { BioData } from '../types/Bio';
 
 interface LayoutProps {
   children?: ReactNode;
   cards?: CardData[];
   projects?: Project[];
+  bioData?: BioData | null;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, cards = [], projects = [] }) => {
+const Layout: React.FC<LayoutProps> = ({ children, cards = [], projects = [], bioData = null }) => {
   const location = useLocation();
   const isProjectDetail = location.pathname.startsWith('/project/');
   const projectSource = projects.length > 0 ? projects : cards;
 
   return (
     <div className="layout-shell">
-      <FloatingSocialButtons />
+      <FloatingSocialButtons contact={bioData?.contact} />
       <div className="layout-surface">
         <div className="layout-gradient" />
         <div className="layout-content container">

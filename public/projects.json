@@ -26,7 +26,6 @@
       "Recognition as AIS 2025 Fintech challenge contender",
       "Platform ready for real-world deployment scenarios"
     ],
-    "link": "/credit",
     "type": "demo",
     "results": "Contender for the AIS 2025 Fintech challenge. Prediction model was just over 70% accurate when testing against a random test set."
   },
@@ -89,7 +88,6 @@
         "linkedIn": "https://www.linkedin.com/in/waylon-anderson/"
       }
     ],
-    "link": "/freelance-music",
     "type": "demo",
     "results": "Client was satisfied with app outcome, and we got a perfect grade in the course."
   },
@@ -120,7 +118,6 @@
       "Self-improving model that adapts over time",
       "Transformed daily operational decision-making"
     ],
-    "link": "/revpred",
     "type": "demo",
     "results": "Two-week project completed in Nov–Dec 2024 that predicted sales with a maximum 2% error on real data"
   },
@@ -151,125 +148,38 @@
       "Device storage management for smaller-space or more discreet devices achieved",
       "Secure end-to-end encryption for data transfer"
     ],
-    "link": "/military-comms",
     "type": "archived",
     "results": "Client was satisfied with app outcome, and we got a perfect grade in the course."
   },
   {
-    "id": 5,
-    "title": "Personal Portfolio Platform",
-    "subtitle": "React/TypeScript portfolio with optional backend logging",
-    "description": "The site you are viewing now. Started in May 2025, converted from JavaScript to TypeScript and includes a backend to log user interactions (currently disabled).",
-    "year": "2025",
-    "client": "Self",
-    "role": "Full-Stack Developer",
-    "duration": "May 2025 - Present",
-    "technologies": "React, TypeScript, CSS, React Router, Lucide Icons, Responsive Design, C#, ASP.NET",
-    "overview": "A clean, modern portfolio website built from scratch using React with responsive design principles. Features project showcase cards, detailed project pages, bio section with skills overview, and a feedback mechanism for visitors.",
-    "highlights": [
-      "Fully responsive design that works across all device sizes",
-      "Interactive project cards with dynamic filtering",
-      "Component-based architecture for maintainability",
-      "Integrated feedback system for visitor comments",
-      "Custom global back button implementation"
-    ],
-    "challenges": [
-      "Creating a consistent responsive design across all screen sizes",
-      "Implementing an efficient project filtering system",
-      "Building reusable components that maintain visual consistency",
-      "Optimizing performance for mobile devices"
-    ],
-    "approach": [
-      {
-        "step": "1",
-        "title": "Planning",
-        "description": "Started with wireframes and component hierarchy to establish the structure and user flow of the portfolio"
-      },
-      {
-        "step": "2",
-        "title": "Component Architecture",
-        "description": "Designed reusable components like cards, navigation elements, and layout containers for consistent styling"
-      },
-      {
-        "step": "3",
-        "title": "Responsive Framework",
-        "description": "Built a mobile-first CSS approach with media queries and fluid sizing using clamp() and relative units"
-      },
-      {
-        "step": "4",
-        "title": "Data Structure",
-        "description": "Created JSON data structures for projects and bio information to make content management easier"
-      },
-      {
-        "step": "5",
-        "title": "Polish & Refinement",
-        "description": "Added animations, transitions, and refined the UI based on user feedback and testing"
-      }
-    ],
-    "outcomes": [
-      "Created a professional showcase for development projects and skills",
-      "Demonstrated React and front-end development expertise",
-      "Built a platform that can be easily updated with new projects",
-      "Implemented responsive design principles for all device sizes"
-    ],
-    "features": [
-      {
-        "title": "Project Showcase",
-        "description": "Interactive cards with filtering by technology and search functionality"
-      },
-      {
-        "title": "Detailed Project Pages",
-        "description": "In-depth views of each project with challenges, approach, and outcomes"
-      },
-      {
-        "title": "Skills Overview",
-        "description": "Visual representation of technical skills with categorized tags"
-      },
-      {
-        "title": "Feedback System",
-        "description": "Form for visitors to provide ratings and comments on the portfolio"
-      }
-    ],
-    "link": "/portfolio",
-    "type": "live",
-    "results": "Responsive platform demonstrating full-stack skills; backend logging currently disconnected"
-  },
-  {
-    "id": 6,
-    "title": "Red Velvet Mafia Forward Operating Base",
-    "subtitle": "Roblox event practice world",
-    "description": "Roblox world featuring MH-6 Little Bird, UH-60 Blackhawk, Bugatti Chiron and Tesla Roadster for realistic event practice.",
-    "year": "2020-2021",
-    "client": "Red Velvet Mafia Roblox Community",
-    "role": "Solo Developer",
-    "duration": "March 2020 - January 2021",
-    "technologies": "Lua, Roblox Studio",
-    "overview": "A Roblox world built during Covid-19 for Jailbreak training with realistic vehicles. Decommissioned but still accessible at https://www.roblox.com/games/5234643173/Red-Velvet-Mafias-Forward-Operating-Base."
-  },
-  {
     "id": 7,
     "title": "Auction Revenue Forecasting",
-    "subtitle": "Accurate forecasting of Gross Auction Proceeds",
-    "description": "Developed XGBoost and SARIMAX models to forecast auction proceeds with minimal error.",
-    "year": "2025",
-    "client": "Internal Project",
+    "subtitle": "ARIMA-based forecasting of Gross Auction Proceeds for JJ Kane",
+    "description": "Tested multiple ML methods to forecast monthly auction proceeds for JJ Kane and selected ARIMA as the best forecaster, beating prior internal forecasts within ±8%.",
+    "year": "2025-2026",
+    "client": "JJ Kane (internal data science)",
     "role": "Solo Data Scientist",
-    "duration": "July - August 2025",
-    "technologies": "Python, XGBoost, SARIMAX, scikit-learn, matplotlib, seaborn",
-    "overview": "Self-taught Python to build machine learning models predicting Gross Auction Proceeds using historical GAP, CCI, and Lots Sold data.",
+    "duration": "July 2025 - April 2026",
+    "technologies": "Python, ARIMA, XGBoost, SARIMAX, scikit-learn, matplotlib, seaborn",
+    "overview": "Self-taught Python to evaluate several time-series and ML methods (ARIMA, SARIMAX, XGBoost) against historical Gross Auction Proceeds, CCI, and Lots Sold data. Closed out April 2026 alongside the JJ Kane internship.",
     "highlights": [
-      "~1% residual error within 5 sigma",
-      "XGBoost model incorporating multiple lagged factors",
-      "SARIMAX model accounting for company acquisition"
+      "ARIMA selected as the best forecaster after head-to-head testing of multiple ML methods",
+      "Predicts next-month auction proceeds within ±8%, beating prior internal forecasts",
+      "Backtested across CCI and Lots Sold features in addition to historical GAP",
+      "Delivered a reusable forecasting baseline for Customer Solutions, Management, and Sales"
     ],
     "challenges": [
-      "Learning Python and libraries from scratch",
-      "Limited historical data for extreme cases"
+      "Learning Python and the time-series toolchain from scratch",
+      "Limited historical data for extreme cases / company acquisitions",
+      "Selecting between competing methods on a small data window"
     ],
     "outcomes": [
-      "Forecast accuracy improved from 90% to ~99%",
-      "Established baseline for future predictive analytics"
-    ]
+      "Tested several ML methods; ARIMA selected as the best forecaster",
+      "Next-month forecast accuracy within ±8%, beating prior internal forecasts",
+      "Established baseline for future predictive analytics at JJ Kane"
+    ],
+    "type": "demo",
+    "results": "Tested several ML methods; ARIMA selected as the best forecaster, predicting next-month auction proceeds within ±8% and beating prior internal forecasts."
   },
   {
     "id": 8,
@@ -288,7 +198,79 @@
       "Landing page analytics for follow-up and engagement tracking"
     ],
     "results": "Pilot launched in September 2025.",
-    "link": "/whobrew",
+    "link": "https://whobrew.us",
     "type": "live"
+  },
+  {
+    "id": 10,
+    "title": "MySupply",
+    "subtitle": "DaVita Capstone — Senior Project, University of Alabama MIS",
+    "description": "MySupply is a clinical operations web app built as a HIPAA-safe proof-of-concept for DaVita using mock patient data. The platform spans clinician dashboards, a patient portal, and facility-nurse views, with scheduling, clinic routing, supply tracking with risk calculation, weather-aware alerting, JWT authentication, and role-based access control. Public demo at https://s26dv.netlify.app/ — sign in with user `DemoPatient` / password `Password1!` to try it.",
+    "year": "2026",
+    "client": "DaVita (Capstone Sponsor)",
+    "role": "Project Manager",
+    "duration": "Spring 2026 (one academic semester)",
+    "technologies": "React, TypeScript, Vite, JWT Auth, REST API",
+    "overview": "The Spring 2026 senior capstone for the University of Alabama MIS program, sponsored by DaVita. Six engineers — Project Manager, Tech Lead, and 4 developers — delivered a multi-role clinical operations platform spanning clinician dashboards, a patient portal, facility-nurse workflows, scheduling/routing, supply tracking with risk calculation, weather-aware alerting, JWT-based auth, and role-based access control. All built on mock patient data as a HIPAA-safe proof-of-concept.",
+    "highlights": [
+      "Multi-role platform: clinician dashboard, patient portal, and facility-nurse views",
+      "Scheduling, appointment management, and clinic routing flows",
+      "Supply tracking with risk calculation and weather-aware alerting",
+      "JWT-based authentication with role-based access control across roles",
+      "HIPAA-safe architecture validated against compliance review using mock patient data"
+    ],
+    "challenges": [
+      "Coordinating a six-person team across an active feature-branch flow over one semester",
+      "Designing role-based permissions for distinct clinician, patient, and facility-nurse experiences",
+      "Meeting healthcare-grade privacy expectations on a student-team timeline",
+      "Balancing scope across auth, scheduling, supplies, and alerting in 16 weeks"
+    ],
+    "outcomes": [
+      "Public demo deployed at s26dv.netlify.app",
+      "HIPAA-safe architecture validated against compliance review",
+      "Delivered on schedule across a 16-week capstone semester",
+      "Closed out Sean's BS in Business Administration (MIS) at the University of Alabama"
+    ],
+    "team": [
+      {
+        "name": "Sean Thomas (Project Manager), Tech Lead, plus 4 developers (6 total)",
+        "role": "Capstone team",
+        "linkedIn": "https://linkedin.com/in/seanhthomas"
+      }
+    ],
+    "link": "https://s26dv.netlify.app/",
+    "type": "live",
+    "results": "Public demo deployed at s26dv.netlify.app with HIPAA-safe architecture, validated mock-data flows, and on-time delivery across a 16-week semester."
+  },
+  {
+    "id": 11,
+    "title": "BSG Forecasting — Automated Business Strategy Game",
+    "subtitle": "ML-driven competitor forecasting and Playwright execution for McGraw-Hill's Business Strategy Game",
+    "description": "Two-stack ML + RPA automation for the McGraw-Hill Business Strategy Game capstone. A Python neural net layer (GradientBoosting + RandomForest + MLP, with scipy.optimize.differential_evolution for combinatorial decision search) generates optimal moves; a TypeScript + Playwright layer logs into bsg-online.com and drives the live game UI.",
+    "year": "2026",
+    "client": "BSG capstone simulation (McGraw-Hill / Business Strategy Institute)",
+    "role": "Solo developer of the ML + RPA automation; Team Lead of a 4-person company in the simulation.",
+    "duration": "Spring 2026 capstone semester",
+    "technologies": "Python, scikit-learn, scipy, TypeScript, Playwright, Vitest, Node.js",
+    "overview": "BSG is a multi-year footwear-industry simulation used in undergraduate business capstones worldwide, with thousands of teams competing each term. I built a hybrid Python + TypeScript automation that turns the game into an optimization problem: parse the publisher's CIR / FIR / COR CSV exports, train per-company models that predict each competitor's next-year decisions, search the joint decision space for the best counter-strategy via differential evolution, then drive the live BSG web app via Playwright to apply those decisions year over year.",
+    "highlights": [
+      "Multi-method ML ensemble: GradientBoostingRegressor + RandomForestRegressor + MLPRegressor for per-competitor decision prediction",
+      "Combinatorial decision optimization via scipy.optimize.differential_evolution",
+      "Playwright + TypeScript automation that logs into bsg-online.com and drives the live game UI",
+      "Vitest test coverage for the automation layer with per-team .env configs",
+      "Reveal.js review decks summarizing performance year over year"
+    ],
+    "challenges": [
+      "Modeling decision interaction effects rather than treating each lever in isolation",
+      "Driving a publisher web UI not built for automation — handling intermittent dropdowns, dialogs, and report rendering quirks",
+      "Parsing inconsistent CIR / FIR / COR CSV exports across years and industries"
+    ],
+    "outcomes": [
+      "Invited to the BSI conference as one of the top 100 teams worldwide (out of 3,700+).",
+      "Industry 26: rose from #8 to #1, $1.507B cumulative profit, EPS $16.49 vs $7.00 target.",
+      "Demonstrated end-to-end ML + RPA capability against a structured-game adversarial environment"
+    ],
+    "type": "archived",
+    "results": "Invited to the BSI conference as one of the top 100 teams worldwide (out of 3,700+). Industry 26 rose from #8 to #1 with $1.507B cumulative profit."
   }
 ]

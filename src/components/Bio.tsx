@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Github, Linkedin, MapPin, Globe } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Globe, PenSquare, Twitter } from "lucide-react";
 import "../styles/bio.css";
 import BackButton from "./BackButton";
 import { BioData } from "../types/Bio";
@@ -21,6 +21,10 @@ const Bio: React.FC<BioProps> = ({
         return <Github size={size} className="contact-link-icon" />;
       case "linkedin":
         return <Linkedin size={size} className="contact-link-icon" />;
+      case "medium":
+        return <PenSquare size={size} className="contact-link-icon" />;
+      case "twitter":
+        return <Twitter size={size} className="contact-link-icon" />;
       case "email":
         return <Mail size={size} className="contact-link-icon" />;
       case "location":

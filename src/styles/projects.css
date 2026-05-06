@@ -52,7 +52,7 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(to bottom, #ff5722, #ff7043);
+  background: linear-gradient(to bottom, var(--color-accent), #ff7043);
 }
 
 .project-section:first-of-type {
@@ -64,7 +64,7 @@
   color: #ffffff;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #ff5722;
+  border-bottom: 2px solid var(--color-accent);
   position: relative;
   word-break: break-word; /* Handle long headings */
 }
@@ -76,7 +76,7 @@
   left: 0;
   width: 40px;
   height: 4px;
-  background-color: #ff5722;
+  background-color: var(--color-accent);
   border-radius: 2px;
 }
 
@@ -95,7 +95,7 @@
   left: -10px;
   top: -10px;
   font-size: 3rem;
-  color: #ff5722;
+  color: var(--color-accent);
   opacity: 0.2;
   font-weight: bold;
 }
@@ -138,7 +138,7 @@
 .meta-label {
   display: block;
   font-weight: 600;
-  color: #ff5722;
+  color: var(--color-accent);
   margin-bottom: 5px;
   font-size: clamp(0.8rem, 1.2vw, 0.9rem); /* Responsive font size */
   text-transform: uppercase;
@@ -210,9 +210,9 @@
 }
 
 .tech-item:hover {
-  background: #ff5722;
+  background: var(--color-accent);
   color: white;
-  border-color: #ff5722;
+  border-color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -239,7 +239,7 @@
   content: "→";
   position: absolute;
   left: 0;
-  color: #ff5722;
+  color: var(--color-accent);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -268,7 +268,7 @@
   position: absolute;
   top: -12px;
   left: 20px;
-  background: #ff5722;
+  background: var(--color-accent);
   color: white;
   width: 28px;
   height: 28px;
@@ -345,7 +345,7 @@
 .cta-button {
   display: inline-block;
   padding: 12px 28px;
-  background: #ff5722;
+  background: var(--color-accent);
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -386,7 +386,7 @@
 .feature-icon {
   width: 40px;
   height: 40px;
-  background: #ff5722;
+  background: var(--color-accent);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -430,7 +430,7 @@
 }
 
 .role-block h3 {
-  color: #ff5722;
+  color: var(--color-accent);
   margin-bottom: 15px;
   font-size: clamp(1.1rem, 1.5vw, 1.2rem); /* Responsive font size */
   word-break: break-word; /* Handle long headings */
@@ -457,7 +457,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #ff5722;
+  color: var(--color-accent);
   font-weight: bold;
   font-size: 1.2rem;
 }

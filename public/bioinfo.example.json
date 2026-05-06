@@ -1,0 +1,93 @@
+{
+  "name": "Alex Rivera",
+  "title": "Software Engineer",
+  "profileImage": "/images/default.jpg",
+  "heroHeading": "Crafting resilient products with clean code and clear thinking.",
+  "heroDescription": "Software engineer focused on full-stack web apps, developer tooling, and pragmatic systems design.",
+  "about": [
+    "I build web applications that feel fast and stay out of the user's way.",
+    "Previously at Acme Corp where I led the migration to a typed, test-driven codebase.",
+    "Outside of work I maintain a handful of open-source TypeScript libraries."
+  ],
+  "skills": [
+    { "name": "TypeScript", "color": "blue" },
+    { "name": "React", "color": "green" },
+    { "name": "Systems Design", "color": "purple" }
+  ],
+  "experience": [
+    {
+      "title": "Senior Software Engineer — Acme Corp",
+      "period": "March 2022 - Present",
+      "description": "Lead engineer on the internal developer platform. Cut CI runtime by 60% and introduced end-to-end type safety across 40+ services."
+    },
+    {
+      "title": "Software Engineer — Beta Labs",
+      "period": "June 2019 - February 2022",
+      "description": "Shipped the customer-facing web app from MVP to 200k monthly active users. Owned the React frontend and a Node.js BFF layer."
+    }
+  ],
+  "technicalSkills": [
+    "TypeScript / JavaScript",
+    "React & Next.js",
+    "Node.js",
+    "PostgreSQL",
+    "AWS (Lambda, RDS, S3)"
+  ],
+  "militarySkills": [
+    "Team Leadership",
+    "Mission Planning",
+    "Crisis Communication"
+  ],
+  "certificates": [
+    "AWS Certified Solutions Architect — Associate",
+    "Certified Kubernetes Administrator (CKA)"
+  ],
+  "education": [
+    {
+      "degree": "B.S. in Computer Science",
+      "period": "August 2015 - May 2019",
+      "description": "State University, magna cum laude. Focus on distributed systems and compilers."
+    },
+    {
+      "degree": "A.A. in Mathematics",
+      "period": "August 2013 - May 2015",
+      "description": "Community College — transferred with honors."
+    }
+  ],
+  "contact": [
+    {
+      "type": "email",
+      "url": "mailto:alex@example.com",
+      "display": "alex@example.com"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/alexrivera",
+      "display": "alexrivera"
+    },
+    {
+      "type": "linkedin",
+      "url": "https://linkedin.com/in/alexrivera",
+      "display": "Alex Rivera"
+    },
+    {
+      "type": "medium",
+      "url": "https://medium.com/@alexrivera",
+      "display": "Medium"
+    },
+    {
+      "type": "twitter",
+      "url": "https://twitter.com/alexrivera",
+      "display": "@alexrivera"
+    },
+    {
+      "type": "website",
+      "url": "https://alexrivera.dev",
+      "display": "alexrivera.dev"
+    },
+    {
+      "type": "location",
+      "display": "Austin, TX"
+    }
+  ]
+}

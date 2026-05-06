@@ -5,7 +5,7 @@
   left: 1rem;
   background: rgba(18, 18, 20, 0.8);
   color: white;
-  border: 1px solid #ff5722;
+  border: 1px solid var(--color-accent);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -16,7 +16,7 @@
 }
 
 .global-back-button:hover {
-  background: #ff5722;
+  background: var(--color-accent);
   color: white;
   box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
 }

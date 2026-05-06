@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# bmad-swarm (generated files)
+.claude/
+artifacts/
+swarm.yaml
+project.yaml
+CLAUDE.md
+overrides/

@@ -14,7 +14,7 @@
 }
 
 .back-button:hover {
-  background: #ff5722;
+  background: var(--color-accent);
   color: white;
   box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
 }
@@ -40,7 +40,7 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 12px;
-  border: 1px solid #ff5722;
+  border: 1px solid var(--color-accent);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 100%; /* Ensure full width */
   box-sizing: border-box; /* Include padding in width calculation */
@@ -98,7 +98,7 @@
 
 .bio-title {
   font-size: clamp(1rem, 2vw, 1.3rem); /* Responsive font size */
-  color: #ff5722;
+  color: var(--color-accent);
   margin-bottom: 20px;
   font-weight: 400;
 }
@@ -157,7 +157,7 @@
   backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 12px;
-  border: 1px solid #ff5722;
+  border: 1px solid var(--color-accent);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   width: 100%; /* Ensure full width */
   box-sizing: border-box; /* Include padding in width calculation */
@@ -180,7 +180,7 @@
   color: #ffffff;
   margin-bottom: 25px;
   padding-bottom: 10px;
-  border-bottom: 3px solid #ff5722;
+  border-bottom: 3px solid var(--color-accent);
   font-weight: 600;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
@@ -237,7 +237,7 @@
 
 .skills-category {
   font-size: clamp(1rem, 2vw, 1.2rem); /* Reduced minimum size */
-  color: #ff5722;
+  color: var(--color-accent);
   margin-bottom: 12px; /* Reduced from 15px */
   font-weight: 600;
   text-align: center; /* Center category heading on ultra-small screens */
@@ -271,7 +271,7 @@
   content: "→";
   position: absolute;
   left: 0;
-  color: #ff5722;
+  color: var(--color-accent);
   font-weight: bold;
 }
 
@@ -322,7 +322,7 @@
 .experience-period,
 .education-period {
   font-size: clamp(0.85rem, 1.5vw, 0.95rem); /* Responsive font size */
-  color: #ff5722;
+  color: var(--color-accent);
   font-weight: 500;
   white-space: nowrap;
 }
@@ -363,11 +363,11 @@
 }
 
 .contact-link:hover {
-  background: #ff5722;
+  background: var(--color-accent);
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
-  border-color: #ff5722;
+  border-color: var(--color-accent);
 }
 
 .contact-link-icon {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/whobrew.css";
+import "./whobrew.css";
 
 const WhoBrew: React.FC = () => {
   return (

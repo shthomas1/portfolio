@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "title": "Realtime Analytics Dashboard",
+    "description": "Operations dashboard streaming live metrics from 500+ edge devices over WebSockets.",
+    "role": "Lead Engineer",
+    "technologies": "TypeScript, React, Node.js, WebSockets, Redis",
+    "year": "2024-2025",
+    "startDate": "2024-08",
+    "results": "Reduced incident-detection time from 15 minutes to under 20 seconds across the production fleet.",
+    "link": "https://example.com/analytics",
+    "type": "live"
+  },
+  {
+    "id": 2,
+    "title": "Inventory ML Forecaster",
+    "description": "Gradient-boosted model predicting weekly inventory needs for a regional retail chain.",
+    "role": "Solo ML Engineer",
+    "technologies": "Python, LightGBM, pandas, FastAPI",
+    "year": "Mar - Jun 2024",
+    "startDate": "2024-03",
+    "results": "Cut over-ordering by 22% in the first quarter after rollout.",
+    "link": "/project/2",
+    "type": "demo"
+  },
+  {
+    "id": 3,
+    "title": "Open-Source Markdown Editor",
+    "description": "Browser-based markdown editor with live preview, export to PDF, and local-first storage.",
+    "role": "Maintainer",
+    "technologies": "TypeScript, React, IndexedDB, Vite",
+    "year": "Since 2023",
+    "startDate": "2023-01",
+    "results": "3k GitHub stars, 40+ contributors, shipped v1.0 in late 2024.",
+    "link": "https://github.com/example/md-editor",
+    "type": "live"
+  },
+  {
+    "id": 4,
+    "title": "Legacy Migration Toolkit",
+    "description": "Internal CLI and codemods that moved a 200k-line JavaScript codebase to strict TypeScript.",
+    "role": "Staff Engineer",
+    "technologies": "TypeScript, ts-morph, jscodeshift",
+    "year": "2022",
+    "startDate": "2022-04",
+    "results": "Project completed on schedule; retired after the migration finished.",
+    "type": "archived"
+  }
+]

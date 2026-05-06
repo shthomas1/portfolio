@@ -1,0 +1,105 @@
+[
+  {
+    "id": 1,
+    "title": "Realtime Analytics Dashboard",
+    "subtitle": "Live operational metrics for edge device fleets",
+    "description": "A web dashboard that streams live telemetry from 500+ edge devices and surfaces alerts within seconds.",
+    "year": "2024-2025",
+    "client": "Acme Corp",
+    "role": "Lead Engineer",
+    "duration": "August 2024 - February 2025",
+    "technologies": "TypeScript, React, Node.js, WebSockets, Redis, PostgreSQL",
+    "overview": "A production dashboard used by the operations team to monitor fleet health in real time, with per-device drilldowns and configurable alert rules.",
+    "highlights": [
+      "WebSocket fan-out via Redis pub/sub",
+      "Sub-second p95 render latency for 500+ concurrent device streams",
+      "Configurable alert thresholds with webhook and email delivery"
+    ],
+    "challenges": [
+      "Keeping the UI responsive under bursty traffic",
+      "Designing an alert rule engine that non-engineers could configure"
+    ],
+    "outcomes": [
+      "Incident detection time dropped from 15 minutes to under 20 seconds",
+      "Ops team fully transitioned off the legacy polling dashboard"
+    ],
+    "link": "https://example.com/analytics",
+    "type": "live",
+    "results": "Cut incident detection time to under 20 seconds."
+  },
+  {
+    "id": 2,
+    "title": "Inventory ML Forecaster",
+    "subtitle": "Gradient boosting model for weekly inventory planning",
+    "description": "A LightGBM model that forecasts weekly inventory needs for a regional retail chain, served through a FastAPI endpoint.",
+    "year": "2024",
+    "client": "Regional Retail Chain",
+    "role": "Solo ML Engineer",
+    "duration": "March - June 2024",
+    "technologies": "Python, LightGBM, pandas, FastAPI, Docker",
+    "overview": "Replaced spreadsheet-based forecasting with a model trained on three years of sales data plus external features like local weather and holiday calendars.",
+    "highlights": [
+      "MAPE of 8.4% on a held-out 12-week window",
+      "Served predictions via a FastAPI endpoint with Dockerized deployment",
+      "Weekly retraining pipeline with model drift alerts"
+    ],
+    "challenges": [
+      "Cold-start for new SKUs with limited history",
+      "Aligning multiple data sources with inconsistent granularity"
+    ],
+    "outcomes": [
+      "Over-ordering reduced by 22% in the first quarter",
+      "Buyer team adopted model output as the default starting point"
+    ],
+    "link": "/project/2",
+    "type": "demo",
+    "results": "22% reduction in over-ordering post-rollout."
+  },
+  {
+    "id": 3,
+    "title": "Open-Source Markdown Editor",
+    "subtitle": "Local-first browser markdown editor",
+    "description": "A browser-based markdown editor with live preview, PDF export, and IndexedDB-backed local storage.",
+    "year": "Since 2023",
+    "client": "Open Source",
+    "role": "Maintainer",
+    "duration": "January 2023 - Present",
+    "technologies": "TypeScript, React, IndexedDB, Vite",
+    "overview": "A zero-backend markdown editor that stores documents locally and supports collaborative editing via optional CRDT sync.",
+    "highlights": [
+      "3k GitHub stars, 40+ contributors",
+      "Shipped v1.0 in late 2024",
+      "PDF export using a WASM build of the rendering pipeline"
+    ],
+    "outcomes": [
+      "Actively used by documentation teams at three companies",
+      "Recognized in the 2024 JS Rising Stars list"
+    ],
+    "link": "https://github.com/example/md-editor",
+    "type": "live",
+    "results": "3k stars, 40+ contributors, v1.0 shipped."
+  },
+  {
+    "id": 4,
+    "title": "Legacy Migration Toolkit",
+    "subtitle": "Codemods and CLI for a 200k-line TypeScript migration",
+    "description": "Internal tooling that drove the migration of a large JavaScript codebase to strict TypeScript.",
+    "year": "2022",
+    "client": "Internal",
+    "role": "Staff Engineer",
+    "duration": "April - December 2022",
+    "technologies": "TypeScript, ts-morph, jscodeshift",
+    "overview": "A collection of codemods plus a migration-tracking CLI that allowed the team to convert the codebase file-by-file while keeping main green.",
+    "highlights": [
+      "Codemods converted 60% of files automatically",
+      "CLI dashboard tracked progress and blockers per team",
+      "Migration completed on schedule with no production regressions"
+    ],
+    "outcomes": [
+      "Codebase fully on strict TypeScript",
+      "Tooling retired once the migration was complete"
+    ],
+    "type": "archived",
+    "results": "Migration completed, toolkit retired."
+  }
+]

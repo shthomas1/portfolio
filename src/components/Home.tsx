@@ -35,20 +35,23 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
     return current - earliest + 1;
   }, [cards]);
 
+  const heroHeading =
+    bioData?.heroHeading ??
+    'Building human-centered products with disciplined execution.';
+  const heroDescription =
+    bioData?.heroDescription ??
+    `${bioData?.title || 'Full Stack Developer'} blending software engineering, operational leadership, and data fluency to deliver resilient digital experiences.`;
+  const portraitSrc = bioData?.profileImage ?? '/images/default.jpg';
+  const portraitAlt = `Portrait of ${bioData?.name ?? ''}`.trim() || 'Portrait';
+
   return (
     <div className="home-page">
       <section className="home-hero">
         <div className="hero-content">
           <div className="hero-text">
-            <p className="hero-eyebrow">Hello, I'm {bioData?.name || 'Sean Thomas'}</p>
-            <h1 className="hero-heading">
-              Building human-centered products with disciplined execution.
-            </h1>
-            <p className="hero-description">
-              {bioData?.title || 'Full Stack Developer'} blending software engineering,
-              operational leadership, and data fluency to deliver resilient digital
-              experiences.
-            </p>
+            <p className="hero-eyebrow">Hello, I'm {bioData?.name || ''}</p>
+            <h1 className="hero-heading">{heroHeading}</h1>
+            <p className="hero-description">{heroDescription}</p>
             <div className="hero-metrics">
               <div className="hero-metric">
                 <span className="metric-label">Projects shipped</span>
@@ -85,8 +88,8 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
           <div className="hero-portrait">
             <div className="hero-portrait-frame">
               <img
-                src="/images/headshot.jpg"
-                alt="Professional headshot of Sean Thomas"
+                src={portraitSrc}
+                alt={portraitAlt}
                 className="hero-portrait-image"
                 onError={(event) => {
                   event.currentTarget.onerror = null;

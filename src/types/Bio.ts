@@ -25,6 +25,8 @@ export interface BioData {
   name: string;
   title: string;
   profileImage: string;
+  heroHeading?: string;
+  heroDescription?: string;
   about?: string[];
   skills?: BioSkill[];
   experience?: BioExperience[];

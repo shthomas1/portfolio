@@ -8,7 +8,6 @@
     "year": "Nov 2024 - Feb 2025",
     "startDate": "2024-11",
     "results": "Contender for the AIS 2025 Fintech challenge. Team project from Nov 2024 to Feb 2025 with a model accuracy just over 70% on a random test set.",
-    "link": "/credit",
     "type": "demo"
   },
   {
@@ -20,7 +19,6 @@
     "year": "Jan - Apr 2025",
     "startDate": "2025-01",
     "results": "Client was satisfied with app outcome, and we got a perfect grade in the course.",
-    "link": "/freelance-music",
     "type": "demo"
   },
   {
@@ -32,7 +30,6 @@
     "year": "Nov - Dec 2024",
     "startDate": "2024-11",
     "results": "Two-week project in Nov–Dec 2024 predicting sales with a maximum 2% error on real data.",
-    "link": "/RevPred",
     "type": "demo"
   },
   {
@@ -44,54 +41,29 @@
     "year": "Mar - Apr 2025",
     "startDate": "2025-03",
     "results": "Prototype used successfully in training with Army Special Forces. Developed from March to April 2025.",
-    "link": "/military-comms",
-    "type": "archived"
-  },
-  {
-    "id": 5,
-    "title": "Personal Portfolio Platform",
-    "description": "The site you are viewing now. Started in May 2025, converted from JavaScript to TypeScript and includes a backend for logging user interactions (currently disabled).",
-    "role": "Full-Stack Developer",
-    "technologies": "React, TypeScript, CSS, C#, ASP.NET",
-    "year": "May 2025 - Present",
-    "startDate": "2025-05",
-    "results": "Created a professional, responsive platform that demonstrates full-stack capability.",
-    "link": "/portfolio",
-    "type": "live"
-  },
-  {
-    "id": 6,
-    "title": "RVM Forward Operating Base",
-    "description": "Roblox world built during Covid-19 featuring realistic MH-6 Little Bird, Bugatti Chiron, Tesla Roadster and UH-60 Blackhawk.",
-    "role": "Solo Developer",
-    "technologies": "Lua, Roblox Studio",
-    "year": "Mar 2020 - Jan 2021",
-    "startDate": "2020-03",
-    "results": "Used for event practice from March 2020 to January 2021. Now decommissioned but visitable at https://www.roblox.com/games/5234643173/Red-Velvet-Mafias-Forward-Operating-Base.",
-    "link": "/rvm-fob",
     "type": "archived"
   },
   {
     "id": 7,
     "title": "Auction Revenue Forecasting",
-    "description": "Built XGBoost and SARIMAX models to predict auction revenue with near 1% error.",
+    "description": "Tested multiple ML methods to forecast monthly auction proceeds for JJ Kane; selected ARIMA as the best forecaster.",
     "role": "Solo Data Scientist",
-    "technologies": "Python, XGBoost, SARIMAX, scikit-learn",
-    "year": "Since Jul 2025",
+    "technologies": "Python, ARIMA, XGBoost, SARIMAX, scikit-learn",
+    "year": "July 2025 - April 2026",
     "startDate": "2025-07",
-    "results": "Improved forecasting accuracy from 90% to ~99% within 5 sigma. Project ran July–August 2025.",
+    "results": "Tested several ML methods; ARIMA selected as the best forecaster, predicting next-month auction proceeds within ±8% and beating prior internal forecasts.",
     "type": "demo"
   },
   {
     "id": 8,
-    "title": "WhoBrew Tap-Based Business Card",
-    "description": "A physical business card with a tap-to-visit NFC chip that links to your online portfolio or contact info.",
-    "role": "Product Designer/Developer",
-    "technologies": "React, TypeScript, CSS, C#, NFC",
-    "year": "Since Sep 2025",
+    "title": "WhoBrew",
+    "description": "NFC-enabled business card platform — tap a physical card to instantly share your portfolio or contact info.",
+    "role": "Founder",
+    "technologies": "React, TypeScript, CSS, NFC",
+    "year": "Sep 2025 - Present",
     "startDate": "2025-09",
-    "results": "Pilot launched in September 2025.",
-    "link": "/whobrew",
+    "results": "Launched publicly on April 4, 2026 following a pilot period. Live at https://whobrew.us.",
+    "link": "https://whobrew.us",
     "type": "live"
   },
   {
@@ -105,5 +77,28 @@
     "results": "95+ Participants, 4 Categories, 12 Judges.",
     "link": "https://summeropen2025.com",
     "type": "live"
+  },
+  {
+    "id": 10,
+    "title": "MySupply",
+    "description": "MySupply is a clinical operations platform built as a HIPAA-safe proof-of-concept for DaVita. Multi-role web app handling supply tracking, scheduling, and clinic routing across patient, clinician, and facility-nurse views — all with mock patient data.",
+    "role": "Project Manager",
+    "technologies": "React, TypeScript, Vite, JWT Auth, REST API",
+    "year": "January – May 2026",
+    "startDate": "2026-01",
+    "results": "Led a 6-person team (PM + tech lead + 4 developers) over a 16-week capstone semester. Public demo deployed at s26dv.netlify.app with HIPAA-safe architecture and mock patient data.",
+    "link": "https://s26dv.netlify.app/",
+    "type": "live"
+  },
+  {
+    "id": 11,
+    "title": "BSG Forecasting — Automated Business Strategy Game",
+    "description": "Two-stack ML + RPA automation for the McGraw-Hill Business Strategy Game capstone. Python neural net layer (GradientBoosting + RandomForest + MLP, with scipy.optimize.differential_evolution for combinatorial decision search) generates optimal moves; a TypeScript + Playwright layer logs into bsg-online.com and drives the live game UI.",
+    "role": "Solo developer of the ML + RPA automation; Team Lead of a 4-person company in the simulation.",
+    "technologies": "Python, scikit-learn, scipy, TypeScript, Playwright, Vitest, Node.js",
+    "year": "February – May 2026",
+    "startDate": "2026-02",
+    "results": "Invited to the BSI conference as one of the top 100 teams worldwide (out of 3,700+). Industry 26: rose from #8 to #1, $1.507B cumulative profit, EPS $16.49 vs $7.00 target.",
+    "type": "archived"
   }
 ]

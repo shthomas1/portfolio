@@ -9,52 +9,8 @@ import { TechnologyTag } from "./types/Technology";
 import { BioData } from "./types/Bio";
 import { Project } from "./types/Project";
 import { getTechCategory } from "./utils/techCategories";
-import WhoBrew from "./components/WhoBrew";
 
-const fallbackCards: CardData[] = [
-  {
-    id: 1,
-    title: "CrediTrust AI",
-    description:
-      "Credit acceptance prediction platform for PNC Bank's AIS SCLC 2025 challenge.",
-    role: "Team Developer",
-    technologies: "C#, Javascript, html, css, Random Forest",
-    year: "2024-2025",
-    results:
-      "Contender for the AIS 2025 Fintech challenge. Team project from Nov 2024 to Feb 2025 with model accuracy just over 70% on a random test set.",
-  },
-  {
-    id: 2,
-    title: "Freelance Music",
-    description:
-      "Platform for teachers to post their music lesson schedule online for students to join. My first school-sanctioned team project where I learned leadership and followership.",
-    role: "Scrum Master/Data Engineer",
-    technologies: "C#, Javascript, html, MySQL",
-    year: "2025",
-    results:
-      "Client was satisfied with app outcome, and we got a perfect grade in the course.",
-  },
-  {
-    id: 3,
-    title: "Restaurant Revenue ML Model",
-    description: "CLI predicting restaurant sales using LightGBM gradient boosting",
-    role: "Solo Developer",
-    technologies: "C#, Machine Learning, LightGBM, Gradient Boosting",
-    year: "2024",
-    results: "Two-week project completed in Nov–Dec 2024 with 2% error on real sales",
-  },
-  {
-    id: 4,
-    title: "Secure Communications App",
-    description:
-      "Demo application showcasing AES-256 encryption and one-time pads for a Business Programming course.",
-    role: "Solo Developer",
-    technologies: "C#, Rust, AES-256 encryption, Javascript, html",
-    year: "2025",
-    results:
-      "Prototype used successfully in training with Army Special Forces. Developed March–April 2025.",
-  },
-];
+const fallbackCards: CardData[] = [];
 
 const AppContent = () => {
   const [cards, setCards] = useState<CardData[]>([]);
@@ -75,12 +31,8 @@ const AppContent = () => {
       try {
         return await fetchJson<CardData[]>("cardinfo.json");
       } catch (error) {
-        try {
-          return await fetchJson<CardData[]>("movies.json");
-        } catch (fallbackError) {
-          console.error("Unable to load card data", error, fallbackError);
-          return fallbackCards;
-        }
+        console.error("Unable to load card data", error);
+        return fallbackCards;
       }
     };
 
@@ -128,7 +80,8 @@ const AppContent = () => {
         ? card.technologies.split(",").map((item) => item.trim())
         : []
     );
-    const uniqueTechs = Array.from(new Set(techStrings.filter(Boolean)));
+    const filteredTechs: string[] = techStrings.filter((tech) => tech.length > 0);
+    const uniqueTechs: string[] = Array.from(new Set<string>(filteredTechs));
     return uniqueTechs.map((tech, index) => ({
       id: index + 1,
       name: tech,
@@ -141,7 +94,7 @@ const AppContent = () => {
       <Route
         path="/"
         element={
-          <Layout cards={cards} projects={projects}>
+          <Layout cards={cards} projects={projects} bioData={bioData}>
             <Home
               cards={cards}
               bioData={bioData}
@@ -152,16 +105,8 @@ const AppContent = () => {
         }
       />
       <Route
-        path="/whobrew"
-        element={
-          <Layout cards={cards} projects={projects}>
-            <WhoBrew />
-          </Layout>
-        }
-      />
-      <Route
         path="/project/:id"
-        element={<Layout cards={cards} projects={projects} />}
+        element={<Layout cards={cards} projects={projects} bioData={bioData} />}
       />
     </Routes>
   );

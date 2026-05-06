@@ -1,18 +1,20 @@
 {
     "name": "Sean Thomas",
-    "title": "Full-Stack Software Engineer",
+    "title": "Business-First Full-Stack Software Engineer",
     "profileImage": "./AISphoto.jpg",
     "about": [
-      "My name is Sean Thomas. I graduate with my BS in Business Administration in May of 2026, and intend to continue my studies online.",
-      "I founded an IT Consulting firm named Signal Surge LLC.",
-      "I am a Sergeant in the Alabama Army National Guard with a Top Secret/SCI Clearance.",
-      "I am a Business-First Software Engineer and I love solving business problems elegantly."
+      "I'm Sean Thomas — a business-first full-stack software engineer graduating from the University of Alabama (BS, Management Information Systems) in May 2026 and joining Valent Partners in Dallas, TX in August 2026.",
+      "I'm the founder of Signal Surge LLC, an IT consulting firm, and of WhoBrew (whobrew.us), an NFC-enabled business card platform that publicly launched in April 2026.",
+      "I also serve as a Sergeant in the 20th Special Forces Group, Alabama Army National Guard, holding a Top Secret/SCI clearance with CI Poly.",
+      "I love solving business problems elegantly with code — shipping ML, full-stack web, and automation that moves real numbers."
     ],
     "technicalSkills": [
-      "Full-Stack Development",
-      "Software Design",
-      "IT Consulting",
-      "Software Engineering"
+      "TypeScript / React",
+      "C# / .NET",
+      "Python (XGBoost, LightGBM, SARIMAX, scikit-learn)",
+      "Rust",
+      "SQL",
+      "Lua (legacy)"
     ],
     "militarySkills": [
       "Military Reporting",
@@ -24,13 +26,19 @@
     "certificates":[
       "Top Secret/SCI w/ CI Poly",
       "Six Sigma Black Belt",
-      "Certified NSA Reporter"
+      "Certified NSA Reporter",
+      "PMP (in progress, expected July 2026)"
     ],
     "experience": [
       {
+        "title": "Incoming — Valent Partners (Dallas, TX)",
+        "period": "Starting August 2026",
+        "description": "Joining Valent Partners in Dallas following graduation."
+      },
+      {
         "title": "Data Intern - JJ Kane",
-        "period": "Since June 2025",
-        "description": "Building long-term insights for internal customers such as Customer Solutions, Management and Sales."
+        "period": "June 2025 - April 2026",
+        "description": "Built long-term insights for internal customers including Customer Solutions, Management, and Sales."
       },
       {
         "title": "Safety Undergraduate Researcher - Engineering Safety",
@@ -50,7 +58,7 @@
       {
         "title": "Founder, Principal Consultant - Signal Surge LLC",
         "period": "Since May 2024",
-        "description": "Running an IT Consulting firm focused on providing technical solutions and services. Recently Launched WhoBrew, a tap-based Business Card service."
+        "description": "Running an IT Consulting firm focused on providing technical solutions and services. Launched WhoBrew, an NFC-based business card platform, publicly in April 2026."
       },
       {
         "title": "Sergeant - 20th Special Forces Group",
@@ -79,6 +87,16 @@
         "type": "linkedin",
         "url": "https://linkedin.com/in/seanhthomas",
         "display": ""
+      },
+      {
+        "type": "medium",
+        "url": "https://medium.com/@seanthomas2002",
+        "display": "Medium"
+      },
+      {
+        "type": "email",
+        "url": "mailto:seanthomas2002@gmail.com",
+        "display": "seanthomas2002@gmail.com"
       }
     ]
   }
