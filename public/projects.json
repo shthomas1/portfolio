@@ -272,5 +272,59 @@
     ],
     "type": "archived",
     "results": "Invited to the BSI conference as one of the top 100 teams worldwide (out of 3,700+). Industry 26 rose from #8 to #1 with $1.507B cumulative profit."
+  },
+  {
+    "id": 12,
+    "title": "Sourdough",
+    "subtitle": "Open-source consulting springboard for shipping client sites",
+    "description": "An open-source React + TypeScript starter I use as the springboard for Signal Surge consulting engagements. Config-driven page templates, a contact-form abstraction across multiple email providers, multi-page support, and GPL-3.0 licensed — a production starter that compresses the path from kickoff to deploy for small-business clients.",
+    "year": "2026",
+    "client": "Signal Surge LLC / Open Source",
+    "role": "Maintainer / Sole Author",
+    "duration": "January 2026 - Present",
+    "technologies": "TypeScript, React, Vite, Express, Zod, CSS",
+    "overview": "Sourdough is the open-source springboard I use to start client websites. It packages the lessons from Signal Surge consulting work into a reusable React + TypeScript template: edit one config file and ship a polished business site, no JSX changes required. Pre-built section components, multiple page archetypes, light/dark theming, and a contact-form provider abstraction (EmailJS, Resend, Formspree, Netlify Forms, custom API) come out of the box.",
+    "highlights": [
+      "Config-driven: customize the site by editing site.config.ts, never JSX",
+      "Multi-page support with reusable page archetypes",
+      "Contact-form abstraction across multiple email providers",
+      "Light/dark theme system driven by CSS custom properties",
+      "GPL-3.0 licensed, intended for community use and adaptation"
+    ],
+    "outcomes": [
+      "Powers Signal Surge consulting client deliveries as a reusable starting point",
+      "Open-sourced under GPL-3.0 to grow community adoption",
+      "Compresses kickoff-to-deploy for small-business clients from weeks to hours"
+    ],
+    "link": "https://github.com/shthomas1/sourdough",
+    "type": "live",
+    "results": "Powers Signal Surge consulting client deliveries; open-sourced under GPL-3.0 to grow community adoption."
+  },
+  {
+    "id": 13,
+    "title": "F.R.I.D.A.Y.",
+    "subtitle": "24-hour full-stack build — UA Innovate 2026 hackathon",
+    "description": "A full-stack crisis intelligence platform — frontend, backend, real-time WebSocket layer, ML forecasting, and a Privacy-by-Design PII redaction layer — designed, built, and tested ground-up in 24 hours for UA Innovate 2026.",
+    "year": "Spring 2026",
+    "client": "UA Innovate 2026",
+    "role": "Solo Developer (24-hour solo build)",
+    "duration": "24-hour build (UA Innovate 2026 hackathon)",
+    "technologies": "Python, Flask, Flask-SocketIO, SQLAlchemy, MySQL, React, TypeScript, Vite, Socket.IO, Recharts, pytest, vitest",
+    "overview": "F.R.I.D.A.Y. processes field intelligence reports through a layered architecture: a Shield layer that redacts PII with audit logging before any downstream processing, and a Jarvis layer that performs rule-based keyword extraction and linear-regression resource forecasting. The Flask + Flask-SocketIO backend fans events out to a React + Vite operator dashboard via Socket.IO, with Recharts driving sector gauges, stock charts, an intelligence table, and a PII audit view. The full system — including 107 tests — was designed, built, and shipped in 24 hours.",
+    "highlights": [
+      "Designed and shipped a full-stack platform from zero in 24 hours",
+      "Real-time WebSocket-driven operator dashboard (Flask-SocketIO + Socket.IO)",
+      "Privacy-by-Design Shield layer with audited PII redaction",
+      "Jarvis layer for rule-based intelligence extraction and linear-regression forecasting",
+      "107 tests total: 64 backend pytest tests + 43 frontend vitest tests"
+    ],
+    "outcomes": [
+      "Production-grade full-stack architecture delivered inside a 24-hour build window",
+      "End-to-end privacy-aware crisis-response demo with real-time dashboards and ML forecasting",
+      "Test coverage on both backend and frontend despite the time pressure"
+    ],
+    "link": "https://github.com/shthomas1/innovate2026",
+    "type": "archived",
+    "results": "Designed, built, and tested a production-grade full-stack platform from zero in 24 hours."
   }
 ]

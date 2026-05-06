@@ -100,5 +100,29 @@
     "startDate": "2026-02",
     "results": "Invited to the BSI conference as one of the top 100 teams worldwide (out of 3,700+). Industry 26: rose from #8 to #1, $1.507B cumulative profit, EPS $16.49 vs $7.00 target.",
     "type": "archived"
+  },
+  {
+    "id": 12,
+    "title": "Sourdough",
+    "description": "Open-source React + TypeScript starter I use to ship consulting client sites. Config-driven, multi-page, multi-provider contact-form abstraction, GPL-3.0 licensed.",
+    "role": "Maintainer / Sole Author",
+    "technologies": "TypeScript, React, Vite, Express, Zod, CSS",
+    "year": "January 2026 - Present",
+    "startDate": "2026-01",
+    "results": "Powers Signal Surge consulting client deliveries; open-sourced under GPL-3.0 to grow community adoption.",
+    "link": "https://github.com/shthomas1/sourdough",
+    "type": "live"
+  },
+  {
+    "id": 13,
+    "title": "F.R.I.D.A.Y.",
+    "description": "Full-stack crisis intelligence platform built ground-up in 24 hours for UA Innovate 2026. Real-time WebSockets, ML resource forecasting, Privacy-by-Design PII redaction layer, 107 tests.",
+    "role": "Solo Developer (24-hour solo build)",
+    "technologies": "Python, Flask, Flask-SocketIO, SQLAlchemy, MySQL, React, TypeScript, Vite, Socket.IO, Recharts, pytest, vitest",
+    "year": "February - March 2026",
+    "startDate": "2026-02",
+    "results": "Designed, built, and tested a production-grade full-stack platform from zero in 24 hours. 64 backend pytest tests + 43 frontend vitest tests. Layered architecture: Shield layer for PII redaction with audit logging; Jarvis layer for rule-based intelligence extraction and linear-regression resource forecasting.",
+    "link": "https://github.com/shthomas1/innovate2026",
+    "type": "archived"
   }
 ]
