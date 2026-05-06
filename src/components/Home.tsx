@@ -19,12 +19,7 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
     (contact) => contact.type.toLowerCase() === 'linkedin'
   )?.url;
 
-  const heroHeading =
-    bioData?.heroHeading ??
-    'Building human-centered products with disciplined execution.';
-  const heroDescription =
-    bioData?.heroDescription ??
-    `${bioData?.title || 'Software Consultant'} blending software engineering, operational leadership, and data fluency to deliver resilient digital experiences.`;
+  const heroTagline = "Here's a bit more about what I've been doing";
   const portraitSrc = bioData?.profileImage ?? '/images/default.jpg';
   const portraitAlt = `Portrait of ${bioData?.name ?? ''}`.trim() || 'Portrait';
 
@@ -34,8 +29,7 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
         <div className="hero-content">
           <div className="hero-text">
             <p className="hero-eyebrow">Hello, I'm {bioData?.name || ''}</p>
-            <h1 className="hero-heading">{heroHeading}</h1>
-            <p className="hero-description">{heroDescription}</p>
+            <h1 className="hero-heading">{heroTagline}</h1>
             <div className="hero-actions">
               <a className="hero-button" href="#projects">
                 Explore projects
