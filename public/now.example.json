@@ -1,0 +1,20 @@
+{
+  "status": "Available",
+  "headline": "What I'm focused on right now.",
+  "updated": "January 2026",
+  "items": [
+    {
+      "label": "Working on",
+      "text": "A short sentence about your current main focus."
+    },
+    {
+      "label": "Learning",
+      "text": "Whatever you're picking up — a framework, a domain, a craft."
+    },
+    {
+      "label": "Up next",
+      "text": "What's on the immediate horizon."
+    }
+  ],
+  "footer": "Optional closing line. Replace or omit."
+}

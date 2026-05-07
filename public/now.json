@@ -1,0 +1,28 @@
+{
+  "status": "Available",
+  "headline": "Wrapping up senior year, building things that ship.",
+  "updated": "May 2026",
+  "items": [
+    {
+      "label": "Working on",
+      "text": "Final stretch at the University of Alabama — graduating with a BS in Management Information Systems this month."
+    },
+    {
+      "label": "Shipping",
+      "text": "Sourdough (open-source React/TS starter, GPL-3.0) and ongoing Signal Surge consulting deliveries."
+    },
+    {
+      "label": "Operating",
+      "text": "WhoBrew — NFC-enabled business card platform, public since April 2026 at whobrew.us."
+    },
+    {
+      "label": "Up next",
+      "text": "Joining Valent Partners in Dallas, TX in August 2026."
+    },
+    {
+      "label": "Also",
+      "text": "Sergeant, 20th Special Forces Group (Alabama Army National Guard)."
+    }
+  ],
+  "footer": "Open to interesting problems. Reach out via email or LinkedIn."
+}

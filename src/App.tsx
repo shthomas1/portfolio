@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import { CardData } from "./components/Card";
 import { TechnologyTag } from "./types/Technology";
 import { BioData } from "./types/Bio";
+import { NowData } from "./types/Now";
 import { Project } from "./types/Project";
 import { getTechCategory } from "./utils/techCategories";
 
@@ -16,6 +17,7 @@ const AppContent = () => {
   const [cards, setCards] = useState<CardData[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [bioData, setBioData] = useState<BioData | null>(null);
+  const [nowData, setNowData] = useState<NowData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -54,18 +56,29 @@ const AppContent = () => {
       }
     };
 
+    const loadNow = async () => {
+      try {
+        return await fetchJson<NowData>("now.json");
+      } catch (error) {
+        console.error("Unable to load now data", error);
+        return null;
+      }
+    };
+
     const loadData = async () => {
       setLoading(true);
       try {
-        const [cardData, projectData, bio] = await Promise.all([
+        const [cardData, projectData, bio, now] = await Promise.all([
           loadCards(),
           loadProjects(),
           loadBio(),
+          loadNow(),
         ]);
 
         setCards(cardData);
         setProjects(projectData);
         setBioData(bio);
+        setNowData(now);
       } finally {
         setLoading(false);
       }
@@ -98,6 +111,7 @@ const AppContent = () => {
             <Home
               cards={cards}
               bioData={bioData}
+              nowData={nowData}
               technologies={technologies}
               loading={loading}
             />

@@ -1,77 +1,56 @@
 import React, { useMemo } from 'react';
-import Bio from './Bio';
-import Timeline from './Timeline';
 import Card, { CardData } from './Card';
+import NowPanel from './NowPanel';
+import ProjectCarousel from './ProjectCarousel';
 import { BioData } from '../types/Bio';
+import { NowData } from '../types/Now';
 import { TechnologyTag } from '../types/Technology';
 import '../styles/home.css';
 
 interface HomeProps {
   cards: CardData[];
   bioData: BioData | null;
+  nowData: NowData | null;
   technologies: TechnologyTag[];
   loading?: boolean;
 }
 
-const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) => {
-  const projectHighlights = useMemo(() => cards.slice(0, 6), [cards]);
-  const linkedinProfile = bioData?.contact?.find(
-    (contact) => contact.type.toLowerCase() === 'linkedin'
-  )?.url;
+const condenseAbout = (about?: string[]): string => {
+  if (!about || about.length === 0) return '';
+  return about.join(' ');
+};
 
-  const heroTagline = "Here's a bit more about what I've been doing";
-  const portraitSrc = bioData?.profileImage ?? '/images/default.jpg';
-  const portraitAlt = `Portrait of ${bioData?.name ?? ''}`.trim() || 'Portrait';
+const Home: React.FC<HomeProps> = ({ cards, bioData, nowData, technologies, loading }) => {
+  const featuredCards = useMemo(() => {
+    const live = cards.filter((card) => card.type === 'live');
+    const others = cards.filter((card) => card.type !== 'live');
+    const ordered = [...live, ...others];
+    return ordered.slice(0, 6);
+  }, [cards]);
+
+  const allProjectCards = useMemo(() => cards.slice(0, 6), [cards]);
+  const bioBlurb = condenseAbout(bioData?.about);
 
   return (
-    <div className="home-page">
-      <section className="home-hero">
-        <div className="hero-content">
-          <div className="hero-text">
-            <p className="hero-eyebrow">Hello, I'm {bioData?.name || ''}</p>
-            <h1 className="hero-heading">{heroTagline}</h1>
-            <div className="hero-actions">
-              <a className="hero-button" href="#projects">
-                Explore projects
-              </a>
-              {linkedinProfile && (
-                <a
-                  className="hero-button hero-button--secondary"
-                  href={linkedinProfile}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Connect on LinkedIn
-                </a>
-              )}
-            </div>
-          </div>
-
-          <div className="hero-portrait">
-            <div className="hero-portrait-frame">
-              <img
-                src={portraitSrc}
-                alt={portraitAlt}
-                className="hero-portrait-image"
-                onError={(event) => {
-                  event.currentTarget.onerror = null;
-                  event.currentTarget.src = '/images/default.jpg';
-                }}
-              />
-              <div className="hero-portrait-glow" />
-            </div>
-          </div>
+    <div className="home-page home-page--dashboard">
+      <section className="home-dashboard" aria-label="Dashboard">
+        <div className="home-dashboard-left">
+          <NowPanel data={nowData} />
         </div>
-      </section>
 
-      <section className="home-dual-section">
-        <div className="home-bio-panel">
-          <h2 className="home-section-heading">Bio Snapshot</h2>
-          <Bio bioData={bioData} showBackButton={false} variant="section" />
-        </div>
-        <div className="home-timeline-panel">
-          <h2 className="home-section-heading">Timeline</h2>
-          <Timeline cards={cards} showBackButton={false} variant="section" />
+        <div className="home-dashboard-right">
+          <article className="home-bio-card">
+            <span className="home-bio-eyebrow">About</span>
+            <h1 className="home-bio-name">{bioData?.name || ''}</h1>
+            {bioData?.title && <p className="home-bio-role">{bioData.title}</p>}
+            {bioBlurb && <p className="home-bio-blurb">{bioBlurb}</p>}
+          </article>
+
+          {loading && cards.length === 0 ? (
+            <div className="home-empty-state">Loading featured projects...</div>
+          ) : (
+            <ProjectCarousel cards={featuredCards} viewAllHref="#projects" />
+          )}
         </div>
       </section>
 
@@ -100,25 +79,19 @@ const Home: React.FC<HomeProps> = ({ cards, bioData, technologies, loading }) =>
 
       <section className="home-projects" id="projects">
         <div className="home-projects-header">
-          <h2 className="home-section-heading">Project Highlights</h2>
+          <h2 className="home-section-heading">All Projects</h2>
           <p>
-            Dive into the initiatives where I bring design sense, business context, and
-            engineering discipline together.
+            Each tile links to a detailed case study or the live project.
           </p>
         </div>
-        {loading && projectHighlights.length === 0 ? (
-          <div className="home-empty-state">Loading project highlights...</div>
+        {loading && allProjectCards.length === 0 ? (
+          <div className="home-empty-state">Loading projects...</div>
         ) : (
           <div className="home-project-grid">
-            {projectHighlights.map((card) => (
+            {allProjectCards.map((card) => (
               <Card key={card.id} card={card} />
             ))}
           </div>
-        )}
-        {cards.length > projectHighlights.length && (
-          <p className="home-projects-note">
-            Looking for more? Every project tile links to a detailed case study.
-          </p>
         )}
       </section>
     </div>
