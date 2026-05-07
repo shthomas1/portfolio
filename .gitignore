@@ -28,3 +28,6 @@ swarm.yaml
 project.yaml
 CLAUDE.md
 overrides/
+
+# Vite output
+/dist
